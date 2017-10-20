@@ -1,0 +1,103 @@
+{
+    "name": "@hapiness/ng-universal",
+    "version": "1.0.0",
+    "description": "This is a Hapiness Engine for running Angular Apps on the server for server side rendering.",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "private": false,
+    "scripts": {
+        "test": "echo \"No test yet !\"",
+        "pretest": "make pretest",
+        "coveralls": "make coveralls",
+        "packaging": "make packaging",
+        "prebuild": "make pretest && echo \"No test yet !\" && make clean",
+        "build": "make tsc",
+        "postbuild": "make packaging"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/hapinessjs/ng-universal-module.git"
+    },
+    "keywords": [
+        "Angular",
+        "Universal",
+        "Server",
+        "Rendering",
+        "Hapiness",
+        "Framework",
+        "NodeJS",
+        "Node",
+        "HTTP",
+        "API",
+        "REST",
+        "Streams",
+        "Async",
+        "Decorator",
+        "RxJS",
+        "Rx",
+        "ReactiveX",
+        "Observable",
+        "Observer",
+        "Module",
+        "ES2015",
+        "ES2016",
+        "ES2017",
+        "ES6",
+        "ES7",
+        "ES8",
+        "Typescript"
+    ],
+    "contributors": [
+        {
+            "name": "Julien Fauville",
+            "url": "https://github.com/Juneil"
+        },
+        {
+            "name": "Antoine Gomez",
+            "url": "https://github.com/antoinegomez"
+        },
+        {
+            "name": "Sébastien Ritz",
+            "url": "https://github.com/reptilbud"
+        },
+        {
+            "name": "Nicolas Jessel",
+            "url": "https://github.com/njl07"
+        }
+    ],
+    "license": "SEE LICENSE IN https://github.com/hapinessjs/ng-universal-module/blob/master/LICENSE.md",
+    "bugs": {
+        "url": "https://github.com/hapinessjs/ng-universal-module/issues"
+    },
+    "homepage": "https://github.com/hapinessjs/ng-universal-module#readme",
+    "devDependencies": {
+        "@angular/compiler": "^4.4.6",
+        "@angular/core": "^4.4.6",
+        "@angular/platform-server": "^4.4.6",
+        "@hapiness/core": "^1.1.0",
+        "@nguniversal/module-map-ngfactory-loader": "^1.0.0-beta.3",
+        "@types/fs-extra": "^4.0.2",
+        "coveralls": "^3.0.0",
+        "fs-extra": "^4.0.2",
+        "istanbul": "^1.1.0-alpha.1",
+        "mocha": "^3.5.3",
+        "mocha-typescript": "^1.1.11",
+        "rimraf": "^2.6.2",
+        "rxjs": "^5.4.3",
+        "ts-node": "^3.3.0",
+        "tslint": "^5.7.0",
+        "typescript": "^2.5.3",
+        "unit.js": "^2.0.0"
+    },
+    "peerDependencies": {
+        "@angular/compiler": "^4.4.6",
+        "@angular/core": "^4.4.6",
+        "@angular/platform-server": "^4.4.6",
+        "@hapiness/core": "^1.1.0",
+        "@nguniversal/module-map-ngfactory-loader": "^1.0.0-beta.3",
+        "rxjs": "^5.4.3"
+    },
+    "engines": {
+        "node": ">=7.0.0"
+    }
+}
