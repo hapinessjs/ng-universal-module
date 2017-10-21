@@ -12,6 +12,7 @@ export class NgEngineServiceTest {
     private _ngEngineService: NgEngineService;
     // private property to store request mock
     private _request: any;
+    // private property to store fs stub
     private _fsStub: any;
 
     /**
