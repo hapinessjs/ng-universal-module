@@ -1,21 +1,10 @@
-/**
- * @see https://github.com/pana-cc/mocha-typescript
- */
 import { test, suite } from 'mocha-typescript';
+import { Buffer } from 'buffer';
+import { Observable } from 'rxjs/Observable';
+import { NgEngineService } from '../../src/module/services';
 
-/**
- * @see http://unitjs.com/
- */
 import * as unit from 'unit.js';
 import * as fs from 'fs';
-import { Buffer } from 'buffer';
-
-import 'zone.js/dist/zone-node';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-
-import { NgEngineService } from '../../src/module/services';
 
 @suite('- Unit NgEngineServiceTest file')
 export class NgEngineServiceTest {
