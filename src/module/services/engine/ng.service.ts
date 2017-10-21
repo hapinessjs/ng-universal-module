@@ -50,7 +50,7 @@ export class NgEngineService {
         this._compiler = this._compilerFactory.createCompiler([
             {
                 providers: [
-                    { provide: ResourceLoader, useClass: FileLoader }
+                    { provide: ResourceLoader, useClass: FileLoader, deps: [] }
                 ]
             }
         ]);
