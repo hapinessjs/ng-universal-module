@@ -1,5 +1,5 @@
 import { Inject, Injectable, Request } from '@hapiness/core';
-import { Compiler, CompilerFactory, NgModuleFactory, Provider, Type } from '@angular/core';
+import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
 import { ModuleMap, provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
@@ -95,7 +95,7 @@ export class NgEngineService {
     /**
      * Builds extra providers
      *
-     * @param {Provider[]} providers
+     * @param {StaticProvider[]} providers
      * @param {ModuleMap} lazyModuleMap
      * @param {Request} request
      * @param {string} filePath
@@ -104,7 +104,7 @@ export class NgEngineService {
      *
      * @private
      */
-    private _extraProviders(providers: Provider[], lazyModuleMap: ModuleMap, request: Request, filePath: string): Provider[] {
+    private _extraProviders(providers: StaticProvider[], lazyModuleMap: ModuleMap, request: Request, filePath: string): StaticProvider[] {
         return providers!.concat(
             providers!,
             lazyModuleMap ? provideModuleMap(lazyModuleMap) : [],
@@ -163,12 +163,12 @@ export class NgEngineService {
      *
      * @param {Request} request current request
      *
-     * @return {Provider[]}
+     * @return {StaticProvider[]}
      *
      * @private
      */
-    private _getRequestProviders(request: Request): Provider[] {
-        return <Provider[]> [
+    private _getRequestProviders(request: Request): StaticProvider[] {
+        return <StaticProvider[]> [
             {
                 provide: REQUEST,
                 useValue: request

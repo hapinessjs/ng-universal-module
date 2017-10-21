@@ -1,4 +1,4 @@
-import { NgModuleFactory, Provider, Type } from '@angular/core';
+import { NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { ModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 /**
@@ -6,6 +6,6 @@ import { ModuleMap } from '@nguniversal/module-map-ngfactory-loader';
  */
 export interface NgSetupOptions {
     bootstrap: Type<{}> | NgModuleFactory<{}>;
-    providers?: Provider[];
+    providers?: StaticProvider[];
     lazyModuleMap?: ModuleMap;
 }
