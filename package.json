@@ -6,11 +6,11 @@
     "types": "index.d.ts",
     "private": false,
     "scripts": {
-        "test": "echo \"No test yet !\"",
+        "test": "make test",
         "pretest": "make pretest",
         "coveralls": "make coveralls",
         "packaging": "make packaging",
-        "prebuild": "make pretest && echo \"No test yet !\" && make clean",
+        "prebuild": "make pretest && make test && make clean",
         "build": "make tsc",
         "postbuild": "make packaging"
     },
@@ -78,6 +78,7 @@
         "@angular/common": "^5.0.0-rc.3",
         "@angular/compiler": "^5.0.0-rc.3",
         "@angular/core": "^5.0.0-rc.3",
+        "@angular/http": "^5.0.0-rc.3",
         "@angular/platform-browser": "^5.0.0-rc.3",
         "@angular/platform-browser-dynamic": "^5.0.0-rc.3",
         "@angular/platform-server": "^5.0.0-rc.3",
@@ -99,6 +100,7 @@
     },
     "peerDependencies": {
         "@angular/core": "^5.0.0-rc.3",
+        "@angular/http": "^5.0.0-rc.3",
         "@angular/platform-server": "^5.0.0-rc.3",
         "@hapiness/core": "^1.1.0",
         "@nguniversal/common": "^5.0.0-beta.3",
