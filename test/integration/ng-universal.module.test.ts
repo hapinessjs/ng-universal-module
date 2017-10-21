@@ -45,7 +45,7 @@ export class NgUniversalModuleTest {
         @HapinessModule({
             version: '1.0.0',
             imports: [
-                NgUniversalModule.setConfig({bootstrap: <any> {}})
+                NgUniversalModule.setConfig({bootstrap: <any> {}, lazyModuleMap: {}})
             ]
         })
         class NUMTest {}

@@ -101,10 +101,18 @@ export class NgEngineService {
                     .flatMap(_ => (!!_ && !!_.bootstrap) ?
                         Observable.of({
                             bootstrap: _.bootstrap,
-                            providers: _.providers || [],
-                            lazyModuleMap: _.lazyModuleMap
+                            lazyModuleMap: _.lazyModuleMap,
+                            providers: _.providers || []
                         }) :
                         Observable.throw(new Error('You must pass in a NgModule or NgModuleFactory to be bootstrapped'))
+                    )
+                    .flatMap(_ => (!!_ && !!_.lazyModuleMap) ?
+                        Observable.of({
+                            bootstrap: _.bootstrap,
+                            lazyModuleMap: _.lazyModuleMap,
+                            providers: _.providers
+                        }) :
+                        Observable.throw(new Error('You must pass in LazyModuleMap'))
                     )
                     .map(_ => ({
                         moduleOrFactory: _.bootstrap,
@@ -132,7 +140,7 @@ export class NgEngineService {
     private _extraProviders(providers: StaticProvider[], lazyModuleMap: ModuleMap, request: Request, filePath: string): StaticProvider[] {
         return providers!.concat(
             providers!,
-            lazyModuleMap ? this._provideModuleMap(lazyModuleMap) : [],
+            this._provideModuleMap(lazyModuleMap),
             this._getRequestProviders(request),
             [
                 {

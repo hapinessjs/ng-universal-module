@@ -79,13 +79,24 @@ export class NgEngineServiceTest {
     }
 
     /**
-     * Test if `NgEngineService.universal()` function returns an Observable Error if config is wrong
+     * Test if `NgEngineService.universal()` function returns an Observable Error if missing bootstrap in config
      */
-    @test('- `NgEngineService.universal()` function must return an Observable Error if config is wrong')
-    testNgEngineServiceUniversalObservableConfigError(done) {
+    @test('- `NgEngineService.universal()` function must return an Observable Error if missing bootstrap in config')
+    testNgEngineServiceUniversalObservableConfigBootstrapError(done) {
         this._ngEngineService.universal(this._request)
             .subscribe(null, e => unit.string(e.message)
                 .is('You must pass in a NgModule or NgModuleFactory to be bootstrapped').when(_ => done()));
+    }
+
+    /**
+     * Test if `NgEngineService.universal()` function returns an Observable Error if missing lazyModuleMap in config
+     */
+    @test('- `NgEngineService.universal()` function must return an Observable Error if missing bootstrap in config')
+    testNgEngineServiceUniversalObservableConfigLazyModuleMapError(done) {
+        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: null });
+        ngE.universal(this._request)
+            .subscribe(null, e => unit.string(e.message)
+                .is('You must pass in LazyModuleMap').when(_ => done()));
     }
 
     /**
@@ -93,7 +104,7 @@ export class NgEngineServiceTest {
      */
     @test('- `NgEngineService.universal()` success execution with compiler')
     testNgEngineServiceUniversalSuccessWithCompile(done) {
-        const ngE = new NgEngineService({ bootstrap: <any> {} });
+        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: {} });
 
         const compilerStub = unit.stub(ngE['_compiler'], 'compileModuleAsync').returns(new Promise((resolve) => resolve({})));
         const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
@@ -114,7 +125,7 @@ export class NgEngineServiceTest {
      */
     @test('- `NgEngineService.universal()` success execution with cache')
     testNgEngineServiceUniversalSuccessWithCache(done) {
-        const ngE = new NgEngineService({ bootstrap: NgEngineService });
+        const ngE = new NgEngineService({ bootstrap: NgEngineService, lazyModuleMap: {} });
 
         ngE['_factoryCacheMap'].set(NgEngineService, <any> {});
 
@@ -124,27 +135,6 @@ export class NgEngineServiceTest {
         ngE.universal(this._request)
             .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
                 .when(__ => {
-                    renderModuleFactoryStub.restore();
-                    done();
-                })
-            );
-    }
-
-    /**
-     * Test if `NgEngineService.universal()` function returns success with compiler and module map
-     */
-    @test('- `NgEngineService.universal()` success execution with compiler and module map')
-    testNgEngineServiceUniversalSuccessWithCompileAndModuleMap(done) {
-        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: {}});
-
-        const compilerStub = unit.stub(ngE['_compiler'], 'compileModuleAsync').returns(new Promise((resolve) => resolve({})));
-        const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
-            .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
-
-        ngE.universal(this._request)
-            .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
-                .when(__ => {
-                    compilerStub.restore();
                     renderModuleFactoryStub.restore();
                     done();
                 })
