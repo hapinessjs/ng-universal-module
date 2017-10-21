@@ -35,6 +35,28 @@ export class NgEngineService {
      * Angular compiler instance
      */
     private _compiler: Compiler;
+    /**
+     * Renders a {@link NgModuleFactory} to string.
+     *
+     * `document` is the full document HTML of the page to render, as a string.
+     * `url` is the URL for the current render request.
+     * `extraProviders` are the platform level providers for the current render request.
+     *
+     * store original function to stub it in tests
+     */
+    private _renderModuleFactory: <T>(moduleFactory: NgModuleFactory<T>, options: {
+        document?: string;
+        url?: string;
+        extraProviders?: StaticProvider[];
+    }) => Promise<string>;
+    /**
+     * Helper function for getting the providers object for the MODULE_MAP
+     *
+     * @param {ModuleMap} moduleMap Map to use as a value for MODULE_MAP
+     *
+     * store original function to stub it in tests
+     */
+    private _provideModuleMap: (moduleMap: ModuleMap) => StaticProvider;
 
     /**
      * Service constructor
@@ -54,6 +76,9 @@ export class NgEngineService {
                 ]
             }
         ]);
+
+        this._renderModuleFactory = renderModuleFactory;
+        this._provideModuleMap = provideModuleMap;
     }
 
     /**
@@ -66,14 +91,14 @@ export class NgEngineService {
     universal(request: Request): Observable<string> {
         return Observable
             .of(request)
-            .flatMap(_ => !!_.raw.req.url ?
+            .flatMap(_ => (!!_ && !!_.raw && !!_.raw.req && _.raw.req.url !== undefined) ?
                 Observable.of(_.raw.req.url) :
                 Observable.throw(new Error('url is undefined'))
             )
             .flatMap(filePath =>
                 Observable
                     .of(this._config)
-                    .flatMap(_ => !!_.bootstrap ?
+                    .flatMap(_ => (!!_ && !!_.bootstrap) ?
                         Observable.of({
                             bootstrap: _.bootstrap,
                             providers: _.providers || [],
@@ -88,7 +113,7 @@ export class NgEngineService {
             )
             .flatMap(_ =>
                 this._getFactory(_.moduleOrFactory)
-                    .flatMap(factory => Observable.fromPromise(renderModuleFactory(factory, { extraProviders: _.extraProviders })))
+                    .flatMap(factory => Observable.fromPromise(this._renderModuleFactory(factory, { extraProviders: _.extraProviders })))
             );
     }
 
@@ -107,7 +132,7 @@ export class NgEngineService {
     private _extraProviders(providers: StaticProvider[], lazyModuleMap: ModuleMap, request: Request, filePath: string): StaticProvider[] {
         return providers!.concat(
             providers!,
-            lazyModuleMap ? provideModuleMap(lazyModuleMap) : [],
+            lazyModuleMap ? this._provideModuleMap(lazyModuleMap) : [],
             this._getRequestProviders(request),
             [
                 {
@@ -198,6 +223,7 @@ export class NgEngineService {
  * FileLoader implementation
  */
 class FileLoader implements ResourceLoader {
+    /* istanbul ignore next */
     get(url: string): Promise<string> {
         return new Promise((resolve, reject) => {
             fs.readFile(url, (err: NodeJS.ErrnoException, buffer: Buffer) => {
