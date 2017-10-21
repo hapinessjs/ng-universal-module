@@ -7,36 +7,50 @@ import { test, suite } from 'mocha-typescript';
  * @see http://unitjs.com/
  */
 import * as unit from 'unit.js';
+import * as fs from 'fs';
+import { Buffer } from 'buffer';
+
+import 'zone.js/dist/zone-node';
 
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+
 import { NgEngineService } from '../../src/module/services';
 
 @suite('- Unit NgEngineServiceTest file')
 export class NgEngineServiceTest {
     // private property to store service instance
     private _ngEngineService: NgEngineService;
+    // private property to store request mock
+    private _request: any;
+    private _fsStub: any;
 
     /**
      * Function executed before the suite
      */
-    static before() {}
+    static before() {
+    }
 
     /**
      * Function executed after the suite
      */
-    static after() {}
+    static after() {
+    }
 
     /**
      * Class constructor
      * New lifecycle
      */
-    constructor() {}
+    constructor() {
+    }
 
     /**
      * Function executed before each test
      */
     before() {
         this._ngEngineService = new NgEngineService(null);
+        this._request = { raw: { req: { url: '' }, res: {} } };
+        this._fsStub = unit.stub(fs, 'readFileSync').returns(Buffer.from(''));
     }
 
     /**
@@ -44,6 +58,9 @@ export class NgEngineServiceTest {
      */
     after() {
         this._ngEngineService = undefined;
+        this._request = undefined;
+        this._fsStub.restore();
+        this._fsStub = undefined;
     }
 
     /**
@@ -60,5 +77,87 @@ export class NgEngineServiceTest {
     @test('- `NgEngineService.universal()` function must return an Observable')
     testNgEngineServiceUniversalObservable(done) {
         unit.object(this._ngEngineService.universal(null)).isInstanceOf(Observable).when(_ => done());
+    }
+
+    /**
+     * Test if `NgEngineService.universal()` function returns an Observable Error if parameter is wrong
+     */
+    @test('- `NgEngineService.universal()` function must return an Observable Error if parameter is wrong')
+    testNgEngineServiceUniversalObservableReqParamError(done) {
+        this._ngEngineService.universal(null)
+            .subscribe(null, e => unit.string(e.message).is('url is undefined').when(_ => done()));
+    }
+
+    /**
+     * Test if `NgEngineService.universal()` function returns an Observable Error if config is wrong
+     */
+    @test('- `NgEngineService.universal()` function must return an Observable Error if config is wrong')
+    testNgEngineServiceUniversalObservableConfigError(done) {
+        this._ngEngineService.universal(this._request)
+            .subscribe(null, e => unit.string(e.message)
+                .is('You must pass in a NgModule or NgModuleFactory to be bootstrapped').when(_ => done()));
+    }
+
+    /**
+     * Test if `NgEngineService.universal()` function returns success with compiler
+     */
+    @test('- `NgEngineService.universal()` success execution with compiler')
+    testNgEngineServiceUniversalSuccessWithCompile(done) {
+        const ngE = new NgEngineService({ bootstrap: <any> {} });
+
+        const compilerStub = unit.stub(ngE['_compiler'], 'compileModuleAsync').returns(new Promise((resolve) => resolve({})));
+        const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
+            .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
+
+        ngE.universal(this._request)
+            .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
+                .when(__ => {
+                    compilerStub.restore();
+                    renderModuleFactoryStub.restore();
+                    done();
+                })
+            );
+    }
+
+    /**
+     * Test if `NgEngineService.universal()` function returns success with cache
+     */
+    @test('- `NgEngineService.universal()` success execution with cache')
+    testNgEngineServiceUniversalSuccessWithCache(done) {
+        const ngE = new NgEngineService({ bootstrap: NgEngineService });
+
+        ngE['_factoryCacheMap'].set(NgEngineService, <any> {});
+
+        const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
+            .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
+
+        ngE.universal(this._request)
+            .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
+                .when(__ => {
+                    renderModuleFactoryStub.restore();
+                    done();
+                })
+            );
+    }
+
+    /**
+     * Test if `NgEngineService.universal()` function returns success with compiler and module map
+     */
+    @test('- `NgEngineService.universal()` success execution with compiler and module map')
+    testNgEngineServiceUniversalSuccessWithCompileAndModuleMap(done) {
+        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: {}});
+
+        const compilerStub = unit.stub(ngE['_compiler'], 'compileModuleAsync').returns(new Promise((resolve) => resolve({})));
+        const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
+            .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
+
+        ngE.universal(this._request)
+            .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
+                .when(__ => {
+                    compilerStub.restore();
+                    renderModuleFactoryStub.restore();
+                    done();
+                })
+            );
     }
 }
