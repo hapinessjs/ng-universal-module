@@ -17,6 +17,11 @@ import * as fs from 'fs';
 
 import { NG_UNIVERSAL_MODULE_CONFIG, REQUEST, RESPONSE, NgSetupOptions } from '../../interfaces';
 
+interface ModuleOrFactoryAndProviders {
+    moduleOrFactory: Type<{}> | NgModuleFactory<{}>;
+    extraProviders: StaticProvider[];
+}
+
 @Injectable()
 export class NgEngineService {
     /**
@@ -92,32 +97,8 @@ export class NgEngineService {
         return Observable
             .of(request)
             .flatMap(_ => (!!_ && !!_.raw && !!_.raw.req && _.raw.req.url !== undefined) ?
-                Observable.of(_.raw.req.url) :
+                this._getModuleOrFactoryAndProviders(_) :
                 Observable.throw(new Error('url is undefined'))
-            )
-            .flatMap(filePath =>
-                Observable
-                    .of(this._config)
-                    .flatMap(_ => (!!_ && !!_.bootstrap) ?
-                        Observable.of({
-                            bootstrap: _.bootstrap,
-                            lazyModuleMap: _.lazyModuleMap,
-                            providers: _.providers || []
-                        }) :
-                        Observable.throw(new Error('You must pass in a NgModule or NgModuleFactory to be bootstrapped'))
-                    )
-                    .flatMap(_ => (!!_ && !!_.lazyModuleMap) ?
-                        Observable.of({
-                            bootstrap: _.bootstrap,
-                            lazyModuleMap: _.lazyModuleMap,
-                            providers: _.providers
-                        }) :
-                        Observable.throw(new Error('You must pass in LazyModuleMap'))
-                    )
-                    .map(_ => ({
-                        moduleOrFactory: _.bootstrap,
-                        extraProviders: this._extraProviders(_.providers, _.lazyModuleMap, request, filePath)
-                    }))
             )
             .flatMap(_ =>
                 this._getFactory(_.moduleOrFactory)
@@ -126,18 +107,74 @@ export class NgEngineService {
     }
 
     /**
+     * Returns module or factory bootstraped and extra providers
+     *
+     * @param {Request} request current request
+     *
+     * @returns {Observable<ModuleOrFactoryAndProviders>}
+     *
+     * @private
+     */
+    private _getModuleOrFactoryAndProviders(request: Request): Observable<ModuleOrFactoryAndProviders> {
+            return this._checkConfig()
+            .map(_ => ({
+                moduleOrFactory: _.bootstrap,
+                extraProviders: this._extraProviders(request, _.providers, _.lazyModuleMap, _.indexFilePath)
+            }));
+    }
+
+    /**
+     * Function to check module config
+     *
+     * @returns {Observable<NgSetupOptions>}
+     *
+     * @private
+     */
+    private _checkConfig(): Observable<NgSetupOptions> {
+        return Observable
+            .of(this._config)
+            .flatMap(_ => (!!_ && !!_.bootstrap) ?
+                Observable.of({
+                    bootstrap: _.bootstrap,
+                    lazyModuleMap: _.lazyModuleMap,
+                    indexFilePath: _.indexFilePath,
+                    providers: _.providers || []
+                }) :
+                Observable.throw(new Error('You must pass in config a NgModule or NgModuleFactory to be bootstrapped'))
+            )
+            .flatMap(_ => (!!_ && !!_.lazyModuleMap) ?
+                Observable.of({
+                    bootstrap: _.bootstrap,
+                    lazyModuleMap: _.lazyModuleMap,
+                    indexFilePath: _.indexFilePath,
+                    providers: _.providers
+                }) :
+                Observable.throw(new Error('You must pass in config lazy module map'))
+            )
+            .flatMap(_ => (!!_ && !!_.indexFilePath) ?
+                Observable.of({
+                    bootstrap: _.bootstrap,
+                    lazyModuleMap: _.lazyModuleMap,
+                    indexFilePath: _.indexFilePath,
+                    providers: _.providers
+                }) :
+                Observable.throw(new Error('You must pass in config the path of index.html'))
+            );
+    }
+
+    /**
      * Builds extra providers
      *
+     * @param {Request} request
      * @param {StaticProvider[]} providers
      * @param {ModuleMap} lazyModuleMap
-     * @param {Request} request
      * @param {string} filePath
      *
      * @return {Provider[]}
      *
      * @private
      */
-    private _extraProviders(providers: StaticProvider[], lazyModuleMap: ModuleMap, request: Request, filePath: string): StaticProvider[] {
+    private _extraProviders(request: Request, providers: StaticProvider[], lazyModuleMap: ModuleMap, filePath: string): StaticProvider[] {
         return providers!.concat(
             providers!,
             this._provideModuleMap(lazyModuleMap),
@@ -147,7 +184,7 @@ export class NgEngineService {
                     provide: INITIAL_CONFIG,
                     useValue: {
                         document: this._getDocument(filePath),
-                        url: filePath
+                        url: request.raw.req.url
                     }
                 }
             ]

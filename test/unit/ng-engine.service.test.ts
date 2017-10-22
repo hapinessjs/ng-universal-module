@@ -85,18 +85,29 @@ export class NgEngineServiceTest {
     testNgEngineServiceUniversalObservableConfigBootstrapError(done) {
         this._ngEngineService.universal(this._request)
             .subscribe(null, e => unit.string(e.message)
-                .is('You must pass in a NgModule or NgModuleFactory to be bootstrapped').when(_ => done()));
+                .is('You must pass in config a NgModule or NgModuleFactory to be bootstrapped').when(_ => done()));
     }
 
     /**
      * Test if `NgEngineService.universal()` function returns an Observable Error if missing lazyModuleMap in config
      */
-    @test('- `NgEngineService.universal()` function must return an Observable Error if missing bootstrap in config')
+    @test('- `NgEngineService.universal()` function must return an Observable Error if missing lazyModuleMap in config')
     testNgEngineServiceUniversalObservableConfigLazyModuleMapError(done) {
-        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: null });
+        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: null, indexFilePath: 'index.html' });
         ngE.universal(this._request)
             .subscribe(null, e => unit.string(e.message)
-                .is('You must pass in LazyModuleMap').when(_ => done()));
+                .is('You must pass in config lazy module map').when(_ => done()));
+    }
+
+    /**
+     * Test if `NgEngineService.universal()` function returns an Observable Error if missing indexFilePath in config
+     */
+    @test('- `NgEngineService.universal()` function must return an Observable Error if missing indexFilePath in config')
+    testNgEngineServiceUniversalObservableConfigIndexFilePathError(done) {
+        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: {}, indexFilePath: '' });
+        ngE.universal(this._request)
+            .subscribe(null, e => unit.string(e.message)
+                .is('You must pass in config the path of index.html').when(_ => done()));
     }
 
     /**
@@ -104,7 +115,7 @@ export class NgEngineServiceTest {
      */
     @test('- `NgEngineService.universal()` success execution with compiler')
     testNgEngineServiceUniversalSuccessWithCompile(done) {
-        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: {} });
+        const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: {}, indexFilePath: 'index.html' });
 
         const compilerStub = unit.stub(ngE['_compiler'], 'compileModuleAsync').returns(new Promise((resolve) => resolve({})));
         const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
@@ -125,7 +136,7 @@ export class NgEngineServiceTest {
      */
     @test('- `NgEngineService.universal()` success execution with cache')
     testNgEngineServiceUniversalSuccessWithCache(done) {
-        const ngE = new NgEngineService({ bootstrap: NgEngineService, lazyModuleMap: {} });
+        const ngE = new NgEngineService({ bootstrap: NgEngineService, lazyModuleMap: {}, indexFilePath: 'index.html' });
 
         ngE['_factoryCacheMap'].set(NgEngineService, <any> {});
 

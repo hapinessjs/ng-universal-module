@@ -49,7 +49,7 @@ export class NgUniversalModuleTest {
      */
     @test('- `NgUniversalModule.setConfig()` static function must return CoreModuleWithProviders')
     testNgUniversalModuleSetConfigReturnsCoreModuleWithProviders(done) {
-        const cwp = NgUniversalModule.setConfig({bootstrap: <any> {}, lazyModuleMap: {}});
+        const cwp = NgUniversalModule.setConfig({bootstrap: <any> {}, lazyModuleMap: {}, indexFilePath: ''});
         unit.object(cwp)
             .hasProperty('module')
             .hasProperty('providers')

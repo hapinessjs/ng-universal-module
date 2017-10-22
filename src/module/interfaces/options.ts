@@ -7,5 +7,6 @@ import { ModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 export interface NgSetupOptions {
     bootstrap: Type<{}> | NgModuleFactory<{}>;
     lazyModuleMap: ModuleMap;
+    indexFilePath: string;
     providers?: StaticProvider[];
 }
