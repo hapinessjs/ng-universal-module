@@ -1,5 +1,6 @@
 import { test, suite } from 'mocha-typescript';
 import { Observable } from 'rxjs/Observable';
+import { ReplyNoContinue } from '@hapiness/core';
 import { GetHtmlUniversalRoute } from '../../src/module/routes';
 import { NgEngineService } from '../../src/module/services';
 
@@ -56,25 +57,60 @@ export class GetHtmlUniversalRouteTest {
     }
 
     /**
-     * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable
+     * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html data and header
      */
-    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable')
-    testGetHtmlUniversalRouteOnGetObservable(done) {
-        unit.object(this._getHtmlUniversalRoute.onGet(null)).isInstanceOf(Observable).when(_ => done());
-    }
-
-    /**
-     * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html data
-     */
-    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data')
-    testGetHtmlUniversalRouteOnGetObservableHtml(done) {
+    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and header')
+    testGetHtmlUniversalRouteOnGetObservableHtmlWithHeader(done) {
         this._ngEngineServiceMock.expects('universal').once().returns(Observable.of('<h1>Hello Angular</h1>'));
 
-        this._getHtmlUniversalRoute.onGet(null).subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
-            .when(__ => {
+        const reqMock = {
+            raw: {
+                req: {
+                    url: 'index.html'
+                }
+            },
+            server: {
+                mime: {
+                    path: (p: string) => ({ type: 'text/html' })
+                }
+            }
+        };
+
+        this._getHtmlUniversalRoute.onGet(<any> reqMock, <ReplyNoContinue>(res => {
+            unit.string(res).is('<h1>Hello Angular</h1>').when(_ => {
                 this._ngEngineServiceMock.verify();
                 this._ngEngineServiceMock.restore();
                 done();
-            }));
+            })
+        }));
+    }
+
+    /**
+     * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html data and without header
+     */
+    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and without header')
+    testGetHtmlUniversalRouteOnGetObservableHtmlWithoutHeader(done) {
+        this._ngEngineServiceMock.expects('universal').once().returns(Observable.of('<h1>Hello Angular</h1>'));
+
+        const reqMock = {
+            raw: {
+                req: {
+                    url: 'index.html'
+                }
+            },
+            server: {
+                mime: {
+                    path: (p: string) => ({ type: '' })
+                }
+            }
+        };
+
+        this._getHtmlUniversalRoute.onGet(<any> reqMock, <ReplyNoContinue>(res => {
+            unit.string(res).is('<h1>Hello Angular</h1>').when(_ => {
+                this._ngEngineServiceMock.verify();
+                this._ngEngineServiceMock.restore();
+                done();
+            })
+        }));
     }
 }
