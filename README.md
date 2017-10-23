@@ -377,6 +377,10 @@ Extra Providers can be provided either on engine setup
 NgUniversalModule.setConfig({
   bootstrap: AppServerModuleNgFactory,
   lazyModuleMap: LAZY_MODULE_MAP,
+  staticContent: {
+    indexFile: 'index.html',
+    rootPath: BROWSER_FOLDER
+  },
   providers: [
       ServerService
   ]
