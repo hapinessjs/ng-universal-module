@@ -300,7 +300,7 @@ Below we can see a TypeScript implementation of a -very- simple Hapiness applica
 
 At the ROOT level of your project (where package.json / etc are), created a file named: `server.ts`
 
-### server.ts (root project level)
+### server.ts (root project level):
 
 ```typescript
 // These are important and needed before anything else
@@ -388,7 +388,7 @@ NgUniversalModule.setConfig({
 })
 ```
 
-### Using the Request and Response
+### Using the Request and Response:
 
 The `Request` and `Response` objects are injected into the app via injection tokens. You can access them by `@Inject`
 
@@ -415,7 +415,7 @@ Create a file named `webpack.server.config.js` at the ROOT of your application.
 
 > This file basically takes that `server.ts` file, and takes it and compiles it and every dependency it has into `dist/server.js`.
 
-### ./webpack.server.config.js (root project level)
+### ./webpack.server.config.js (root project level):
 
 ```javascript
 const path = require('path');
@@ -465,7 +465,7 @@ Now, you can build your server file:
 $ webpack --config webpack.server.config.js --progress --colors
 ```
 
-#### Almost there
+#### Almost there:
 
 Now let's see what our resulting structure should look like, if we open up our `/dist/` folder we should see:
 
