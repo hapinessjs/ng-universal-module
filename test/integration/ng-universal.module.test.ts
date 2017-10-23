@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { NgUniversalModule } from '../../src';
 
 import * as unit from 'unit.js';
+import { join } from 'path';
 import 'rxjs/add/observable/fromPromise';
 
 @suite('- Integration NgUniversalModuleTest file')
@@ -43,11 +44,18 @@ export class NgUniversalModuleTest {
      * Test if universal route returns an error if bad value in module config bootstrap
      */
     @test('- check if universal route returns an error if bad value in module config bootstrap')
-    testGetHtmlUniversaleRouteErrorInModuleConfigBootstrap(done) {
+    testGetHtmlUniversalRouteErrorInModuleConfigBootstrap(done) {
         @HapinessModule({
             version: '1.0.0',
             imports: [
-                NgUniversalModule.setConfig({bootstrap: <any> {}, lazyModuleMap: {}, indexFilePath: './test/integration/test.html'})
+                NgUniversalModule.setConfig({
+                    bootstrap: <any> {},
+                    lazyModuleMap: {},
+                    staticContent: {
+                        rootPath: join(process.cwd(), 'test/integration'),
+                        indexFile: 'test.html'
+                    }
+                })
             ],
             providers: [
                 HttpServerService
@@ -76,7 +84,7 @@ export class NgUniversalModuleTest {
      * Test if universal route returns an error if no module config
      */
     @test('- check if universal route returns an error if no module config')
-    testGetHtmlUniversaleRouteErrorOnModuleBootstrap(done) {
+    testGetHtmlUniversalRouteErrorOnModuleBootstrap(done) {
         @HapinessModule({
             version: '1.0.0',
             imports: [

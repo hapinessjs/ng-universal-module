@@ -1,4 +1,4 @@
-import { Inject, Injectable, Request } from '@hapiness/core';
+import { HttpServerService, Inject, Injectable, Request } from '@hapiness/core';
 import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
@@ -8,18 +8,20 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/toArray';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
 import * as fs from 'fs';
+import { join } from 'path';
 
-import { NG_UNIVERSAL_MODULE_CONFIG, REQUEST, RESPONSE, NgSetupOptions } from '../../interfaces';
+import { NG_UNIVERSAL_MODULE_CONFIG, REQUEST, RESPONSE, NgSetupOptions, StaticContent } from '../../interfaces';
 
-interface ModuleOrFactoryAndProviders {
-    moduleOrFactory: Type<{}> | NgModuleFactory<{}>;
-    extraProviders: StaticProvider[];
+export interface UniversalResult {
+    body: string;
+    mime?: string;
 }
 
 @Injectable()
@@ -67,8 +69,9 @@ export class NgEngineService {
      * Service constructor
      *
      * @param {NgSetupOptions} _config
+     * @param {HttpServerService} _httpServerService
      */
-    constructor(@Inject(NG_UNIVERSAL_MODULE_CONFIG) private _config: NgSetupOptions) {
+    constructor(@Inject(NG_UNIVERSAL_MODULE_CONFIG) private _config: NgSetupOptions, private _httpServerService: HttpServerService) {
         this._templateCache = {};
         this._factoryCacheMap = new Map<Type<{}>, NgModuleFactory<{}>>();
 
@@ -91,36 +94,104 @@ export class NgEngineService {
      *
      * @param {Request} request initial request
      *
-     * @return {Observable<string>}
+     * @return {Observable<UniversalResult>}
      */
-    universal(request: Request): Observable<string> {
+    universal(request: Request): Observable<UniversalResult> {
         return Observable
-            .of(request)
-            .flatMap(_ => (!!_ && !!_.raw && !!_.raw.req && _.raw.req.url !== undefined) ?
-                this._getModuleOrFactoryAndProviders(_) :
-                Observable.throw(new Error('url is undefined'))
+            .merge(this._checkRequest(request), this._checkConfig())
+            .toArray()
+            .map(_ =>
+                ({
+                    request: <Request> _.shift(),
+                    config: <NgSetupOptions> _.pop()
+                })
             )
+            .map(_ => Object.assign(_, { mime: this._httpServerService.instance().mime.path(_.request.raw.req.url).type }))
             .flatMap(_ =>
-                this._getFactory(_.moduleOrFactory)
-                    .flatMap(factory => Observable.fromPromise(this._renderModuleFactory(factory, { extraProviders: _.extraProviders })))
+                Observable
+                    .merge(
+                        this._getStaticContent(_),
+                        this._getFactoryContent(_)
+                    )
             );
     }
 
     /**
-     * Returns module or factory bootstraped and extra providers
+     * Returns UniversalResult from static content
      *
-     * @param {Request} request current request
+     * @param _
      *
-     * @returns {Observable<ModuleOrFactoryAndProviders>}
+     * @returns {Observable<UniversalResult>}
      *
      * @private
      */
-    private _getModuleOrFactoryAndProviders(request: Request): Observable<ModuleOrFactoryAndProviders> {
-            return this._checkConfig()
-            .map(_ => ({
-                moduleOrFactory: _.bootstrap,
-                extraProviders: this._extraProviders(request, _.providers, _.lazyModuleMap, _.indexFilePath)
-            }));
+    private _getStaticContent(_: any): Observable<UniversalResult> {
+        return Observable
+            .of(_)
+            .filter(__ => !!__.mime)
+            .flatMap(__ =>
+                Observable.of({
+                    body: this._getDocument(this._buildFilePath(__.config.staticContent, __.mime, __.request.raw.req.url)),
+                    mime: __.mime
+                })
+            );
+    }
+
+    /**
+     * Returns UniversalResult from NgFactoryModule
+     *
+     * @param _
+     *
+     * @returns {Observable<UniversalResult>}
+     *
+     * @private
+     */
+    private _getFactoryContent(_: any): Observable<UniversalResult> {
+        return Observable
+            .of(_)
+            .filter(__ => !__.mime)
+            .map(__ =>
+                ({
+                    moduleOrFactory: __.config.bootstrap,
+                    extraProviders: this._extraProviders(
+                        __.request,
+                        __.config.providers,
+                        __.config.lazyModuleMap,
+                        this._buildFilePath(__.config.staticContent)
+                    )
+                })
+            )
+            .flatMap(__ =>
+                this._getFactory(__.moduleOrFactory)
+                    .flatMap(factory =>
+                        Observable
+                            .fromPromise(this._renderModuleFactory(factory, { extraProviders: __.extraProviders }))
+                    )
+                    .flatMap(content =>
+                        Observable
+                            .of({
+                                body: content
+                            })
+                    )
+            );
+    }
+
+    /**
+     * Function to check request parameter
+     *
+     * @param {Request} request
+     *
+     * @returns {Observable<Request>}
+     *
+     * @private
+     */
+    private _checkRequest(request: Request): Observable<Request> {
+        return Observable
+            .of(request)
+            .flatMap(_ => (!!_ && !!_.raw && !!_.raw.req && _.raw.req.url !== undefined) ?
+                Observable.of(_) :
+                Observable.throw(new Error('url is undefined'))
+            );
     }
 
     /**
@@ -134,31 +205,31 @@ export class NgEngineService {
         return Observable
             .of(this._config)
             .flatMap(_ => (!!_ && !!_.bootstrap) ?
-                Observable.of({
-                    bootstrap: _.bootstrap,
-                    lazyModuleMap: _.lazyModuleMap,
-                    indexFilePath: _.indexFilePath,
-                    providers: _.providers || []
-                }) :
+                Observable.of(_) :
                 Observable.throw(new Error('You must pass in config a NgModule or NgModuleFactory to be bootstrapped'))
             )
             .flatMap(_ => (!!_ && !!_.lazyModuleMap) ?
-                Observable.of({
-                    bootstrap: _.bootstrap,
-                    lazyModuleMap: _.lazyModuleMap,
-                    indexFilePath: _.indexFilePath,
-                    providers: _.providers
-                }) :
+                Observable.of(_) :
                 Observable.throw(new Error('You must pass in config lazy module map'))
             )
-            .flatMap(_ => (!!_ && !!_.indexFilePath) ?
-                Observable.of({
+            .flatMap(_ => (!!_ && !!_.staticContent) ?
+                Observable.of(_) :
+                Observable.throw(new Error('You must pass in config the static content object'))
+            )
+            .flatMap(_ => (!!_ && !!_.staticContent.indexFile) ?
+                Observable.of(_) :
+                Observable.throw(new Error('You must pass in config the static content object with index file'))
+            )
+            .flatMap(_ => (!!_ && !!_.staticContent.rootPath) ?
+                Observable.of(_) :
+                Observable.throw(new Error('You must pass in config the static content object with root path'))
+            )
+            .flatMap(_ => Observable.of({
                     bootstrap: _.bootstrap,
                     lazyModuleMap: _.lazyModuleMap,
-                    indexFilePath: _.indexFilePath,
-                    providers: _.providers
-                }) :
-                Observable.throw(new Error('You must pass in config the path of index.html'))
+                    staticContent: _.staticContent,
+                    providers: _.providers || []
+                })
             );
     }
 
@@ -248,6 +319,23 @@ export class NgEngineService {
                 useValue: request.raw.res
             }
         ];
+    }
+
+    /**
+     * Returns document path
+     *
+     * @param {StaticContent} staticContent
+     * @param {string} mime
+     * @param {string} staticFileUrl
+     *
+     * @returns {string}
+     *
+     * @private
+     */
+    private _buildFilePath(staticContent: StaticContent, mime?: string, staticFileUrl?: string): string {
+        return (!!mime && !!staticFileUrl) ?
+            join(staticContent.rootPath, staticFileUrl) :
+            join(staticContent.rootPath, staticContent.indexFile);
     }
 
     /**

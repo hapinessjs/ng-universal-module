@@ -1,4 +1,4 @@
-import { CoreModuleWithProviders, HapinessModule } from '@hapiness/core';
+import { CoreModuleWithProviders, HapinessModule, HttpServerService } from '@hapiness/core';
 import { NgEngineService } from './services';
 import { GetHtmlUniversalRoute } from './routes';
 import { NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions } from './interfaces';
@@ -9,7 +9,8 @@ import { NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions } from './interfaces';
         GetHtmlUniversalRoute
     ],
     providers: [
-        NgEngineService
+        NgEngineService,
+        HttpServerService
     ]
 })
 export class NgUniversalModule {

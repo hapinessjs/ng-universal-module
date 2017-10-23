@@ -13,6 +13,7 @@ export class GetHtmlUniversalRouteTest {
     private _ngEngineServiceMock: any;
     // private property to store route instance
     private _getHtmlUniversalRoute: GetHtmlUniversalRoute;
+
     /**
      * Function executed before the suite
      */
@@ -36,7 +37,7 @@ export class GetHtmlUniversalRouteTest {
      * Function executed before each test
      */
     before() {
-        this._getHtmlUniversalRoute = new GetHtmlUniversalRoute(new NgEngineService(null));
+        this._getHtmlUniversalRoute = new GetHtmlUniversalRoute(new NgEngineService(null, null));
         this._ngEngineServiceMock = unit.mock(this._getHtmlUniversalRoute['_ngEngineService']);
     }
 
@@ -57,26 +58,13 @@ export class GetHtmlUniversalRouteTest {
     }
 
     /**
-     * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html data and header
+     * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html data and without header
      */
-    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and header')
-    testGetHtmlUniversalRouteOnGetObservableHtmlWithHeader(done) {
-        this._ngEngineServiceMock.expects('universal').once().returns(Observable.of('<h1>Hello Angular</h1>'));
+    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and no header')
+    testGetHtmlUniversalRouteOnGetObservableHtmlWithoutHeader(done) {
+        this._ngEngineServiceMock.expects('universal').once().returns(Observable.of({ body: '<h1>Hello Angular</h1>' }));
 
-        const reqMock = {
-            raw: {
-                req: {
-                    url: 'index.html'
-                }
-            },
-            server: {
-                mime: {
-                    path: (p: string) => ({ type: 'text/html' })
-                }
-            }
-        };
-
-        this._getHtmlUniversalRoute.onGet(<any> reqMock, <ReplyNoContinue>(res => {
+        this._getHtmlUniversalRoute.onGet(null, <ReplyNoContinue>(res => {
             unit.string(res).is('<h1>Hello Angular</h1>').when(_ => {
                 this._ngEngineServiceMock.verify();
                 this._ngEngineServiceMock.restore();
@@ -88,24 +76,11 @@ export class GetHtmlUniversalRouteTest {
     /**
      * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html data and without header
      */
-    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and without header')
-    testGetHtmlUniversalRouteOnGetObservableHtmlWithoutHeader(done) {
-        this._ngEngineServiceMock.expects('universal').once().returns(Observable.of('<h1>Hello Angular</h1>'));
+    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and header')
+    testGetHtmlUniversalRouteOnGetObservableHtmlWithHeader(done) {
+        this._ngEngineServiceMock.expects('universal').once().returns(Observable.of({ body: '<h1>Hello Angular</h1>', mime: 'text/html' }));
 
-        const reqMock = {
-            raw: {
-                req: {
-                    url: 'index.html'
-                }
-            },
-            server: {
-                mime: {
-                    path: (p: string) => ({ type: '' })
-                }
-            }
-        };
-
-        this._getHtmlUniversalRoute.onGet(<any> reqMock, <ReplyNoContinue>(res => {
+        this._getHtmlUniversalRoute.onGet(null, <ReplyNoContinue>(res => {
             unit.string(res).is('<h1>Hello Angular</h1>').when(_ => {
                 this._ngEngineServiceMock.verify();
                 this._ngEngineServiceMock.restore();
