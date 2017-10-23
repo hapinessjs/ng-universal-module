@@ -176,7 +176,7 @@ Add a section for `"angularCompilerOptions"` and set `"entryModule"` to your `Ap
 
 ### src/tsconfig.server.json:
 
-```json
+```
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
@@ -212,7 +212,7 @@ Finally, adjust `"outDir"` to a new location (this example uses `dist/server`).
 
 ### .angular-cli.json:
 
-```json
+```
 {
   ...
   "apps": [
@@ -468,7 +468,7 @@ $ node dist/server.js
 
 Now lets create a few handy scripts to help us do all of this in the future.
 
-```json
+```
 "scripts": {
 
   // These will be your common scripts
