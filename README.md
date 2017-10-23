@@ -64,6 +64,7 @@ We use `yarn` as package manager.
 - [Step 4: Setting up a Hapiness Application to run our Universal bundles](#step-4-setting-up-a-hapiness-application-to-run-our-universal-bundles)
     - [./server.ts (root project level)](#serverts-root-project-level)
     - [Extra Providers](#extra-providers)
+    - [Using the Request and Response](#using-the-request-and-response)
 - [Step 5: Setup a webpack config to handle this Node server.ts file and serve your application!](#step-5-setup-a-webpack-config-to-handle-this-node-serverts-file-and-serve-your-application)
     - [./webpack.server.config.js (root project level)](#webpackserverconfigjs-root-project-level)
     - [Almost there](#almost-there)
@@ -386,6 +387,21 @@ NgUniversalModule.setConfig({
   ]
 })
 ```
+
+### Using the Request and Response
+
+The `Request` and `Response` objects are injected into the app via injection tokens. You can access them by `@Inject`
+
+```typescript
+import { Request, REQUEST } from '@hapiness/ng-universal';
+
+@Injectable()
+export class RequestService {
+  constructor(@Inject(REQUEST) private _request: Request) {}
+}
+```
+
+If your app runs on the `client` side too, you will have to provide your own versions of these in the client app.
 
 [back to top](#table-of-contents)
 
