@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@5.0.0-rc.6` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@5.0.0` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -138,6 +138,7 @@ This example places it alongside `app.module.ts` in a file named `app.server.mod
 ```typescript
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
+import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
@@ -147,7 +148,8 @@ import { AppComponent } from './app.component';
     // The AppServerModule should import your AppModule followed
     // by the ServerModule from @angular/platform-server.
     AppModule,
-    ServerModule
+    ServerModule,
+    ModuleMapLoaderModule
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.
@@ -526,11 +528,10 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
-* v1.0.1 (2017-10-26)
-    * `Angular v5.0.0-rc.6`
-    * Latest packages' versions
-* v1.0.0 (2017-10-23)
+* v5.0.0 (2017-11-07)
+    * `Angular v5.0.0`
     * Publish all features of the module
+    * Lettable operators for `RxJS` 
     * Tests
     * Documentation
 
