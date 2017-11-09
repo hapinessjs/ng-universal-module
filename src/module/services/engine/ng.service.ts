@@ -13,20 +13,21 @@ import { _throw } from 'rxjs/observable/throw';
 
 import * as fs from 'fs';
 import { join } from 'path';
+import { Buffer } from 'buffer';
 
 import { NG_UNIVERSAL_MODULE_CONFIG, REQUEST, RESPONSE, NgSetupOptions, StaticContent } from '../../interfaces';
 
 export interface UniversalResult {
-    body: string;
+    body: Buffer;
     mime?: string;
 }
 
 @Injectable()
 export class NgEngineService {
     /**
-     * This holds a cached version of each index used.
+     * This holds a cached version of each data used.
      */
-    private _templateCache: { [key: string]: string };
+    private _dataCache: { [key: string]: Buffer };
     /**
      * Map of Module Factories
      */
@@ -69,7 +70,7 @@ export class NgEngineService {
      * @param {HttpServerService} _httpServerService
      */
     constructor(@Inject(NG_UNIVERSAL_MODULE_CONFIG) private _config: NgSetupOptions, private _httpServerService: HttpServerService) {
-        this._templateCache = {};
+        this._dataCache = {};
         this._factoryCacheMap = new Map<Type<{}>, NgModuleFactory<{}>>();
 
         this._compilerFactory = platformDynamicServer().injector.get(CompilerFactory);
@@ -169,7 +170,7 @@ export class NgEngineService {
                             ),
                             flatMap(content =>
                                 of({
-                                        body: content
+                                        body: Buffer.from(content)
                                     })
                             )
                         )
@@ -257,7 +258,7 @@ export class NgEngineService {
                 {
                     provide: INITIAL_CONFIG,
                     useValue: {
-                        document: this._getDocument(filePath),
+                        document: this._getDocument(filePath).toString(),
                         url: request.raw.req.url
                     }
                 }
@@ -349,12 +350,12 @@ export class NgEngineService {
      *
      * @param {string} filePath path to the file
      *
-     * @return {string}
+     * @return {Buffer}
      *
      * @private
      */
-    private _getDocument(filePath: string): string {
-        return this._templateCache[filePath] = this._templateCache[filePath] || fs.readFileSync(filePath).toString();
+    private _getDocument(filePath: string): Buffer {
+        return this._dataCache[filePath] = this._dataCache[filePath] || fs.readFileSync(filePath);
     }
 }
 

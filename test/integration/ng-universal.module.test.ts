@@ -5,7 +5,7 @@ import { NgUniversalModule } from '../../src';
 
 import * as unit from 'unit.js';
 import { join } from 'path';
-import 'rxjs/add/observable/fromPromise';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 
 @suite('- Integration NgUniversalModuleTest file')
 export class NgUniversalModuleTest {
@@ -65,7 +65,7 @@ export class NgUniversalModuleTest {
             constructor(private _httpServer: HttpServerService) {}
 
             onStart(): Observable<any> {
-                return Observable.fromPromise(this._httpServer.instance().inject('/'));
+                return fromPromise(this._httpServer.instance().inject('/'));
             }
 
             onError(error: Error): void {
@@ -98,7 +98,7 @@ export class NgUniversalModuleTest {
             constructor(private _httpServer: HttpServerService) {}
 
             onStart(): Observable<any> {
-                return Observable.fromPromise(this._httpServer.instance().inject('/'));
+                return fromPromise(this._httpServer.instance().inject('/'));
             }
 
             onError(error: Error): void {
