@@ -204,8 +204,7 @@ export class NgEngineService {
      * @private
      */
     private _checkConfig(): Observable<NgSetupOptions> {
-        return Observable
-            .of(this._config)
+        return of(this._config)
             .pipe(
                 flatMap(_ => (!!_ && !!_.bootstrap) ?
                     of(_) :
