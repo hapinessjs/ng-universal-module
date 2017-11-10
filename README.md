@@ -82,13 +82,12 @@ Install `@angular/platform-server` into your project. Make sure you use the same
 > You also need :
 > - `ts-loader` for your webpack build we'll show later and it's only in `devDependencies`.
 > - `@nguniversal/module-map-ngfactory-loader`, as it's used to handle lazy-loading in the context of a server-render. (by loading the chunks right away)
-> - `@nguniversal/common`, as it's to use `TransferHttpCacheModule`.
 
-Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your project: `@hapiness/core` and `@hapiness/ng-universal`.
+Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your project: `@hapiness/core`, `@hapiness/ng-universal` and `@hapiness/ng-universal-transfer-http`.
 
 ```bash
 $ yarn add --dev ts-loader
-$ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @nguniversal/common @hapiness/core @hapiness/ng-universal
+$ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @hapiness/core @hapiness/ng-universal @hapiness/ng-universal-transfer-http
 ```
 
 ## Step 1: Prepare your App for Universal rendering
@@ -106,7 +105,7 @@ To use the `TransferHttpCacheModule` just install it as part of the top-level Ap
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { TransferHttpCacheModule } from '@nguniversal/common';
+import { TransferHttpCacheModule } from '@hapiness/ng-universal-transfer-http';
 
 import { AppComponent } from './app.component';
 
