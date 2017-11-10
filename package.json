@@ -71,7 +71,7 @@
     },
     "homepage": "https://github.com/hapinessjs/ng-universal-module#readme",
     "dependencies": {
-        "@types/node": "^8.0.50"
+        "@types/node": "^8.0.51"
     },
     "devDependencies": {
         "@angular/animations": "^5.0.1",
@@ -84,7 +84,7 @@
         "@angular/platform-server": "^5.0.1",
         "@hapiness/core": "^1.1.1",
         "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
-        "@types/fs-extra": "^4.0.3",
+        "@types/fs-extra": "^4.0.4",
         "coveralls": "^3.0.0",
         "fs-extra": "^4.0.2",
         "istanbul": "^1.1.0-alpha.1",
