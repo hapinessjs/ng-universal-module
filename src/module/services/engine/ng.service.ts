@@ -276,19 +276,25 @@ export class NgEngineService {
      * @private
      */
     private _getFactory(moduleOrFactory: Type<{}> | NgModuleFactory<{}>): Observable<NgModuleFactory<{}>> {
-        const obs = of(moduleOrFactory);
-        return <Observable<NgModuleFactory<{}>>> mergeStatic(
-            obs
-                .pipe(
-                    filter(_ => _ instanceof NgModuleFactory)
-                ),
-            obs
-                .pipe(
-                    filter(_ => !(_ instanceof NgModuleFactory)),
-                    map((_: Type<{}>) => this._factoryCacheMap.get(_)),
-                    flatMap(_ => !!_ ? of(_) : this._compile(<Type<{}>> moduleOrFactory))
+        return <Observable<NgModuleFactory<{}>>> of(
+            of(moduleOrFactory)
+        )
+            .pipe(
+                flatMap(obs =>
+                    mergeStatic(
+                        obs
+                            .pipe(
+                                filter(_ => _ instanceof NgModuleFactory)
+                            ),
+                        obs
+                            .pipe(
+                                filter(_ => !(_ instanceof NgModuleFactory)),
+                                map((_: Type<{}>) => this._factoryCacheMap.get(_)),
+                                flatMap(_ => !!_ ? of(_) : this._compile(<Type<{}>> moduleOrFactory))
+                            )
+                    )
                 )
-        );
+            );
     }
 
     /**
