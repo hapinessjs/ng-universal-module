@@ -99,11 +99,13 @@
         "zone.js": "^0.8.18"
     },
     "peerDependencies": {
+        "@angular/compiler": "^5.0.1",
         "@angular/core": "^5.0.1",
         "@angular/http": "^5.0.1",
         "@angular/platform-server": "^5.0.1",
         "@hapiness/core": "^1.1.1",
         "@hapiness/ng-universal-transfer-http": "^5.0.0",
+        "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
         "rxjs": "^5.5.2",
         "ts-loader": "^3.1.1"
     },
