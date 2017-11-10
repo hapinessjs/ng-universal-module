@@ -83,7 +83,7 @@ Install `@angular/platform-server` into your project. Make sure you use the same
 > - `ts-loader` for your webpack build we'll show later and it's only in `devDependencies`.
 > - `@nguniversal/module-map-ngfactory-loader`, as it's used to handle lazy-loading in the context of a server-render. (by loading the chunks right away)
 
-Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your project: `@hapiness/core`, `@hapiness/ng-universal` and `@hapiness/ng-universal-transfer-http`.
+Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your project: [`@hapiness/core`](https://github.com/hapinessjs/hapiness), [`@hapiness/ng-universal`](https://github.com/hapinessjs/ng-universal-module) and [`@hapiness/ng-universal-transfer-http`](https://github.com/hapinessjs/ng-universal-transfer-http).
 
 ```bash
 $ yarn add --dev ts-loader
