@@ -550,7 +550,7 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
-* v5.0.0 (2017-11-09)
+* v5.0.0 (2017-11-13)
     * `Angular v5.0.0+`
     * Publish all features of the module
     * Lettable operators for `RxJS` 
