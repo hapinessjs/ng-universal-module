@@ -55,6 +55,7 @@ We use `yarn` as package manager.
 - [Step 1: Prepare your App for Universal rendering](#step-1-prepare-your-app-for-universal-rendering)
     - [src/app/app.module.ts](#srcappappmodulets)
     - [src/app/app.server.module.ts](#srcappappservermodulets)
+    - [src/main.ts](#srcmaints)
 - [Step 2: Create a server "main" file and tsconfig to build it](#step-2-create-a-server-main-file-and-tsconfig-to-build-it)
     - [src/main.server.ts](#srcmainserverts)
     - [src/tsconfig.server.json](#srctsconfigserverjson)
@@ -136,7 +137,7 @@ This example places it alongside `app.module.ts` in a file named `app.server.mod
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { ServerModule } from '@angular/platform-server';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 
 import { AppModule } from './app.module';
@@ -148,7 +149,8 @@ import { AppComponent } from './app.component';
     // by the ServerModule from @angular/platform-server.
     AppModule,
     ServerModule,
-    ModuleMapLoaderModule
+    ModuleMapLoaderModule,
+    ServerTransferStateModule
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.
@@ -156,6 +158,27 @@ import { AppComponent } from './app.component';
 })
 export class AppServerModule {
 }
+```
+
+Then, you must set an event on `DOMContentLoaded` to be sure `TransferState` will be passed between `server` and `client`.
+
+### src/main.ts:
+
+```typescript
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.log(err));
+});
 ```
 
 [back to top](#table-of-contents)
