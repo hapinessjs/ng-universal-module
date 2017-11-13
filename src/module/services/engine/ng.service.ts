@@ -5,31 +5,29 @@ import { ResourceLoader } from '@angular/compiler';
 import { ModuleMap, provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/fromPromise';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/toArray';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
+import { toArray, filter, flatMap, map, tap } from 'rxjs/operators';
+import { mergeStatic } from 'rxjs/operators/merge';
+import { of } from 'rxjs/observable/of';
+import { fromPromise } from 'rxjs/observable/fromPromise';
+import { _throw } from 'rxjs/observable/throw';
 
 import * as fs from 'fs';
 import { join } from 'path';
+import { Buffer } from 'buffer';
 
 import { NG_UNIVERSAL_MODULE_CONFIG, REQUEST, RESPONSE, NgSetupOptions, StaticContent } from '../../interfaces';
 
 export interface UniversalResult {
-    body: string;
+    body: Buffer;
     mime?: string;
 }
 
 @Injectable()
 export class NgEngineService {
     /**
-     * This holds a cached version of each index used.
+     * This holds a cached version of each data used.
      */
-    private _templateCache: { [key: string]: string };
+    private _dataCache: { [key: string]: Buffer };
     /**
      * Map of Module Factories
      */
@@ -72,7 +70,7 @@ export class NgEngineService {
      * @param {HttpServerService} _httpServerService
      */
     constructor(@Inject(NG_UNIVERSAL_MODULE_CONFIG) private _config: NgSetupOptions, private _httpServerService: HttpServerService) {
-        this._templateCache = {};
+        this._dataCache = {};
         this._factoryCacheMap = new Map<Type<{}>, NgModuleFactory<{}>>();
 
         this._compilerFactory = platformDynamicServer().injector.get(CompilerFactory);
@@ -97,22 +95,24 @@ export class NgEngineService {
      * @return {Observable<UniversalResult>}
      */
     universal(request: Request): Observable<UniversalResult> {
-        return Observable
-            .merge(this._checkRequest(request), this._checkConfig())
-            .toArray()
-            .map(_ =>
-                ({
-                    request: <Request> _.shift(),
-                    config: <NgSetupOptions> _.pop()
-                })
-            )
-            .map(_ => Object.assign(_, { mime: this._httpServerService.instance().mime.path(_.request.raw.req.url).type }))
-            .flatMap(_ =>
-                Observable
-                    .merge(
-                        this._getStaticContent(_),
-                        this._getFactoryContent(_)
+        return mergeStatic(
+            this._checkRequest(request),
+            this._checkConfig()
+        )
+            .pipe(
+                toArray(),
+                map(_ =>
+                    ({
+                        request: <Request> _.shift(),
+                        config: <NgSetupOptions> _.pop()
+                    })
+                ),
+                map(_ => Object.assign(_, { mime: this._httpServerService.instance().mime.path(_.request.raw.req.url).type })),
+                flatMap(_ => mergeStatic(
+                    this._getStaticContent(_),
+                    this._getFactoryContent(_)
                     )
+                )
             );
     }
 
@@ -126,14 +126,15 @@ export class NgEngineService {
      * @private
      */
     private _getStaticContent(_: any): Observable<UniversalResult> {
-        return Observable
-            .of(_)
-            .filter(__ => !!__.mime)
-            .flatMap(__ =>
-                Observable.of({
-                    body: this._getDocument(this._buildFilePath(__.config.staticContent, __.mime, __.request.raw.req.url)),
-                    mime: __.mime
-                })
+        return of(_)
+            .pipe(
+                filter(__ => !!__.mime),
+                flatMap(__ =>
+                    of({
+                        body: this._getDocument(this._buildFilePath(__.config.staticContent, __.mime, __.request.raw.req.url)),
+                        mime: __.mime
+                    })
+                )
             );
     }
 
@@ -147,32 +148,33 @@ export class NgEngineService {
      * @private
      */
     private _getFactoryContent(_: any): Observable<UniversalResult> {
-        return Observable
-            .of(_)
-            .filter(__ => !__.mime)
-            .map(__ =>
-                ({
-                    moduleOrFactory: __.config.bootstrap,
-                    extraProviders: this._extraProviders(
-                        __.request,
-                        __.config.providers,
-                        __.config.lazyModuleMap,
-                        this._buildFilePath(__.config.staticContent)
-                    )
-                })
-            )
-            .flatMap(__ =>
-                this._getFactory(__.moduleOrFactory)
-                    .flatMap(factory =>
-                        Observable
-                            .fromPromise(this._renderModuleFactory(factory, { extraProviders: __.extraProviders }))
-                    )
-                    .flatMap(content =>
-                        Observable
-                            .of({
-                                body: content
-                            })
-                    )
+        return of(_)
+            .pipe(
+                filter(__ => !__.mime),
+                map(__ =>
+                    ({
+                        moduleOrFactory: __.config.bootstrap,
+                        extraProviders: this._extraProviders(
+                            __.request,
+                            __.config.providers,
+                            __.config.lazyModuleMap,
+                            this._buildFilePath(__.config.staticContent)
+                        )
+                    })
+                ),
+                flatMap(__ =>
+                    this._getFactory(__.moduleOrFactory)
+                        .pipe(
+                            flatMap(factory =>
+                                fromPromise(this._renderModuleFactory(factory, { extraProviders: __.extraProviders }))
+                            ),
+                            flatMap(content =>
+                                of({
+                                        body: Buffer.from(content)
+                                    })
+                            )
+                        )
+                )
             );
     }
 
@@ -186,11 +188,12 @@ export class NgEngineService {
      * @private
      */
     private _checkRequest(request: Request): Observable<Request> {
-        return Observable
-            .of(request)
-            .flatMap(_ => (!!_ && !!_.raw && !!_.raw.req && _.raw.req.url !== undefined) ?
-                Observable.of(_) :
-                Observable.throw(new Error('url is undefined'))
+        return of(request)
+            .pipe(
+                flatMap(_ => (!!_ && !!_.raw && !!_.raw.req && _.raw.req.url !== undefined) ?
+                    of(_) :
+                    _throw(new Error('url is undefined'))
+                )
             );
     }
 
@@ -202,34 +205,35 @@ export class NgEngineService {
      * @private
      */
     private _checkConfig(): Observable<NgSetupOptions> {
-        return Observable
-            .of(this._config)
-            .flatMap(_ => (!!_ && !!_.bootstrap) ?
-                Observable.of(_) :
-                Observable.throw(new Error('You must pass in config a NgModule or NgModuleFactory to be bootstrapped'))
-            )
-            .flatMap(_ => (!!_ && !!_.lazyModuleMap) ?
-                Observable.of(_) :
-                Observable.throw(new Error('You must pass in config lazy module map'))
-            )
-            .flatMap(_ => (!!_ && !!_.staticContent) ?
-                Observable.of(_) :
-                Observable.throw(new Error('You must pass in config the static content object'))
-            )
-            .flatMap(_ => (!!_ && !!_.staticContent.indexFile) ?
-                Observable.of(_) :
-                Observable.throw(new Error('You must pass in config the static content object with index file'))
-            )
-            .flatMap(_ => (!!_ && !!_.staticContent.rootPath) ?
-                Observable.of(_) :
-                Observable.throw(new Error('You must pass in config the static content object with root path'))
-            )
-            .flatMap(_ => Observable.of({
-                    bootstrap: _.bootstrap,
-                    lazyModuleMap: _.lazyModuleMap,
-                    staticContent: _.staticContent,
-                    providers: _.providers || []
-                })
+        return of(this._config)
+            .pipe(
+                flatMap(_ => (!!_ && !!_.bootstrap) ?
+                    of(_) :
+                    _throw(new Error('You must pass in config a NgModule or NgModuleFactory to be bootstrapped'))
+                ),
+                flatMap(_ => (!!_ && !!_.lazyModuleMap) ?
+                    of(_) :
+                    _throw(new Error('You must pass in config lazy module map'))
+                ),
+                flatMap(_ => (!!_ && !!_.staticContent) ?
+                    of(_) :
+                    _throw(new Error('You must pass in config the static content object'))
+                ),
+                flatMap(_ => (!!_ && !!_.staticContent.indexFile) ?
+                    of(_) :
+                    _throw(new Error('You must pass in config the static content object with index file'))
+                ),
+                flatMap(_ => (!!_ && !!_.staticContent.rootPath) ?
+                    of(_) :
+                    _throw(new Error('You must pass in config the static content object with root path'))
+                ),
+                flatMap(_ => of({
+                        bootstrap: _.bootstrap,
+                        lazyModuleMap: _.lazyModuleMap,
+                        staticContent: _.staticContent,
+                        providers: _.providers || []
+                    })
+                )
             );
     }
 
@@ -254,7 +258,7 @@ export class NgEngineService {
                 {
                     provide: INITIAL_CONFIG,
                     useValue: {
-                        document: this._getDocument(filePath),
+                        document: this._getDocument(filePath).toString(),
                         url: request.raw.req.url
                     }
                 }
@@ -272,16 +276,25 @@ export class NgEngineService {
      * @private
      */
     private _getFactory(moduleOrFactory: Type<{}> | NgModuleFactory<{}>): Observable<NgModuleFactory<{}>> {
-        return <Observable<NgModuleFactory<{}>>> Observable.merge(
-            Observable
-                .of(moduleOrFactory)
-                .filter(_ => _ instanceof NgModuleFactory),
-            Observable
-                .of(moduleOrFactory)
-                .filter(_ => !(_ instanceof NgModuleFactory))
-                .map((_: Type<{}>) => this._factoryCacheMap.get(_))
-                .flatMap(_ => !!_ ? Observable.of(_) : this._compile(<Type<{}>> moduleOrFactory))
+        return <Observable<NgModuleFactory<{}>>> of(
+            of(moduleOrFactory)
         )
+            .pipe(
+                flatMap(obs =>
+                    mergeStatic(
+                        obs
+                            .pipe(
+                                filter(_ => _ instanceof NgModuleFactory)
+                            ),
+                        obs
+                            .pipe(
+                                filter(_ => !(_ instanceof NgModuleFactory)),
+                                map((_: Type<{}>) => this._factoryCacheMap.get(_)),
+                                flatMap(_ => !!_ ? of(_) : this._compile(<Type<{}>> moduleOrFactory))
+                            )
+                    )
+                )
+            );
     }
 
     /**
@@ -294,9 +307,10 @@ export class NgEngineService {
      * @private
      */
     private _compile(module: Type<{}>): Observable<NgModuleFactory<{}>> {
-        return <Observable<NgModuleFactory<{}>>> Observable
-            .fromPromise(this._compiler.compileModuleAsync(module))
-            .do(_ => this._factoryCacheMap.set(module, _));
+        return <Observable<NgModuleFactory<{}>>> fromPromise(this._compiler.compileModuleAsync(module))
+            .pipe(
+                tap(_ => this._factoryCacheMap.set(module, _))
+            );
     }
 
     /**
@@ -343,12 +357,12 @@ export class NgEngineService {
      *
      * @param {string} filePath path to the file
      *
-     * @return {string}
+     * @return {Buffer}
      *
      * @private
      */
-    private _getDocument(filePath: string): string {
-        return this._templateCache[filePath] = this._templateCache[filePath] || fs.readFileSync(filePath).toString();
+    private _getDocument(filePath: string): Buffer {
+        return this._dataCache[filePath] = this._dataCache[filePath] || fs.readFileSync(filePath);
     }
 }
 

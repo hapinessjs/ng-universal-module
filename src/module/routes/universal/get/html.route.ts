@@ -22,6 +22,6 @@ export class GetHtmlUniversalRoute implements OnGet {
      */
     onGet(request: Request, reply: ReplyNoContinue): void {
         this._ngEngineService.universal(request)
-            .subscribe((_: UniversalResult) => !!_.mime ? reply(_.body).header('content-type', _.mime) : reply(_.body));
+            .subscribe((_: UniversalResult) => !!_.mime ? reply(_.body).header('content-type', _.mime) : reply(_.body.toString()));
     }
 }

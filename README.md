@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@5.0.0-rc.6` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@5.0.0` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -55,6 +55,7 @@ We use `yarn` as package manager.
 - [Step 1: Prepare your App for Universal rendering](#step-1-prepare-your-app-for-universal-rendering)
     - [src/app/app.module.ts](#srcappappmodulets)
     - [src/app/app.server.module.ts](#srcappappservermodulets)
+    - [src/main.ts](#srcmaints)
 - [Step 2: Create a server "main" file and tsconfig to build it](#step-2-create-a-server-main-file-and-tsconfig-to-build-it)
     - [src/main.server.ts](#srcmainserverts)
     - [src/tsconfig.server.json](#srctsconfigserverjson)
@@ -82,13 +83,12 @@ Install `@angular/platform-server` into your project. Make sure you use the same
 > You also need :
 > - `ts-loader` for your webpack build we'll show later and it's only in `devDependencies`.
 > - `@nguniversal/module-map-ngfactory-loader`, as it's used to handle lazy-loading in the context of a server-render. (by loading the chunks right away)
-> - `@nguniversal/common`, as it's to use `TransferHttpCacheModule`.
 
-Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your project: `@hapiness/core` and `@hapiness/ng-universal`.
+Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your project: [`@hapiness/core`](https://github.com/hapinessjs/hapiness), [`@hapiness/ng-universal`](https://github.com/hapinessjs/ng-universal-module) and [`@hapiness/ng-universal-transfer-http`](https://github.com/hapinessjs/ng-universal-transfer-http).
 
 ```bash
 $ yarn add --dev ts-loader
-$ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @nguniversal/common @hapiness/core @hapiness/ng-universal
+$ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @hapiness/core @hapiness/ng-universal @hapiness/ng-universal-transfer-http
 ```
 
 ## Step 1: Prepare your App for Universal rendering
@@ -106,7 +106,7 @@ To use the `TransferHttpCacheModule` just install it as part of the top-level Ap
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { TransferHttpCacheModule } from '@nguniversal/common';
+import { TransferHttpCacheModule } from '@hapiness/ng-universal-transfer-http';
 
 import { AppComponent } from './app.component';
 
@@ -137,7 +137,8 @@ This example places it alongside `app.module.ts` in a file named `app.server.mod
 
 ```typescript
 import { NgModule } from '@angular/core';
-import { ServerModule } from '@angular/platform-server';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
+import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
@@ -147,7 +148,9 @@ import { AppComponent } from './app.component';
     // The AppServerModule should import your AppModule followed
     // by the ServerModule from @angular/platform-server.
     AppModule,
-    ServerModule
+    ServerModule,
+    ModuleMapLoaderModule,
+    ServerTransferStateModule
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.
@@ -155,6 +158,27 @@ import { AppComponent } from './app.component';
 })
 export class AppServerModule {
 }
+```
+
+Then, you must set an event on `DOMContentLoaded` to be sure `TransferState` will be passed between `server` and `client`.
+
+### src/main.ts:
+
+```typescript
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.log(err));
+});
 ```
 
 [back to top](#table-of-contents)
@@ -526,11 +550,10 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
-* v1.0.1 (2017-10-26)
-    * `Angular v5.0.0-rc.6`
-    * Latest packages' versions
-* v1.0.0 (2017-10-23)
+* v5.0.0 (2017-11-13)
+    * `Angular v5.0.0+`
     * Publish all features of the module
+    * Lettable operators for `RxJS` 
     * Tests
     * Documentation
 

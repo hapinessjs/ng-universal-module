@@ -1,11 +1,11 @@
 import { test, suite } from 'mocha-typescript';
-import { Observable } from 'rxjs/Observable';
 import { ReplyNoContinue } from '@hapiness/core';
 import { GetHtmlUniversalRoute } from '../../src/module/routes';
 import { NgEngineService } from '../../src/module/services';
 
 import * as unit from 'unit.js';
-import 'rxjs/add/observable/of';
+import { of } from 'rxjs/observable/of';
+import { Buffer } from 'buffer';
 
 @suite('- Unit GetHtmlUniversalRouteTest file')
 export class GetHtmlUniversalRouteTest {
@@ -62,7 +62,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and no header')
     testGetHtmlUniversalRouteOnGetObservableHtmlWithoutHeader(done) {
-        this._ngEngineServiceMock.expects('universal').once().returns(Observable.of({ body: '<h1>Hello Angular</h1>' }));
+        this._ngEngineServiceMock.expects('universal').once().returns(of({ body: Buffer.from('<h1>Hello Angular</h1>') }));
 
         this._getHtmlUniversalRoute.onGet(null, <ReplyNoContinue>(res => {
             unit.string(res).is('<h1>Hello Angular</h1>').when(_ => {
@@ -78,10 +78,11 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and header')
     testGetHtmlUniversalRouteOnGetObservableHtmlWithHeader(done) {
-        this._ngEngineServiceMock.expects('universal').once().returns(Observable.of({ body: '<h1>Hello Angular</h1>', mime: 'text/html' }));
+        this._ngEngineServiceMock.expects('universal').once()
+            .returns(of({ body: Buffer.from('<h1>Hello Angular</h1>'), mime: 'text/html' }));
 
         this._getHtmlUniversalRoute.onGet(null, <ReplyNoContinue>(res => {
-            unit.string(res).is('<h1>Hello Angular</h1>').when(_ => {
+            unit.string(res.toString()).is('<h1>Hello Angular</h1>').when(_ => {
                 this._ngEngineServiceMock.verify();
                 this._ngEngineServiceMock.restore();
                 done();
