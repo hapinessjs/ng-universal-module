@@ -1,5 +1,7 @@
-import { OnGet, Request, Route, ReplyNoContinue } from '@hapiness/core';
-import { NgEngineService, UniversalResult } from '../../../services';
+import { OnGet, Request, Route } from '@hapiness/core';
+import { HapinessHTTPHandlerResponse } from '@hapiness/core/extensions/http-server';
+import { NgEngineService } from '../../../services';
+import { Observable } from 'rxjs/Observable';
 
 @Route({
     path: '/{path*}',
@@ -18,10 +20,10 @@ export class GetHtmlUniversalRoute implements OnGet {
      * OnGet implementation
      *
      * @param {Request} request
-     * @param {ReplyNoContinue} reply
+     *
+     * @returns {Observable<any | HapinessHTTPHandlerResponse>}
      */
-    onGet(request: Request, reply: ReplyNoContinue): void {
-        this._ngEngineService.universal(request)
-            .subscribe((_: UniversalResult) => !!_.mime ? reply(_.body).header('content-type', _.mime) : reply(_.body.toString()));
+    onGet(request: Request): Observable<any | HapinessHTTPHandlerResponse> {
+        return this._ngEngineService.universal(request);
     }
 }
