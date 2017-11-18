@@ -164,7 +164,7 @@ export class NgEngineServiceTest {
             .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
 
         ngE.universal(this._request)
-            .subscribe(_ => unit.string(_.body.toString()).is('<h1>Hello Angular</h1>')
+            .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
                 .when(__ => {
                     compilerStub.restore();
                     renderModuleFactoryStub.restore();
@@ -191,7 +191,7 @@ export class NgEngineServiceTest {
             .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
 
         ngE.universal(this._request)
-            .subscribe(_ => unit.string(_.body.toString()).is('<h1>Hello Angular</h1>')
+            .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
                 .when(__ => {
                     renderModuleFactoryStub.restore();
                     done();
@@ -213,7 +213,7 @@ export class NgEngineServiceTest {
 
 
         ngE.universal(<any> { raw: { req: { url: '/' } } })
-            .subscribe(_ => unit.string(_.body.toString()).is('')
+            .subscribe(_ => unit.string(_.response.toString()).is('')
                 .when(__ => {
                     done();
                 })

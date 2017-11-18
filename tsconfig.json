@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
         "target": "es2015",
-        "module": "umd",
+        "module": "commonjs",
         "moduleResolution": "node",
         "declaration": true,
         "noImplicitAny": false,
         "sourceMap": true,
+        "inlineSources": true,
         "noUnusedLocals": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,

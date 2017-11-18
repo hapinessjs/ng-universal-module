@@ -1,5 +1,4 @@
 import { test, suite } from 'mocha-typescript';
-import { ReplyNoContinue } from '@hapiness/core';
 import { GetHtmlUniversalRoute } from '../../src/module/routes';
 import { NgEngineService } from '../../src/module/services';
 
@@ -62,31 +61,31 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and no header')
     testGetHtmlUniversalRouteOnGetObservableHtmlWithoutHeader(done) {
-        this._ngEngineServiceMock.expects('universal').once().returns(of({ body: Buffer.from('<h1>Hello Angular</h1>') }));
+        this._ngEngineServiceMock.expects('universal').once().returns(of('<h1>Hello Angular</h1>'));
 
-        this._getHtmlUniversalRoute.onGet(null, <ReplyNoContinue>(res => {
+        this._getHtmlUniversalRoute.onGet(null).subscribe(res => {
             unit.string(res).is('<h1>Hello Angular</h1>').when(_ => {
                 this._ngEngineServiceMock.verify();
                 this._ngEngineServiceMock.restore();
                 done();
             })
-        }));
+        });
     }
 
     /**
-     * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html data and without header
+     * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html buffer and without header
      */
-    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and header')
+    @test('- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html buffer and header')
     testGetHtmlUniversalRouteOnGetObservableHtmlWithHeader(done) {
         this._ngEngineServiceMock.expects('universal').once()
-            .returns(of({ body: Buffer.from('<h1>Hello Angular</h1>'), mime: 'text/html' }));
+            .returns(of({ response: Buffer.from('<h1>Hello Angular</h1>'), headers: { 'content-type': 'text/html' } }));
 
-        this._getHtmlUniversalRoute.onGet(null, <ReplyNoContinue>(res => {
-            unit.string(res.toString()).is('<h1>Hello Angular</h1>').when(_ => {
+        this._getHtmlUniversalRoute.onGet(null).subscribe(res => {
+            unit.string(res.response.toString()).is('<h1>Hello Angular</h1>').when(_ => {
                 this._ngEngineServiceMock.verify();
                 this._ngEngineServiceMock.restore();
                 done();
             })
-        }));
+        });
     }
 }

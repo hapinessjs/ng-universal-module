@@ -13,14 +13,9 @@ import { _throw } from 'rxjs/observable/throw';
 
 import * as fs from 'fs';
 import { join } from 'path';
-import { Buffer } from 'buffer';
 
 import { NG_UNIVERSAL_MODULE_CONFIG, REQUEST, RESPONSE, NgSetupOptions, StaticContent } from '../../interfaces';
-
-export interface UniversalResult {
-    body: Buffer;
-    mime?: string;
-}
+import { HapinessHTTPHandlerResponse } from '@hapiness/core/extensions/http-server';
 
 @Injectable()
 export class NgEngineService {
@@ -92,9 +87,9 @@ export class NgEngineService {
      *
      * @param {Request} request initial request
      *
-     * @return {Observable<UniversalResult>}
+     * @return {Observable<any | HapinessHTTPHandlerResponse>}
      */
-    universal(request: Request): Observable<UniversalResult> {
+    universal(request: Request): Observable<any | HapinessHTTPHandlerResponse> {
         return mergeStatic(
             this._checkRequest(request),
             this._checkConfig()
@@ -117,37 +112,39 @@ export class NgEngineService {
     }
 
     /**
-     * Returns UniversalResult from static content
+     * Returns HapinessHTTPHandlerResponse from static content
      *
      * @param _
      *
-     * @returns {Observable<UniversalResult>}
+     * @returns {Observable<HapinessHTTPHandlerResponse>}
      *
      * @private
      */
-    private _getStaticContent(_: any): Observable<UniversalResult> {
+    private _getStaticContent(_: any): Observable<HapinessHTTPHandlerResponse> {
         return of(_)
             .pipe(
                 filter(__ => !!__.mime),
                 flatMap(__ =>
                     of({
-                        body: this._getDocument(this._buildFilePath(__.config.staticContent, __.mime, __.request.raw.req.url)),
-                        mime: __.mime
+                        response: this._getDocument(this._buildFilePath(__.config.staticContent, __.mime, __.request.raw.req.url)),
+                        headers: {
+                            'content-type': __.mime
+                        }
                     })
                 )
             );
     }
 
     /**
-     * Returns UniversalResult from NgFactoryModule
+     * Returns content from NgFactoryModule
      *
      * @param _
      *
-     * @returns {Observable<UniversalResult>}
+     * @returns {Observable<any>}
      *
      * @private
      */
-    private _getFactoryContent(_: any): Observable<UniversalResult> {
+    private _getFactoryContent(_: any): Observable<any> {
         return of(_)
             .pipe(
                 filter(__ => !__.mime),
@@ -167,11 +164,6 @@ export class NgEngineService {
                         .pipe(
                             flatMap(factory =>
                                 fromPromise(this._renderModuleFactory(factory, { extraProviders: __.extraProviders }))
-                            ),
-                            flatMap(content =>
-                                of({
-                                        body: Buffer.from(content)
-                                    })
                             )
                         )
                 )
