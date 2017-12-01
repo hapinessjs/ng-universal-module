@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@5.0.2` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@5.0.4` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -550,6 +550,9 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v5.1.1 (2017-12-01)
+    * `Angular v5.0.4+`
+    * Change signature of `universal service response` related to latest `@hapiness/core`
 * v5.1.0 (2017-11-18)
     * `Angular v5.0.2+`
     * Returns `Observable` in route instead of to use `ReplyNoContinue` interface
