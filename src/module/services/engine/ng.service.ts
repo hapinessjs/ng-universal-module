@@ -1,4 +1,4 @@
-import { HttpServerService, Inject, Injectable, Request } from '@hapiness/core';
+import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse } from '@hapiness/core';
 import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
@@ -15,7 +15,6 @@ import * as fs from 'fs';
 import { join } from 'path';
 
 import { NG_UNIVERSAL_MODULE_CONFIG, REQUEST, RESPONSE, NgSetupOptions, StaticContent } from '../../interfaces';
-import { HapinessHTTPHandlerResponse } from '@hapiness/core/extensions/http-server';
 
 @Injectable()
 export class NgEngineService {
@@ -87,9 +86,9 @@ export class NgEngineService {
      *
      * @param {Request} request initial request
      *
-     * @return {Observable<any | HapinessHTTPHandlerResponse>}
+     * @return {Observable<any | HTTPHandlerResponse>}
      */
-    universal(request: Request): Observable<any | HapinessHTTPHandlerResponse> {
+    universal(request: Request): Observable<any | HTTPHandlerResponse> {
         return mergeStatic(
             this._checkRequest(request),
             this._checkConfig()
@@ -112,15 +111,15 @@ export class NgEngineService {
     }
 
     /**
-     * Returns HapinessHTTPHandlerResponse from static content
+     * Returns HTTPHandlerResponse from static content
      *
      * @param _
      *
-     * @returns {Observable<HapinessHTTPHandlerResponse>}
+     * @returns {Observable<HTTPHandlerResponse>}
      *
      * @private
      */
-    private _getStaticContent(_: any): Observable<HapinessHTTPHandlerResponse> {
+    private _getStaticContent(_: any): Observable<HTTPHandlerResponse> {
         return of(_)
             .pipe(
                 filter(__ => !!__.mime),
