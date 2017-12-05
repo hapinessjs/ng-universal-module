@@ -14,7 +14,8 @@ import { _throw } from 'rxjs/observable/throw';
 import * as fs from 'fs';
 import { join } from 'path';
 
-import { NG_UNIVERSAL_MODULE_CONFIG, REQUEST, RESPONSE, NgSetupOptions, StaticContent } from '../../interfaces';
+import { NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions, StaticContent } from '../../interfaces';
+import { REQUEST, RESPONSE } from '../../../injection';
 
 @Injectable()
 export class NgEngineService {
