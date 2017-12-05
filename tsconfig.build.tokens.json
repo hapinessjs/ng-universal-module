@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "outDir": "./dist/injection",
+    "rootDir": "./src/injection"
+  },
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "tools",
+    "src/index.ts",
+    "src/module"
+  ]
+}
