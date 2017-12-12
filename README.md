@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@5.0.5` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@5.1.0` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -550,6 +550,11 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v5.2.0 (2017-12-12)
+    * `Angular v5.1.0+`
+    * `RxJS v5.5.5+`
+    * Change `RESPONSE InjectionToken` signature to be a `reply` interface from `HapiJS` 
+    * Documentation
 * v5.1.2 (2017-12-05)
     * `Angular v5.0.5+`
     * `RxJS v5.5.3+`
@@ -583,12 +588,14 @@ To set up your development environment:
         <td align="center"><a href="https://github.com/antoinegomez"><img src="https://avatars3.githubusercontent.com/u/997028?v=3&s=117" width="117"/></a></td>
         <td align="center"><a href="https://github.com/reptilbud"><img src="https://avatars3.githubusercontent.com/u/6841511?v=3&s=117" width="117"/></a></td>
         <td align="center"><a href="https://github.com/njl07"><img src="https://avatars3.githubusercontent.com/u/1673977?v=3&s=117" width="117"/></a></td>
+        <td align="center"><a href="https://github.com/njl07"><img src="https://avatars2.githubusercontent.com/u/6479712?s=117&v=4" width="117"/></a></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/Juneil">Julien Fauville</a></td>
         <td align="center"><a href="https://github.com/antoinegomez">Antoine Gomez</a></td>
         <td align="center"><a href="https://github.com/reptilbud">Sébastien Ritz</a></td>
         <td align="center"><a href="https://github.com/njl07">Nicolas Jessel</a></td>
+        <td align="center"><a href="https://github.com/njl07">Mathieu Jeanmougin</a></td>
     </tr>
 </table>
 

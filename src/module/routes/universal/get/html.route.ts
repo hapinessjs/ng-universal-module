@@ -1,4 +1,4 @@
-import { OnGet, Request, Route, HTTPHandlerResponse } from '@hapiness/core';
+import { OnGet, Request, Route, HTTPHandlerResponse, ReplyNoContinue } from '@hapiness/core';
 import { NgEngineService } from '../../../services';
 import { Observable } from 'rxjs/Observable';
 
@@ -19,10 +19,11 @@ export class GetHtmlUniversalRoute implements OnGet {
      * OnGet implementation
      *
      * @param {Request} request
+     * @param {ReplyNoContinue} reply
      *
      * @returns {Observable<any | HTTPHandlerResponse>}
      */
-    onGet(request: Request): Observable<any | HTTPHandlerResponse> {
-        return this._ngEngineService.universal(request);
+    onGet(request: Request, reply: ReplyNoContinue): Observable<any | HTTPHandlerResponse> {
+        return this._ngEngineService.universal(request, reply);
     }
 }

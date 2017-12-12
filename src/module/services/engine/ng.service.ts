@@ -1,4 +1,4 @@
-import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse } from '@hapiness/core';
+import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse, ReplyNoContinue } from '@hapiness/core';
 import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
@@ -86,10 +86,11 @@ export class NgEngineService {
      * Returns universal rendering of HTML
      *
      * @param {Request} request initial request
+     * @param {ReplyNoContinue} reply initial response
      *
      * @return {Observable<any | HTTPHandlerResponse>}
      */
-    universal(request: Request): Observable<any | HTTPHandlerResponse> {
+    universal(request: Request, reply: ReplyNoContinue): Observable<any | HTTPHandlerResponse> {
         return mergeStatic(
             this._checkRequest(request),
             this._checkConfig()
@@ -99,6 +100,7 @@ export class NgEngineService {
                 map(_ =>
                     ({
                         request: <Request> _.shift(),
+                        reply: reply,
                         config: <NgSetupOptions> _.pop()
                     })
                 ),
@@ -153,6 +155,7 @@ export class NgEngineService {
                         moduleOrFactory: __.config.bootstrap,
                         extraProviders: this._extraProviders(
                             __.request,
+                            __.reply,
                             __.config.providers,
                             __.config.lazyModuleMap,
                             this._buildFilePath(__.config.staticContent)
@@ -233,6 +236,7 @@ export class NgEngineService {
      * Builds extra providers
      *
      * @param {Request} request
+     * @param {ReplyNoContinue} reply
      * @param {StaticProvider[]} providers
      * @param {ModuleMap} lazyModuleMap
      * @param {string} filePath
@@ -241,11 +245,12 @@ export class NgEngineService {
      *
      * @private
      */
-    private _extraProviders(request: Request, providers: StaticProvider[], lazyModuleMap: ModuleMap, filePath: string): StaticProvider[] {
+    private _extraProviders(request: Request, reply: ReplyNoContinue, providers: StaticProvider[],
+                            lazyModuleMap: ModuleMap, filePath: string): StaticProvider[] {
         return providers!.concat(
             providers!,
             this._provideModuleMap(lazyModuleMap),
-            this._getRequestProviders(request),
+            this._getRequestProviders(request, reply),
             [
                 {
                     provide: INITIAL_CONFIG,
@@ -309,12 +314,13 @@ export class NgEngineService {
      * Get providers of the request and response
      *
      * @param {Request} request current request
+     * @param {ReplyNoContinue} reply current response
      *
      * @return {StaticProvider[]}
      *
      * @private
      */
-    private _getRequestProviders(request: Request): StaticProvider[] {
+    private _getRequestProviders(request: Request, reply: ReplyNoContinue): StaticProvider[] {
         return <StaticProvider[]> [
             {
                 provide: REQUEST,
@@ -322,7 +328,7 @@ export class NgEngineService {
             },
             {
                 provide: RESPONSE,
-                useValue: request.raw.res
+                useValue: reply
             }
         ];
     }
