@@ -1,4 +1,4 @@
-import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse } from '@hapiness/core';
+import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse, ReplyNoContinue } from '@hapiness/core';
 import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
@@ -16,7 +16,6 @@ import { join } from 'path';
 
 import { NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions, StaticContent } from '../../interfaces';
 import { REQUEST, RESPONSE } from '../../../injection';
-import { ReplyNoContinue } from 'hapi';
 
 @Injectable()
 export class NgEngineService {

@@ -1,7 +1,6 @@
-import { OnGet, Request, Route, HTTPHandlerResponse } from '@hapiness/core';
+import { OnGet, Request, Route, HTTPHandlerResponse, ReplyNoContinue } from '@hapiness/core';
 import { NgEngineService } from '../../../services';
 import { Observable } from 'rxjs/Observable';
-import { ReplyNoContinue } from 'hapi';
 
 @Route({
     path: '/{path*}',
