@@ -1,6 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import { Request } from '@hapiness/core';
-import { Response } from 'hapi';
+import { Request , ReplyNoContinue} from '@hapiness/core';
 
 export const REQUEST = new InjectionToken<Request>('request');
-export const RESPONSE = new InjectionToken<Response>('response');
+export const RESPONSE = new InjectionToken<ReplyNoContinue>('response');

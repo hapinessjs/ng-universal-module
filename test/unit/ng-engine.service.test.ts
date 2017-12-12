@@ -12,6 +12,8 @@ export class NgEngineServiceTest {
     private _ngEngineService: NgEngineService;
     // private property to store request mock
     private _request: any;
+    // private property to store reply mock
+    private _reply: any;
     // private property to store fs stub
     private _fsStub: any;
     private _server: any;
@@ -41,6 +43,7 @@ export class NgEngineServiceTest {
     before() {
         this._ngEngineService = new NgEngineService(null, null);
         this._request = { raw: { req: { url: '' }, res: {} } };
+        this._reply = {};
         this._server = { instance: () => ({ mime: { path: (p: string) => ({ type: '' }) } }) };
         this._fsStub = unit.stub(fs, 'readFileSync').returns(Buffer.from(''));
     }
@@ -52,6 +55,7 @@ export class NgEngineServiceTest {
         this._ngEngineService = undefined;
         this._request = undefined;
         this._server = undefined;
+        this._reply = undefined;
         this._fsStub.restore();
         this._fsStub = undefined;
     }
@@ -69,7 +73,7 @@ export class NgEngineServiceTest {
      */
     @test('- `NgEngineService.universal()` function must return an Observable')
     testNgEngineServiceUniversalObservable(done) {
-        unit.object(this._ngEngineService.universal(null)).isInstanceOf(Observable).when(_ => done());
+        unit.object(this._ngEngineService.universal(null, null)).isInstanceOf(Observable).when(_ => done());
     }
 
     /**
@@ -77,7 +81,7 @@ export class NgEngineServiceTest {
      */
     @test('- `NgEngineService.universal()` function must return an Observable Error if parameter is wrong')
     testNgEngineServiceUniversalObservableReqParamError(done) {
-        this._ngEngineService.universal(null)
+        this._ngEngineService.universal(null, null)
             .subscribe(null, e => unit.string(e.message).is('url is undefined').when(_ => done()));
     }
 
@@ -86,7 +90,7 @@ export class NgEngineServiceTest {
      */
     @test('- `NgEngineService.universal()` function must return an Observable Error if missing bootstrap in config')
     testNgEngineServiceUniversalObservableConfigBootstrapError(done) {
-        this._ngEngineService.universal(this._request)
+        this._ngEngineService.universal(this._request, this._reply)
             .subscribe(null, e => unit.string(e.message)
                 .is('You must pass in config a NgModule or NgModuleFactory to be bootstrapped').when(_ => done()));
     }
@@ -101,7 +105,7 @@ export class NgEngineServiceTest {
             lazyModuleMap: null,
             staticContent: null
         }, null);
-        ngE.universal(this._request)
+        ngE.universal(this._request, this._reply)
             .subscribe(null, e => unit.string(e.message)
                 .is('You must pass in config lazy module map').when(_ => done()));
     }
@@ -112,7 +116,7 @@ export class NgEngineServiceTest {
     @test('- `NgEngineService.universal()` function must return an Observable Error if missing staticContent in config')
     testNgEngineServiceUniversalObservableConfigStaticContentError(done) {
         const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: {}, staticContent: null }, null);
-        ngE.universal(this._request)
+        ngE.universal(this._request, this._reply)
             .subscribe(null, e => unit.string(e.message)
                 .is('You must pass in config the static content object').when(_ => done()));
     }
@@ -127,7 +131,7 @@ export class NgEngineServiceTest {
             lazyModuleMap: {},
             staticContent: { indexFile: null, rootPath: '' }
         }, null);
-        ngE.universal(this._request)
+        ngE.universal(this._request, this._reply)
             .subscribe(null, e => unit.string(e.message)
                 .is('You must pass in config the static content object with index file').when(_ => done()));
     }
@@ -142,7 +146,7 @@ export class NgEngineServiceTest {
             lazyModuleMap: {},
             staticContent: { indexFile: '/', rootPath: '' }
         }, null);
-        ngE.universal(this._request)
+        ngE.universal(this._request, this._reply)
             .subscribe(null, e => unit.string(e.message)
                 .is('You must pass in config the static content object with root path').when(_ => done()));
     }
@@ -163,7 +167,7 @@ export class NgEngineServiceTest {
         const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
             .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
 
-        ngE.universal(this._request)
+        ngE.universal(this._request, this._reply)
             .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
                 .when(__ => {
                     compilerStub.restore();
@@ -190,7 +194,7 @@ export class NgEngineServiceTest {
         const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
             .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
 
-        ngE.universal(this._request)
+        ngE.universal(this._request, this._reply)
             .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
                 .when(__ => {
                     renderModuleFactoryStub.restore();
@@ -212,7 +216,7 @@ export class NgEngineServiceTest {
         }, <any> { instance: () => ({ mime: { path: (p: string) => ({ type: 'plain/text' }) } }) });
 
 
-        ngE.universal(<any> { raw: { req: { url: '/' } } })
+        ngE.universal(<any> { raw: { req: { url: '/' } } }, this._reply)
             .subscribe(_ => unit.string(_.response.toString()).is('')
                 .when(__ => {
                     done();

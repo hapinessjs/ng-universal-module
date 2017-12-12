@@ -1,3 +1,2 @@
 export * from './tokens';
-export { Request } from '@hapiness/core';
-export { Response } from 'hapi';
+export { Request, ReplyNoContinue } from '@hapiness/core';
