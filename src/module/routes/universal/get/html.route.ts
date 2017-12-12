@@ -19,6 +19,7 @@ export class GetHtmlUniversalRoute implements OnGet {
      * OnGet implementation
      *
      * @param {Request} request
+     * @param {ReplyNoContinue} reply
      *
      * @returns {Observable<any | HTTPHandlerResponse>}
      */

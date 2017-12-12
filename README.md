@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@5.0.5` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@5.1.0` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -550,6 +550,11 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v5.2.0 (2017-12-12)
+    * `Angular v5.1.0+`
+    * `RxJS v5.5.5+`
+    * Change `RESPONSE InjectionToken` signature to be a `reply` interface from `HapiJS` 
+    * Documentation
 * v5.1.2 (2017-12-05)
     * `Angular v5.0.5+`
     * `RxJS v5.5.3+`

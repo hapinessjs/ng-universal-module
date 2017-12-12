@@ -86,6 +86,7 @@ export class NgEngineService {
      * Returns universal rendering of HTML
      *
      * @param {Request} request initial request
+     * @param {ReplyNoContinue} reply initial response
      *
      * @return {Observable<any | HTTPHandlerResponse>}
      */
@@ -235,6 +236,7 @@ export class NgEngineService {
      * Builds extra providers
      *
      * @param {Request} request
+     * @param {ReplyNoContinue} reply
      * @param {StaticProvider[]} providers
      * @param {ModuleMap} lazyModuleMap
      * @param {string} filePath
@@ -312,6 +314,7 @@ export class NgEngineService {
      * Get providers of the request and response
      *
      * @param {Request} request current request
+     * @param {ReplyNoContinue} reply current response
      *
      * @return {StaticProvider[]}
      *
