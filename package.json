@@ -63,6 +63,10 @@
         {
             "name": "Nicolas Jessel",
             "url": "https://github.com/njl07"
+        },
+        {
+            "name": "Mathieu Jeanmougin",
+            "url": "https://github.com/sopretty"
         }
     ],
     "license": "SEE LICENSE IN https://github.com/hapinessjs/ng-universal-module/blob/master/LICENSE.md",
