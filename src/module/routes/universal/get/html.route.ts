@@ -1,6 +1,7 @@
-import { OnGet, Request, Route, HTTPHandlerResponse } from '@hapiness/core';
-import { NgEngineService } from '../../../services';
-import { Observable } from 'rxjs/Observable';
+import {OnGet, Request, Route, HTTPHandlerResponse} from '@hapiness/core';
+import {NgEngineService} from '../../../services';
+import {Observable} from 'rxjs/Observable';
+import {ReplyWithContinue} from 'hapi';
 
 @Route({
     path: '/{path*}',
@@ -22,7 +23,7 @@ export class GetHtmlUniversalRoute implements OnGet {
      *
      * @returns {Observable<any | HTTPHandlerResponse>}
      */
-    onGet(request: Request): Observable<any | HTTPHandlerResponse> {
-        return this._ngEngineService.universal(request);
+    onGet(request: Request, reply: ReplyWithContinue): Observable<any | HTTPHandlerResponse> {
+        return this._ngEngineService.universal(request, reply);
     }
 }

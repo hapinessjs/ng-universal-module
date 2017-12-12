@@ -1,21 +1,22 @@
-import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse } from '@hapiness/core';
-import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
-import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
-import { ResourceLoader } from '@angular/compiler';
-import { ModuleMap, provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import {HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse} from '@hapiness/core';
+import {Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type} from '@angular/core';
+import {INITIAL_CONFIG, platformDynamicServer, renderModuleFactory} from '@angular/platform-server';
+import {ResourceLoader} from '@angular/compiler';
+import {ModuleMap, provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 
-import { Observable } from 'rxjs/Observable';
-import { toArray, filter, flatMap, map, tap } from 'rxjs/operators';
-import { mergeStatic } from 'rxjs/operators/merge';
-import { of } from 'rxjs/observable/of';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { _throw } from 'rxjs/observable/throw';
+import {Observable} from 'rxjs/Observable';
+import {toArray, filter, flatMap, map, tap} from 'rxjs/operators';
+import {mergeStatic} from 'rxjs/operators/merge';
+import {of} from 'rxjs/observable/of';
+import {fromPromise} from 'rxjs/observable/fromPromise';
+import {_throw} from 'rxjs/observable/throw';
 
 import * as fs from 'fs';
-import { join } from 'path';
+import {join} from 'path';
 
-import { NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions, StaticContent } from '../../interfaces';
-import { REQUEST, RESPONSE } from '../../../injection';
+import {NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions, StaticContent} from '../../interfaces';
+import {REQUEST, RESPONSE} from '../../../injection';
+import {ReplyWithContinue} from 'hapi';
 
 @Injectable()
 export class NgEngineService {
@@ -73,7 +74,7 @@ export class NgEngineService {
         this._compiler = this._compilerFactory.createCompiler([
             {
                 providers: [
-                    { provide: ResourceLoader, useClass: FileLoader, deps: [] }
+                    {provide: ResourceLoader, useClass: FileLoader, deps: []}
                 ]
             }
         ]);
@@ -89,7 +90,7 @@ export class NgEngineService {
      *
      * @return {Observable<any | HTTPHandlerResponse>}
      */
-    universal(request: Request): Observable<any | HTTPHandlerResponse> {
+    universal(request: Request, reply: ReplyWithContinue): Observable<any | HTTPHandlerResponse> {
         return mergeStatic(
             this._checkRequest(request),
             this._checkConfig()
@@ -99,10 +100,11 @@ export class NgEngineService {
                 map(_ =>
                     ({
                         request: <Request> _.shift(),
+                        reply: reply,
                         config: <NgSetupOptions> _.pop()
                     })
                 ),
-                map(_ => Object.assign(_, { mime: this._httpServerService.instance().mime.path(_.request.raw.req.url).type })),
+                map(_ => Object.assign(_, {mime: this._httpServerService.instance().mime.path(_.request.raw.req.url).type})),
                 flatMap(_ => mergeStatic(
                     this._getStaticContent(_),
                     this._getFactoryContent(_)
@@ -153,6 +155,7 @@ export class NgEngineService {
                         moduleOrFactory: __.config.bootstrap,
                         extraProviders: this._extraProviders(
                             __.request,
+                            __.reply,
                             __.config.providers,
                             __.config.lazyModuleMap,
                             this._buildFilePath(__.config.staticContent)
@@ -163,7 +166,7 @@ export class NgEngineService {
                     this._getFactory(__.moduleOrFactory)
                         .pipe(
                             flatMap(factory =>
-                                fromPromise(this._renderModuleFactory(factory, { extraProviders: __.extraProviders }))
+                                fromPromise(this._renderModuleFactory(factory, {extraProviders: __.extraProviders}))
                             )
                         )
                 )
@@ -241,11 +244,12 @@ export class NgEngineService {
      *
      * @private
      */
-    private _extraProviders(request: Request, providers: StaticProvider[], lazyModuleMap: ModuleMap, filePath: string): StaticProvider[] {
+    private _extraProviders(request: Request, reply: ReplyWithContinue, providers: StaticProvider[],
+                            lazyModuleMap: ModuleMap, filePath: string): StaticProvider[] {
         return providers!.concat(
             providers!,
             this._provideModuleMap(lazyModuleMap),
-            this._getRequestProviders(request),
+            this._getRequestProviders(request, reply),
             [
                 {
                     provide: INITIAL_CONFIG,
@@ -314,7 +318,7 @@ export class NgEngineService {
      *
      * @private
      */
-    private _getRequestProviders(request: Request): StaticProvider[] {
+    private _getRequestProviders(request: Request, reply: ReplyWithContinue): StaticProvider[] {
         return <StaticProvider[]> [
             {
                 provide: REQUEST,
@@ -322,7 +326,7 @@ export class NgEngineService {
             },
             {
                 provide: RESPONSE,
-                useValue: request.raw.res
+                useValue: reply
             }
         ];
     }
