@@ -63,7 +63,7 @@ export class GetHtmlUniversalRouteTest {
     testGetHtmlUniversalRouteOnGetObservableHtmlWithoutHeader(done) {
         this._ngEngineServiceMock.expects('universal').once().returns(of('<h1>Hello Angular</h1>'));
 
-        this._getHtmlUniversalRoute.onGet(null).subscribe(res => {
+        this._getHtmlUniversalRoute.onGet(null, null).subscribe(res => {
             unit.string(res).is('<h1>Hello Angular</h1>').when(_ => {
                 this._ngEngineServiceMock.verify();
                 this._ngEngineServiceMock.restore();
@@ -80,7 +80,7 @@ export class GetHtmlUniversalRouteTest {
         this._ngEngineServiceMock.expects('universal').once()
             .returns(of({ response: Buffer.from('<h1>Hello Angular</h1>'), headers: { 'content-type': 'text/html' } }));
 
-        this._getHtmlUniversalRoute.onGet(null).subscribe(res => {
+        this._getHtmlUniversalRoute.onGet(null, null).subscribe(res => {
             unit.string(res.response.toString()).is('<h1>Hello Angular</h1>').when(_ => {
                 this._ngEngineServiceMock.verify();
                 this._ngEngineServiceMock.restore();
