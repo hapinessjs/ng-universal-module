@@ -4,7 +4,7 @@ import { GetHtmlUniversalRoute } from './routes';
 import { NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions } from './interfaces';
 
 @HapinessModule({
-    version: '1.0.0',
+    version: '5.2.1',
     declarations: [
         GetHtmlUniversalRoute
     ],
