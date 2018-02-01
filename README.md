@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@5.2.2` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@5.2.3` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -550,6 +550,9 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v5.2.3 (2018-02-01)
+    * `Angular v5.2.3+`
+    * Documentation
 * v5.2.2 (2018-01-29)
     * `Angular v5.2.2+`
     * Documentation
@@ -609,6 +612,6 @@ To set up your development environment:
 
 ## License
 
-Copyright (c) 2017 **Hapiness** Licensed under the [MIT license](https://github.com/hapinessjs/hapiness/blob/master/LICENSE.md).
+Copyright (c) 2018 **Hapiness** Licensed under the [MIT license](https://github.com/hapinessjs/hapiness/blob/master/LICENSE.md).
 
 [Back to top](#table-of-contents)
