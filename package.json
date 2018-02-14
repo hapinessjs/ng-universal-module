@@ -1,6 +1,6 @@
 {
     "name": "@hapiness/ng-universal",
-    "version": "5.2.3",
+    "version": "5.2.5",
     "description": "This is a Hapiness Engine for running Angular Apps on the server for server side rendering.",
     "main": "index.js",
     "types": "index.d.ts",
@@ -75,18 +75,18 @@
     },
     "homepage": "https://github.com/hapinessjs/ng-universal-module#readme",
     "dependencies": {
-        "@types/node": "^9.4.0"
+        "@types/node": "^9.4.5"
     },
     "devDependencies": {
-        "@angular/animations": "^5.2.3",
-        "@angular/common": "^5.2.3",
-        "@angular/compiler": "^5.2.3",
-        "@angular/compiler-cli": "^5.2.3",
-        "@angular/core": "^5.2.3",
-        "@angular/http": "^5.2.3",
-        "@angular/platform-browser": "^5.2.3",
-        "@angular/platform-browser-dynamic": "^5.2.3",
-        "@angular/platform-server": "^5.2.3",
+        "@angular/animations": "^5.2.5",
+        "@angular/common": "^5.2.5",
+        "@angular/compiler": "^5.2.5",
+        "@angular/compiler-cli": "^5.2.5",
+        "@angular/core": "^5.2.5",
+        "@angular/http": "^5.2.5",
+        "@angular/platform-browser": "^5.2.5",
+        "@angular/platform-browser-dynamic": "^5.2.5",
+        "@angular/platform-server": "^5.2.5",
         "@hapiness/core": "^1.3.0",
         "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
         "@types/fs-extra": "^5.0.0",
@@ -104,13 +104,13 @@
         "zone.js": "^0.8.20"
     },
     "peerDependencies": {
-        "@angular/compiler": "^5.2.3",
-        "@angular/compiler-cli": "^5.2.3",
-        "@angular/core": "^5.2.3",
-        "@angular/http": "^5.2.3",
-        "@angular/platform-server": "^5.2.3",
+        "@angular/compiler": "^5.2.5",
+        "@angular/compiler-cli": "^5.2.5",
+        "@angular/core": "^5.2.5",
+        "@angular/http": "^5.2.5",
+        "@angular/platform-server": "^5.2.5",
         "@hapiness/core": "^1.3.0",
-        "@hapiness/ng-universal-transfer-http": "^5.2.3",
+        "@hapiness/ng-universal-transfer-http": "^6.0.0",
         "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
         "rxjs": "^5.5.6",
         "ts-loader": "^3.3.1"
