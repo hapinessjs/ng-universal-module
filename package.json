@@ -1,7 +1,8 @@
 {
     "name": "@hapiness/ng-universal",
-    "version": "5.2.5",
-    "description": "This is a Hapiness Engine for running Angular Apps on the server for server side rendering.",
+    "version": "5.2.6",
+    "description":
+    "This is a Hapiness Engine for running Angular Apps on the server for server side rendering.",
     "main": "index.js",
     "types": "index.d.ts",
     "private": false,
@@ -69,7 +70,8 @@
             "url": "https://github.com/sopretty"
         }
     ],
-    "license": "SEE LICENSE IN https://github.com/hapinessjs/ng-universal-module/blob/master/LICENSE.md",
+    "license":
+    "SEE LICENSE IN https://github.com/hapinessjs/ng-universal-module/blob/master/LICENSE.md",
     "bugs": {
         "url": "https://github.com/hapinessjs/ng-universal-module/issues"
     },

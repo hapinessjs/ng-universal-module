@@ -1,6 +1,5 @@
-import { OnGet, Request, Route, HTTPHandlerResponse, ReplyNoContinue } from '@hapiness/core';
+import { OnGet, Request, Route, ReplyNoContinue } from '@hapiness/core';
 import { NgEngineService } from '../../../services';
-import { Observable } from 'rxjs/Observable';
 
 @Route({
     path: '/{path*}',
@@ -12,8 +11,7 @@ export class GetHtmlUniversalRoute implements OnGet {
      *
      * @param {NgEngineService} _ngEngineService
      */
-    constructor(private _ngEngineService: NgEngineService) {
-    }
+    constructor(private _ngEngineService: NgEngineService) {}
 
     /**
      * OnGet implementation
@@ -23,7 +21,26 @@ export class GetHtmlUniversalRoute implements OnGet {
      *
      * @returns {Observable<any | HTTPHandlerResponse>}
      */
-    onGet(request: Request, reply: ReplyNoContinue): Observable<any | HTTPHandlerResponse> {
-        return this._ngEngineService.universal(request, reply);
+    onGet(request: Request, reply: ReplyNoContinue) {
+        this._ngEngineService.universal(request, reply).subscribe(_ => {
+            if (!!request && !!request['universal_redirect']) {
+                reply.redirect(request['universal_redirect']);
+            } else {
+                const repl = reply(_.response).code(
+                    this.isValid(_.response) ? _.statusCode : 204
+                );
+                repl.headers = Object.assign(_.headers, repl.headers);
+            }
+        });
+    }
+
+    /**
+     * Check of response is not empty
+     *
+     * @param  {any} response
+     * @returns boolean
+     */
+    private isValid(response: any): boolean {
+        return typeof response !== 'undefined' && response !== null;
     }
 }
