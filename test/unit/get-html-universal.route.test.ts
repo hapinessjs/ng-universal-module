@@ -71,9 +71,9 @@ export class GetHtmlUniversalRouteTest {
     @test('- `GetHtmlUniversalRoute` must have `onGet` function')
     testGetHtmlUniversalRouteOnGet() {
         unit.function(this._getHtmlUniversalRoute.onGet);
-        unit.function(this._getHtmlUniversalRoute.replyResponse);
-        unit.function(this._getHtmlUniversalRoute['formatResponse']);
-        unit.function(this._getHtmlUniversalRoute['isValid']);
+        unit.function(this._getHtmlUniversalRoute['_replyResponse']);
+        unit.function(this._getHtmlUniversalRoute['_formatResponse']);
+        unit.function(this._getHtmlUniversalRoute['_isValid']);
     }
 
     /**
@@ -183,7 +183,7 @@ export class GetHtmlUniversalRouteTest {
                     });
             }
         };
-        this._getHtmlUniversalRoute.replyResponse(this._request, this._reply, this._response);
+        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
     }
 
     /**
@@ -207,7 +207,7 @@ export class GetHtmlUniversalRouteTest {
             responseMock.response = res;
             return responseMock;
         };
-        this._getHtmlUniversalRoute.replyResponse(this._request, this._reply, this._response);
+        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
         unit.object(responseMock).matchEach((it, key) => {
             if (key === 'statusCode') {
@@ -249,7 +249,7 @@ export class GetHtmlUniversalRouteTest {
             responseMock.response = res;
             return responseMock;
         };
-        this._getHtmlUniversalRoute.replyResponse(this._request, this._reply, this._response);
+        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
         unit.object(responseMock).matchEach((it, key) => {
             if (key === 'statusCode') {
@@ -291,7 +291,7 @@ export class GetHtmlUniversalRouteTest {
             responseMock.response = res;
             return responseMock;
         };
-        this._getHtmlUniversalRoute.replyResponse(this._request, this._reply, this._response);
+        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
         unit.object(responseMock).matchEach((it, key) => {
             if (key === 'statusCode') {
@@ -333,7 +333,7 @@ export class GetHtmlUniversalRouteTest {
             responseMock.response = res;
             return responseMock;
         };
-        this._getHtmlUniversalRoute.replyResponse(this._request, this._reply, this._response);
+        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
         unit.object(responseMock).matchEach((it, key) => {
             if (key === 'statusCode') {
@@ -374,7 +374,7 @@ export class GetHtmlUniversalRouteTest {
             responseMock.response = res;
             return responseMock;
         };
-        this._getHtmlUniversalRoute.replyResponse(this._request, this._reply, this._response);
+        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
         unit.object(responseMock).matchEach((it, key) => {
             if (key === 'statusCode') {
@@ -396,7 +396,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `formatResponse` returns an empty object')
     testFormatResponseReturnEmptyObject() {
-        const res = this._getHtmlUniversalRoute['formatResponse'](null);
+        const res = this._getHtmlUniversalRoute['_formatResponse'](null);
         unit.object(res).matchEach((it, key) => {
             if (key === 'statusCode') {
                 return (typeof it === 'number' && it === 204);
@@ -415,7 +415,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `formatResponse` returns a new object depending on the given response')
     testFormatResponseReturnObjectGivenResponse() {
-        const res = this._getHtmlUniversalRoute['formatResponse']({statusCode: 402, headers: {}, response: '<h1>Hello Angular</h1>'});
+        const res = this._getHtmlUniversalRoute['_formatResponse']({statusCode: 402, headers: {}, response: '<h1>Hello Angular</h1>'});
         unit.object(res).matchEach((it, key) => {
             if (key === 'statusCode') {
                 return (typeof it === 'number' && it === 402);
@@ -434,7 +434,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `isValid` returns false when the response is null')
     testIsValidReturnFalseNullResponse() {
-        const res: boolean = this._getHtmlUniversalRoute['isValid'](null);
+        const res: boolean = this._getHtmlUniversalRoute['_isValid'](null);
         unit.bool(res).isFalse();
     }
 
@@ -443,7 +443,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `isValid` returns false when the response is undefined')
     testIsValidReturnFalseUndefinedResponse() {
-        const res: boolean = this._getHtmlUniversalRoute['isValid'](undefined);
+        const res: boolean = this._getHtmlUniversalRoute['_isValid'](undefined);
         unit.bool(res).isFalse();
     }
 
@@ -452,7 +452,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `isValid` returns true when the response is well defined')
     testIsValidReturnTrue() {
-        const res: boolean = this._getHtmlUniversalRoute['isValid']({test: 'test'});
+        const res: boolean = this._getHtmlUniversalRoute['_isValid']({test: 'test'});
         unit.bool(res).isTrue();
     }
 }
