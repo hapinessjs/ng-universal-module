@@ -4,19 +4,19 @@
 
 "@angular/animations@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/animations/-/animations-5.2.6.tgz#433aace8929ce362762dcccdb5044c3945a194bd"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-5.2.6.tgz#433aace8929ce362762dcccdb5044c3945a194bd"
   dependencies:
     tslib "^1.7.1"
 
 "@angular/common@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/common/-/common-5.2.6.tgz#0c6771739f1407eae0533e82c3ee42425badd489"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-5.2.6.tgz#0c6771739f1407eae0533e82c3ee42425badd489"
   dependencies:
     tslib "^1.7.1"
 
 "@angular/compiler-cli@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/compiler-cli/-/compiler-cli-5.2.6.tgz#f60fccabaf8d09641aada8c112a6e4f336f8412d"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-5.2.6.tgz#f60fccabaf8d09641aada8c112a6e4f336f8412d"
   dependencies:
     chokidar "^1.4.2"
     minimist "^1.2.0"
@@ -25,37 +25,37 @@
 
 "@angular/compiler@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/compiler/-/compiler-5.2.6.tgz#0abf72b46c401688342057e3fb7cd59fef0a5ab1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-5.2.6.tgz#0abf72b46c401688342057e3fb7cd59fef0a5ab1"
   dependencies:
     tslib "^1.7.1"
 
 "@angular/core@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/core/-/core-5.2.6.tgz#483fb0b720d563d3ec4d1895878249beafa39b9b"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-5.2.6.tgz#483fb0b720d563d3ec4d1895878249beafa39b9b"
   dependencies:
     tslib "^1.7.1"
 
 "@angular/http@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/http/-/http-5.2.6.tgz#4fa92e61b9848f8571c61ae9ad32af27cd71b043"
+  resolved "https://registry.yarnpkg.com/@angular/http/-/http-5.2.6.tgz#4fa92e61b9848f8571c61ae9ad32af27cd71b043"
   dependencies:
     tslib "^1.7.1"
 
 "@angular/platform-browser-dynamic@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.2.6.tgz#8795cca57306b7bdc2bc166d3928bc8eb145125c"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-5.2.6.tgz#8795cca57306b7bdc2bc166d3928bc8eb145125c"
   dependencies:
     tslib "^1.7.1"
 
 "@angular/platform-browser@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/platform-browser/-/platform-browser-5.2.6.tgz#ecb8a6d37506ffb3f181ea10696a3c7feaf1674c"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-5.2.6.tgz#ecb8a6d37506ffb3f181ea10696a3c7feaf1674c"
   dependencies:
     tslib "^1.7.1"
 
 "@angular/platform-server@^5.2.6":
   version "5.2.6"
-  resolved "http://nexus.in.tdw/repository/npm/@angular/platform-server/-/platform-server-5.2.6.tgz#9a218acabd7a95b215ad8884f2f1d03d6faed024"
+  resolved "https://registry.yarnpkg.com/@angular/platform-server/-/platform-server-5.2.6.tgz#9a218acabd7a95b215ad8884f2f1d03d6faed024"
   dependencies:
     domino "^1.0.29"
     tslib "^1.7.1"
@@ -63,7 +63,7 @@
 
 "@hapiness/core@^1.3.0":
   version "1.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/@hapiness/core/-/core-1.3.0.tgz#099bdc3b2f9d8d6ac768ee835929a1e24f2820b8"
+  resolved "https://registry.yarnpkg.com/@hapiness/core/-/core-1.3.0.tgz#099bdc3b2f9d8d6ac768ee835929a1e24f2820b8"
   dependencies:
     "@types/hapi" "^16.1.11"
     "@types/hoek" "^4.1.3"
@@ -78,31 +78,31 @@
 
 "@nguniversal/module-map-ngfactory-loader@^5.0.0-beta.5":
   version "5.0.0-beta.5"
-  resolved "http://nexus.in.tdw/repository/npm/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-5.0.0-beta.5.tgz#d86497e704f702e1a18bbcab5dd6586057941fa5"
+  resolved "https://registry.yarnpkg.com/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-5.0.0-beta.5.tgz#d86497e704f702e1a18bbcab5dd6586057941fa5"
 
 "@types/boom@^4":
   version "4.3.9"
-  resolved "http://nexus.in.tdw/repository/npm/@types/boom/-/boom-4.3.9.tgz#6f9adc1074e81cbf01b8d1ed5878aa1ee89bb22d"
+  resolved "https://registry.yarnpkg.com/@types/boom/-/boom-4.3.9.tgz#6f9adc1074e81cbf01b8d1ed5878aa1ee89bb22d"
 
 "@types/catbox@*":
   version "7.1.5"
-  resolved "http://nexus.in.tdw/repository/npm/@types/catbox/-/catbox-7.1.5.tgz#d14e4e132a628da850a042aec1b37f088f89ecae"
+  resolved "https://registry.yarnpkg.com/@types/catbox/-/catbox-7.1.5.tgz#d14e4e132a628da850a042aec1b37f088f89ecae"
   dependencies:
     "@types/boom" "^4"
 
 "@types/events@*":
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/@types/events/-/events-1.1.0.tgz#93b1be91f63c184450385272c47b6496fd028e02"
+  resolved "https://registry.yarnpkg.com/@types/events/-/events-1.1.0.tgz#93b1be91f63c184450385272c47b6496fd028e02"
 
 "@types/fs-extra@^5.0.0":
   version "5.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/@types/fs-extra/-/fs-extra-5.0.0.tgz#d3e225b35eb5c6d3a5a782c28219df365c781413"
+  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-5.0.0.tgz#d3e225b35eb5c6d3a5a782c28219df365c781413"
   dependencies:
     "@types/node" "*"
 
 "@types/hapi@^16.1.11":
   version "16.1.13"
-  resolved "http://nexus.in.tdw/repository/npm/@types/hapi/-/hapi-16.1.13.tgz#f0460fdf24d5be096c4b52a6d12b245e42620e05"
+  resolved "https://registry.yarnpkg.com/@types/hapi/-/hapi-16.1.13.tgz#f0460fdf24d5be096c4b52a6d12b245e42620e05"
   dependencies:
     "@types/boom" "^4"
     "@types/catbox" "*"
@@ -115,71 +115,71 @@
 
 "@types/hoek@^4.1.3":
   version "4.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/@types/hoek/-/hoek-4.1.3.tgz#d1982d48fb0d2a0e5d7e9d91838264d8e428d337"
+  resolved "https://registry.yarnpkg.com/@types/hoek/-/hoek-4.1.3.tgz#d1982d48fb0d2a0e5d7e9d91838264d8e428d337"
 
 "@types/joi@*", "@types/joi@^13.0.1":
   version "13.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/@types/joi/-/joi-13.0.5.tgz#50829402204e8fec8ee287eeb37d79fbff34913c"
+  resolved "https://registry.yarnpkg.com/@types/joi/-/joi-13.0.5.tgz#50829402204e8fec8ee287eeb37d79fbff34913c"
 
 "@types/mime-db@*":
   version "1.27.0"
-  resolved "http://nexus.in.tdw/repository/npm/@types/mime-db/-/mime-db-1.27.0.tgz#9bc014a1fd1fdf47649c1a54c6dd7966b8284792"
+  resolved "https://registry.yarnpkg.com/@types/mime-db/-/mime-db-1.27.0.tgz#9bc014a1fd1fdf47649c1a54c6dd7966b8284792"
 
 "@types/mimos@*":
   version "3.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/@types/mimos/-/mimos-3.0.1.tgz#59d96abe1c9e487e7463fe41e8d86d76b57a441a"
+  resolved "https://registry.yarnpkg.com/@types/mimos/-/mimos-3.0.1.tgz#59d96abe1c9e487e7463fe41e8d86d76b57a441a"
   dependencies:
     "@types/mime-db" "*"
 
 "@types/node@*", "@types/node@^9.4.5":
   version "9.4.6"
-  resolved "http://nexus.in.tdw/repository/npm/@types/node/-/node-9.4.6.tgz#d8176d864ee48753d053783e4e463aec86b8d82e"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.4.6.tgz#d8176d864ee48753d053783e4e463aec86b8d82e"
 
 "@types/node@^8.0.53":
   version "8.9.4"
-  resolved "http://nexus.in.tdw/repository/npm/@types/node/-/node-8.9.4.tgz#dfd327582a06c114eb6e0441fa3d6fab35edad48"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.4.tgz#dfd327582a06c114eb6e0441fa3d6fab35edad48"
 
 "@types/podium@*":
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/@types/podium/-/podium-1.0.0.tgz#bfaa2151be2b1d6109cc69f7faa9dac2cba3bb20"
+  resolved "https://registry.yarnpkg.com/@types/podium/-/podium-1.0.0.tgz#bfaa2151be2b1d6109cc69f7faa9dac2cba3bb20"
 
 "@types/shot@*":
   version "3.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/@types/shot/-/shot-3.4.0.tgz#459477c5187d3ebd303660ab099e7e9e0f3b656f"
+  resolved "https://registry.yarnpkg.com/@types/shot/-/shot-3.4.0.tgz#459477c5187d3ebd303660ab099e7e9e0f3b656f"
   dependencies:
     "@types/node" "*"
 
 "@types/websocket@^0.0.35":
   version "0.0.35"
-  resolved "http://nexus.in.tdw/repository/npm/@types/websocket/-/websocket-0.0.35.tgz#7734476e187660974d1d308213547bb3e21fd4b6"
+  resolved "https://registry.yarnpkg.com/@types/websocket/-/websocket-0.0.35.tgz#7734476e187660974d1d308213547bb3e21fd4b6"
   dependencies:
     "@types/node" "*"
 
 abbrev@1:
   version "1.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
+  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
 
 abbrev@1.0.x:
   version "1.0.9"
-  resolved "http://nexus.in.tdw/repository/npm/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
+  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
 
 accept@^2.1.4:
   version "2.1.4"
-  resolved "http://nexus.in.tdw/repository/npm/accept/-/accept-2.1.4.tgz#887af54ceee5c7f4430461971ec400c61d09acbb"
+  resolved "https://registry.yarnpkg.com/accept/-/accept-2.1.4.tgz#887af54ceee5c7f4430461971ec400c61d09acbb"
   dependencies:
     boom "5.x.x"
     hoek "4.x.x"
 
 ajv@^4.9.1:
   version "4.11.8"
-  resolved "http://nexus.in.tdw/repository/npm/ajv/-/ajv-4.11.8.tgz#82ffb02b29e662ae53bdc20af15947706739c536"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-4.11.8.tgz#82ffb02b29e662ae53bdc20af15947706739c536"
   dependencies:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
 ajv@^5.1.0:
   version "5.5.2"
-  resolved "http://nexus.in.tdw/repository/npm/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-5.5.2.tgz#73b5eeca3fab653e3d3f9422b341ad42205dc965"
   dependencies:
     co "^4.6.0"
     fast-deep-equal "^1.0.0"
@@ -188,7 +188,7 @@ ajv@^5.1.0:
 
 align-text@^0.1.1, align-text@^0.1.3:
   version "0.1.4"
-  resolved "http://nexus.in.tdw/repository/npm/align-text/-/align-text-0.1.4.tgz#0cd90a561093f35d0a99256c22b7069433fad117"
+  resolved "https://registry.yarnpkg.com/align-text/-/align-text-0.1.4.tgz#0cd90a561093f35d0a99256c22b7069433fad117"
   dependencies:
     kind-of "^3.0.2"
     longest "^1.0.1"
@@ -196,130 +196,130 @@ align-text@^0.1.1, align-text@^0.1.3:
 
 amdefine@>=0.0.4:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+  resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
 ammo@^2.0.4:
   version "2.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/ammo/-/ammo-2.0.4.tgz#bf80aab211698ea78f63ef5e7f113dd5d9e8917f"
+  resolved "https://registry.yarnpkg.com/ammo/-/ammo-2.0.4.tgz#bf80aab211698ea78f63ef5e7f113dd5d9e8917f"
   dependencies:
     boom "5.x.x"
     hoek "4.x.x"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
+  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
 
 ansi-styles@^2.2.1:
   version "2.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
 
 ansi-styles@^3.2.0:
   version "3.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/ansi-styles/-/ansi-styles-3.2.0.tgz#c159b8d5be0f9e5a6f346dab94f16ce022161b88"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.0.tgz#c159b8d5be0f9e5a6f346dab94f16ce022161b88"
   dependencies:
     color-convert "^1.9.0"
 
 anymatch@^1.3.0:
   version "1.3.2"
-  resolved "http://nexus.in.tdw/repository/npm/anymatch/-/anymatch-1.3.2.tgz#553dcb8f91e3c889845dfdba34c77721b90b9d7a"
+  resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-1.3.2.tgz#553dcb8f91e3c889845dfdba34c77721b90b9d7a"
   dependencies:
     micromatch "^2.1.5"
     normalize-path "^2.0.0"
 
 append-transform@^0.4.0:
   version "0.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/append-transform/-/append-transform-0.4.0.tgz#d76ebf8ca94d276e247a36bad44a4b74ab611991"
+  resolved "https://registry.yarnpkg.com/append-transform/-/append-transform-0.4.0.tgz#d76ebf8ca94d276e247a36bad44a4b74ab611991"
   dependencies:
     default-require-extensions "^1.0.0"
 
 aproba@^1.0.3:
   version "1.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
+  resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
 
 are-we-there-yet@~1.1.2:
   version "1.1.4"
-  resolved "http://nexus.in.tdw/repository/npm/are-we-there-yet/-/are-we-there-yet-1.1.4.tgz#bb5dca382bb94f05e15194373d16fd3ba1ca110d"
+  resolved "https://registry.yarnpkg.com/are-we-there-yet/-/are-we-there-yet-1.1.4.tgz#bb5dca382bb94f05e15194373d16fd3ba1ca110d"
   dependencies:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
 argparse@^1.0.7:
   version "1.0.10"
-  resolved "http://nexus.in.tdw/repository/npm/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   dependencies:
     sprintf-js "~1.0.2"
 
 arr-diff@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/arr-diff/-/arr-diff-2.0.0.tgz#8f3b827f955a8bd669697e4a4256ac3ceae356cf"
+  resolved "https://registry.yarnpkg.com/arr-diff/-/arr-diff-2.0.0.tgz#8f3b827f955a8bd669697e4a4256ac3ceae356cf"
   dependencies:
     arr-flatten "^1.0.1"
 
 arr-flatten@^1.0.1:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/arr-flatten/-/arr-flatten-1.1.0.tgz#36048bbff4e7b47e136644316c99669ea5ae91f1"
+  resolved "https://registry.yarnpkg.com/arr-flatten/-/arr-flatten-1.1.0.tgz#36048bbff4e7b47e136644316c99669ea5ae91f1"
 
 array-unique@^0.2.1:
   version "0.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
+  resolved "https://registry.yarnpkg.com/array-unique/-/array-unique-0.2.1.tgz#a1d97ccafcbc2625cc70fadceb36a50c58b01a53"
 
 arrify@^1.0.0:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
+  resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
 asn1@~0.2.3:
   version "0.2.3"
-  resolved "http://nexus.in.tdw/repository/npm/asn1/-/asn1-0.2.3.tgz#dac8787713c9966849fc8180777ebe9c1ddf3b86"
+  resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.3.tgz#dac8787713c9966849fc8180777ebe9c1ddf3b86"
 
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
+  resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
 
 assert-plus@^0.2.0:
   version "0.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/assert-plus/-/assert-plus-0.2.0.tgz#d74e1b87e7affc0db8aadb7021f3fe48101ab234"
+  resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-0.2.0.tgz#d74e1b87e7affc0db8aadb7021f3fe48101ab234"
 
 async-each@^1.0.0:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
+  resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
 async@1.x, async@^1.4.0:
   version "1.5.2"
-  resolved "http://nexus.in.tdw/repository/npm/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+  resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
 async@^2.1.4:
   version "2.6.0"
-  resolved "http://nexus.in.tdw/repository/npm/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
   dependencies:
     lodash "^4.14.0"
 
 async@~0.9.0:
   version "0.9.2"
-  resolved "http://nexus.in.tdw/repository/npm/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
+  resolved "https://registry.yarnpkg.com/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
 
 asynckit@^0.4.0:
   version "0.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
+  resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
 aws-sign2@~0.6.0:
   version "0.6.0"
-  resolved "http://nexus.in.tdw/repository/npm/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
+  resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
 
 aws-sign2@~0.7.0:
   version "0.7.0"
-  resolved "http://nexus.in.tdw/repository/npm/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
+  resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
 
 aws4@^1.2.1, aws4@^1.6.0:
   version "1.6.0"
-  resolved "http://nexus.in.tdw/repository/npm/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
+  resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
 b64@3.x.x:
   version "3.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/b64/-/b64-3.0.3.tgz#36afeee0d9345f046387ce6de8a6702afe5bb56e"
+  resolved "https://registry.yarnpkg.com/b64/-/b64-3.0.3.tgz#36afeee0d9345f046387ce6de8a6702afe5bb56e"
 
 babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
   version "6.26.0"
-  resolved "http://nexus.in.tdw/repository/npm/babel-code-frame/-/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
+  resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
   dependencies:
     chalk "^1.1.3"
     esutils "^2.0.2"
@@ -327,7 +327,7 @@ babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
 
 babel-generator@^6.18.0:
   version "6.26.1"
-  resolved "http://nexus.in.tdw/repository/npm/babel-generator/-/babel-generator-6.26.1.tgz#1844408d3b8f0d35a404ea7ac180f087a601bd90"
+  resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.26.1.tgz#1844408d3b8f0d35a404ea7ac180f087a601bd90"
   dependencies:
     babel-messages "^6.23.0"
     babel-runtime "^6.26.0"
@@ -340,20 +340,20 @@ babel-generator@^6.18.0:
 
 babel-messages@^6.23.0:
   version "6.23.0"
-  resolved "http://nexus.in.tdw/repository/npm/babel-messages/-/babel-messages-6.23.0.tgz#f3cdf4703858035b2a2951c6ec5edf6c62f2630e"
+  resolved "https://registry.yarnpkg.com/babel-messages/-/babel-messages-6.23.0.tgz#f3cdf4703858035b2a2951c6ec5edf6c62f2630e"
   dependencies:
     babel-runtime "^6.22.0"
 
 babel-runtime@^6.22.0, babel-runtime@^6.26.0:
   version "6.26.0"
-  resolved "http://nexus.in.tdw/repository/npm/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.11.0"
 
 babel-template@^6.16.0:
   version "6.26.0"
-  resolved "http://nexus.in.tdw/repository/npm/babel-template/-/babel-template-6.26.0.tgz#de03e2d16396b069f46dd9fff8521fb1a0e35e02"
+  resolved "https://registry.yarnpkg.com/babel-template/-/babel-template-6.26.0.tgz#de03e2d16396b069f46dd9fff8521fb1a0e35e02"
   dependencies:
     babel-runtime "^6.26.0"
     babel-traverse "^6.26.0"
@@ -363,7 +363,7 @@ babel-template@^6.16.0:
 
 babel-traverse@^6.18.0, babel-traverse@^6.26.0:
   version "6.26.0"
-  resolved "http://nexus.in.tdw/repository/npm/babel-traverse/-/babel-traverse-6.26.0.tgz#46a9cbd7edcc62c8e5c064e2d2d8d0f4035766ee"
+  resolved "https://registry.yarnpkg.com/babel-traverse/-/babel-traverse-6.26.0.tgz#46a9cbd7edcc62c8e5c064e2d2d8d0f4035766ee"
   dependencies:
     babel-code-frame "^6.26.0"
     babel-messages "^6.23.0"
@@ -377,7 +377,7 @@ babel-traverse@^6.18.0, babel-traverse@^6.26.0:
 
 babel-types@^6.18.0, babel-types@^6.26.0:
   version "6.26.0"
-  resolved "http://nexus.in.tdw/repository/npm/babel-types/-/babel-types-6.26.0.tgz#a3b073f94ab49eb6fa55cd65227a334380632497"
+  resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.26.0.tgz#a3b073f94ab49eb6fa55cd65227a334380632497"
   dependencies:
     babel-runtime "^6.26.0"
     esutils "^2.0.2"
@@ -386,60 +386,60 @@ babel-types@^6.18.0, babel-types@^6.26.0:
 
 babylon@^6.18.0:
   version "6.18.0"
-  resolved "http://nexus.in.tdw/repository/npm/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
+  resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
 
 balanced-match@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
+  resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
 bcrypt-pbkdf@^1.0.0:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
+  resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
   dependencies:
     tweetnacl "^0.14.3"
 
 binary-extensions@^1.0.0:
   version "1.11.0"
-  resolved "http://nexus.in.tdw/repository/npm/binary-extensions/-/binary-extensions-1.11.0.tgz#46aa1751fb6a2f93ee5e689bb1087d4b14c6c205"
+  resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.11.0.tgz#46aa1751fb6a2f93ee5e689bb1087d4b14c6c205"
 
 block-stream@*:
   version "0.0.9"
-  resolved "http://nexus.in.tdw/repository/npm/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
+  resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
   dependencies:
     inherits "~2.0.0"
 
 bluebird@^2.9.9:
   version "2.11.0"
-  resolved "http://nexus.in.tdw/repository/npm/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
 
 boom@2.x.x:
   version "2.10.1"
-  resolved "http://nexus.in.tdw/repository/npm/boom/-/boom-2.10.1.tgz#39c8918ceff5799f83f9492a848f625add0c766f"
+  resolved "https://registry.yarnpkg.com/boom/-/boom-2.10.1.tgz#39c8918ceff5799f83f9492a848f625add0c766f"
   dependencies:
     hoek "2.x.x"
 
 boom@4.x.x:
   version "4.3.1"
-  resolved "http://nexus.in.tdw/repository/npm/boom/-/boom-4.3.1.tgz#4f8a3005cb4a7e3889f749030fd25b96e01d2e31"
+  resolved "https://registry.yarnpkg.com/boom/-/boom-4.3.1.tgz#4f8a3005cb4a7e3889f749030fd25b96e01d2e31"
   dependencies:
     hoek "4.x.x"
 
 boom@5.x.x, boom@^5.2.0:
   version "5.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/boom/-/boom-5.2.0.tgz#5dd9da6ee3a5f302077436290cb717d3f4a54e02"
+  resolved "https://registry.yarnpkg.com/boom/-/boom-5.2.0.tgz#5dd9da6ee3a5f302077436290cb717d3f4a54e02"
   dependencies:
     hoek "4.x.x"
 
 brace-expansion@^1.1.7:
   version "1.1.11"
-  resolved "http://nexus.in.tdw/repository/npm/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
   dependencies:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
 braces@^1.8.2:
   version "1.8.5"
-  resolved "http://nexus.in.tdw/repository/npm/braces/-/braces-1.8.5.tgz#ba77962e12dff969d6b76711e914b737857bf6a7"
+  resolved "https://registry.yarnpkg.com/braces/-/braces-1.8.5.tgz#ba77962e12dff969d6b76711e914b737857bf6a7"
   dependencies:
     expand-range "^1.8.1"
     preserve "^0.2.0"
@@ -447,40 +447,40 @@ braces@^1.8.2:
 
 browser-stdout@1.3.0:
   version "1.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/browser-stdout/-/browser-stdout-1.3.0.tgz#f351d32969d32fa5d7a5567154263d928ae3bd1f"
+  resolved "https://registry.yarnpkg.com/browser-stdout/-/browser-stdout-1.3.0.tgz#f351d32969d32fa5d7a5567154263d928ae3bd1f"
 
 builtin-modules@^1.0.0, builtin-modules@^1.1.1:
   version "1.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
+  resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
 
 call@^4.0.2:
   version "4.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/call/-/call-4.0.2.tgz#df76f5f51ee8dd48b856ac8400f7e69e6d7399c4"
+  resolved "https://registry.yarnpkg.com/call/-/call-4.0.2.tgz#df76f5f51ee8dd48b856ac8400f7e69e6d7399c4"
   dependencies:
     boom "5.x.x"
     hoek "4.x.x"
 
 camelcase@^1.0.2:
   version "1.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/camelcase/-/camelcase-1.2.1.tgz#9bb5304d2e0b56698b2c758b08a3eaa9daa58a39"
+  resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-1.2.1.tgz#9bb5304d2e0b56698b2c758b08a3eaa9daa58a39"
 
 camelcase@^3.0.0:
   version "3.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/camelcase/-/camelcase-3.0.0.tgz#32fc4b9fcdaf845fcdf7e73bb97cac2261f0ab0a"
+  resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-3.0.0.tgz#32fc4b9fcdaf845fcdf7e73bb97cac2261f0ab0a"
 
 caseless@~0.12.0:
   version "0.12.0"
-  resolved "http://nexus.in.tdw/repository/npm/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
+  resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
 
 catbox-memory@^2.0.4:
   version "2.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/catbox-memory/-/catbox-memory-2.0.4.tgz#433e255902caf54233d1286429c8f4df14e822d5"
+  resolved "https://registry.yarnpkg.com/catbox-memory/-/catbox-memory-2.0.4.tgz#433e255902caf54233d1286429c8f4df14e822d5"
   dependencies:
     hoek "4.x.x"
 
 catbox@^7.1.5:
   version "7.1.5"
-  resolved "http://nexus.in.tdw/repository/npm/catbox/-/catbox-7.1.5.tgz#c56f7e8e9555d27c0dc038a96ef73e57d186bb1f"
+  resolved "https://registry.yarnpkg.com/catbox/-/catbox-7.1.5.tgz#c56f7e8e9555d27c0dc038a96ef73e57d186bb1f"
   dependencies:
     boom "5.x.x"
     hoek "4.x.x"
@@ -488,14 +488,14 @@ catbox@^7.1.5:
 
 center-align@^0.1.1:
   version "0.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/center-align/-/center-align-0.1.3.tgz#aa0d32629b6ee972200411cbd4461c907bc2b7ad"
+  resolved "https://registry.yarnpkg.com/center-align/-/center-align-0.1.3.tgz#aa0d32629b6ee972200411cbd4461c907bc2b7ad"
   dependencies:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
 
 chalk@^1.1.3:
   version "1.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
   dependencies:
     ansi-styles "^2.2.1"
     escape-string-regexp "^1.0.2"
@@ -505,7 +505,7 @@ chalk@^1.1.3:
 
 chalk@^2.0.0, chalk@^2.3.0:
   version "2.3.1"
-  resolved "http://nexus.in.tdw/repository/npm/chalk/-/chalk-2.3.1.tgz#523fe2678aec7b04e8041909292fe8b17059b796"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.3.1.tgz#523fe2678aec7b04e8041909292fe8b17059b796"
   dependencies:
     ansi-styles "^3.2.0"
     escape-string-regexp "^1.0.5"
@@ -513,7 +513,7 @@ chalk@^2.0.0, chalk@^2.3.0:
 
 chokidar@^1.4.2:
   version "1.7.0"
-  resolved "http://nexus.in.tdw/repository/npm/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
   dependencies:
     anymatch "^1.3.0"
     async-each "^1.0.0"
@@ -528,7 +528,7 @@ chokidar@^1.4.2:
 
 cliui@^2.1.0:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/cliui/-/cliui-2.1.0.tgz#4b475760ff80264c762c3a1719032e91c7fea0d1"
+  resolved "https://registry.yarnpkg.com/cliui/-/cliui-2.1.0.tgz#4b475760ff80264c762c3a1719032e91c7fea0d1"
   dependencies:
     center-align "^0.1.1"
     right-align "^0.1.1"
@@ -536,7 +536,7 @@ cliui@^2.1.0:
 
 cliui@^3.2.0:
   version "3.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
+  resolved "https://registry.yarnpkg.com/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
   dependencies:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
@@ -544,75 +544,75 @@ cliui@^3.2.0:
 
 co@^4.6.0:
   version "4.6.0"
-  resolved "http://nexus.in.tdw/repository/npm/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
+  resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
 
 code-point-at@^1.0.0:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
+  resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
 color-convert@^1.9.0:
   version "1.9.1"
-  resolved "http://nexus.in.tdw/repository/npm/color-convert/-/color-convert-1.9.1.tgz#c1261107aeb2f294ebffec9ed9ecad529a6097ed"
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.1.tgz#c1261107aeb2f294ebffec9ed9ecad529a6097ed"
   dependencies:
     color-name "^1.1.1"
 
 color-name@^1.1.1:
   version "1.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
+  resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
 
 combined-stream@1.0.6, combined-stream@^1.0.5, combined-stream@~1.0.5:
   version "1.0.6"
-  resolved "http://nexus.in.tdw/repository/npm/combined-stream/-/combined-stream-1.0.6.tgz#723e7df6e801ac5613113a7e445a9b69cb632818"
+  resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.6.tgz#723e7df6e801ac5613113a7e445a9b69cb632818"
   dependencies:
     delayed-stream "~1.0.0"
 
 combined-stream@~0.0.4:
   version "0.0.7"
-  resolved "http://nexus.in.tdw/repository/npm/combined-stream/-/combined-stream-0.0.7.tgz#0137e657baa5a7541c57ac37ac5fc07d73b4dc1f"
+  resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-0.0.7.tgz#0137e657baa5a7541c57ac37ac5fc07d73b4dc1f"
   dependencies:
     delayed-stream "0.0.5"
 
 commander@2.11.0:
   version "2.11.0"
-  resolved "http://nexus.in.tdw/repository/npm/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
 commander@^2.12.1:
   version "2.14.1"
-  resolved "http://nexus.in.tdw/repository/npm/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
 
 component-emitter@1.1.2:
   version "1.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/component-emitter/-/component-emitter-1.1.2.tgz#296594f2753daa63996d2af08d15a95116c9aec3"
+  resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.1.2.tgz#296594f2753daa63996d2af08d15a95116c9aec3"
 
 concat-map@0.0.1:
   version "0.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
+  resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
+  resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
 
 content@3.x.x:
   version "3.0.6"
-  resolved "http://nexus.in.tdw/repository/npm/content/-/content-3.0.6.tgz#9c2e301e9ae515ed65a4b877d78aa5659bb1b809"
+  resolved "https://registry.yarnpkg.com/content/-/content-3.0.6.tgz#9c2e301e9ae515ed65a4b877d78aa5659bb1b809"
   dependencies:
     boom "5.x.x"
 
 cookiejar@2.0.1:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/cookiejar/-/cookiejar-2.0.1.tgz#3d12752f6adf68a892f332433492bd5812bb668f"
+  resolved "https://registry.yarnpkg.com/cookiejar/-/cookiejar-2.0.1.tgz#3d12752f6adf68a892f332433492bd5812bb668f"
 
 core-js@^2.4.0:
   version "2.5.3"
-  resolved "http://nexus.in.tdw/repository/npm/core-js/-/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
+  resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
 coveralls@^3.0.0:
   version "3.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/coveralls/-/coveralls-3.0.0.tgz#22ef730330538080d29b8c151dc9146afde88a99"
+  resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-3.0.0.tgz#22ef730330538080d29b8c151dc9146afde88a99"
   dependencies:
     js-yaml "^3.6.1"
     lcov-parse "^0.0.10"
@@ -622,7 +622,7 @@ coveralls@^3.0.0:
 
 cross-spawn@^5.1.0:
   version "5.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
+  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
   dependencies:
     lru-cache "^4.0.1"
     shebang-command "^1.2.0"
@@ -630,162 +630,162 @@ cross-spawn@^5.1.0:
 
 cryptiles@2.x.x:
   version "2.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/cryptiles/-/cryptiles-2.0.5.tgz#3bdfecdc608147c1c67202fa291e7dca59eaa3b8"
+  resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-2.0.5.tgz#3bdfecdc608147c1c67202fa291e7dca59eaa3b8"
   dependencies:
     boom "2.x.x"
 
 cryptiles@3.x.x, cryptiles@^3.1.2:
   version "3.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/cryptiles/-/cryptiles-3.1.2.tgz#a89fbb220f5ce25ec56e8c4aa8a4fd7b5b0d29fe"
+  resolved "https://registry.yarnpkg.com/cryptiles/-/cryptiles-3.1.2.tgz#a89fbb220f5ce25ec56e8c4aa8a4fd7b5b0d29fe"
   dependencies:
     boom "5.x.x"
 
 dashdash@^1.12.0:
   version "1.14.1"
-  resolved "http://nexus.in.tdw/repository/npm/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
+  resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
   dependencies:
     assert-plus "^1.0.0"
 
 debug@2, debug@^2.2.0, debug@^2.6.8:
   version "2.6.9"
-  resolved "http://nexus.in.tdw/repository/npm/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
     ms "2.0.0"
 
 debug@3.1.0, debug@^3.1.0:
   version "3.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
     ms "2.0.0"
 
 decamelize@^1.0.0, decamelize@^1.1.1:
   version "1.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
+  resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
 deep-extend@~0.4.0:
   version "0.4.2"
-  resolved "http://nexus.in.tdw/repository/npm/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
+  resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
 
 default-require-extensions@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/default-require-extensions/-/default-require-extensions-1.0.0.tgz#f37ea15d3e13ffd9b437d33e1a75b5fb97874cb8"
+  resolved "https://registry.yarnpkg.com/default-require-extensions/-/default-require-extensions-1.0.0.tgz#f37ea15d3e13ffd9b437d33e1a75b5fb97874cb8"
   dependencies:
     strip-bom "^2.0.0"
 
 delayed-stream@0.0.5:
   version "0.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/delayed-stream/-/delayed-stream-0.0.5.tgz#d4b1f43a93e8296dfe02694f4680bc37a313c73f"
+  resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-0.0.5.tgz#d4b1f43a93e8296dfe02694f4680bc37a313c73f"
 
 delayed-stream@~1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
+  resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
 
 delegates@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
+  resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
 
 detect-indent@^4.0.0:
   version "4.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/detect-indent/-/detect-indent-4.0.0.tgz#f76d064352cdf43a1cb6ce619c4ee3a9475de208"
+  resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-4.0.0.tgz#f76d064352cdf43a1cb6ce619c4ee3a9475de208"
   dependencies:
     repeating "^2.0.0"
 
 detect-libc@^1.0.2:
   version "1.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
+  resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
 
 diff@3.3.1:
   version "3.3.1"
-  resolved "http://nexus.in.tdw/repository/npm/diff/-/diff-3.3.1.tgz#aa8567a6eed03c531fc89d3f711cd0e5259dec75"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-3.3.1.tgz#aa8567a6eed03c531fc89d3f711cd0e5259dec75"
 
 diff@^3.1.0, diff@^3.2.0:
   version "3.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/diff/-/diff-3.4.0.tgz#b1d85507daf3964828de54b37d0d73ba67dda56c"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-3.4.0.tgz#b1d85507daf3964828de54b37d0d73ba67dda56c"
 
 domino@^1.0.29:
   version "1.0.30"
-  resolved "http://nexus.in.tdw/repository/npm/domino/-/domino-1.0.30.tgz#54a4154ecae968616680f8feba3cedff355c71f4"
+  resolved "https://registry.yarnpkg.com/domino/-/domino-1.0.30.tgz#54a4154ecae968616680f8feba3cedff355c71f4"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
+  resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
   dependencies:
     jsbn "~0.1.0"
 
 error-ex@^1.2.0:
   version "1.3.1"
-  resolved "http://nexus.in.tdw/repository/npm/error-ex/-/error-ex-1.3.1.tgz#f855a86ce61adc4e8621c3cda21e7a7612c3a8dc"
+  resolved "https://registry.yarnpkg.com/error-ex/-/error-ex-1.3.1.tgz#f855a86ce61adc4e8621c3cda21e7a7612c3a8dc"
   dependencies:
     is-arrayish "^0.2.1"
 
 escape-string-regexp@1.0.5, escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   version "1.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
 esprima@^4.0.0:
   version "4.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/esprima/-/esprima-4.0.0.tgz#4499eddcd1110e0b218bacf2fa7f7f59f55ca804"
+  resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.0.tgz#4499eddcd1110e0b218bacf2fa7f7f59f55ca804"
 
 esutils@^2.0.2:
   version "2.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
+  resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
 
 expand-brackets@^0.1.4:
   version "0.1.5"
-  resolved "http://nexus.in.tdw/repository/npm/expand-brackets/-/expand-brackets-0.1.5.tgz#df07284e342a807cd733ac5af72411e581d1177b"
+  resolved "https://registry.yarnpkg.com/expand-brackets/-/expand-brackets-0.1.5.tgz#df07284e342a807cd733ac5af72411e581d1177b"
   dependencies:
     is-posix-bracket "^0.1.0"
 
 expand-range@^1.8.1:
   version "1.8.2"
-  resolved "http://nexus.in.tdw/repository/npm/expand-range/-/expand-range-1.8.2.tgz#a299effd335fe2721ebae8e257ec79644fc85337"
+  resolved "https://registry.yarnpkg.com/expand-range/-/expand-range-1.8.2.tgz#a299effd335fe2721ebae8e257ec79644fc85337"
   dependencies:
     fill-range "^2.1.0"
 
 extend@~1.2.1:
   version "1.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/extend/-/extend-1.2.1.tgz#a0f5fd6cfc83a5fe49ef698d60ec8a624dd4576c"
+  resolved "https://registry.yarnpkg.com/extend/-/extend-1.2.1.tgz#a0f5fd6cfc83a5fe49ef698d60ec8a624dd4576c"
 
 extend@~3.0.0, extend@~3.0.1:
   version "3.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
+  resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
 extglob@^0.3.1:
   version "0.3.2"
-  resolved "http://nexus.in.tdw/repository/npm/extglob/-/extglob-0.3.2.tgz#2e18ff3d2f49ab2765cec9023f011daa8d8349a1"
+  resolved "https://registry.yarnpkg.com/extglob/-/extglob-0.3.2.tgz#2e18ff3d2f49ab2765cec9023f011daa8d8349a1"
   dependencies:
     is-extglob "^1.0.0"
 
 extsprintf@1.3.0:
   version "1.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
+  resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
 
 extsprintf@^1.2.0:
   version "1.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
+  resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
 
 fast-deep-equal@^1.0.0:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
 
 fast-json-stable-stringify@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/fast-json-stable-stringify/-/fast-json-stable-stringify-2.0.0.tgz#d5142c0caee6b1189f87d3a76111064f86c8bbf2"
+  resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.0.0.tgz#d5142c0caee6b1189f87d3a76111064f86c8bbf2"
 
 filename-regex@^2.0.0:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
+  resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
 
 fileset@^2.0.2:
   version "2.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/fileset/-/fileset-2.0.3.tgz#8e7548a96d3cc2327ee5e674168723a333bba2a0"
+  resolved "https://registry.yarnpkg.com/fileset/-/fileset-2.0.3.tgz#8e7548a96d3cc2327ee5e674168723a333bba2a0"
   dependencies:
     glob "^7.0.3"
     minimatch "^3.0.3"
 
 fill-range@^2.1.0:
   version "2.2.3"
-  resolved "http://nexus.in.tdw/repository/npm/fill-range/-/fill-range-2.2.3.tgz#50b77dfd7e469bc7492470963699fe7a8485a723"
+  resolved "https://registry.yarnpkg.com/fill-range/-/fill-range-2.2.3.tgz#50b77dfd7e469bc7492470963699fe7a8485a723"
   dependencies:
     is-number "^2.1.0"
     isobject "^2.0.0"
@@ -795,28 +795,28 @@ fill-range@^2.1.0:
 
 find-up@^1.0.0:
   version "1.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/find-up/-/find-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"
+  resolved "https://registry.yarnpkg.com/find-up/-/find-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"
   dependencies:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
 for-in@^1.0.1:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
+  resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
 
 for-own@^0.1.4:
   version "0.1.5"
-  resolved "http://nexus.in.tdw/repository/npm/for-own/-/for-own-0.1.5.tgz#5265c681a4f294dabbf17c9509b6763aa84510ce"
+  resolved "https://registry.yarnpkg.com/for-own/-/for-own-0.1.5.tgz#5265c681a4f294dabbf17c9509b6763aa84510ce"
   dependencies:
     for-in "^1.0.1"
 
 forever-agent@~0.6.1:
   version "0.6.1"
-  resolved "http://nexus.in.tdw/repository/npm/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
+  resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
 
 form-data@0.1.3:
   version "0.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/form-data/-/form-data-0.1.3.tgz#4ee4346e6eb5362e8344a02075bd8dbd8c7373ea"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-0.1.3.tgz#4ee4346e6eb5362e8344a02075bd8dbd8c7373ea"
   dependencies:
     async "~0.9.0"
     combined-stream "~0.0.4"
@@ -824,7 +824,7 @@ form-data@0.1.3:
 
 form-data@~2.1.1:
   version "2.1.4"
-  resolved "http://nexus.in.tdw/repository/npm/form-data/-/form-data-2.1.4.tgz#33c183acf193276ecaa98143a69e94bfee1750d1"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.1.4.tgz#33c183acf193276ecaa98143a69e94bfee1750d1"
   dependencies:
     asynckit "^0.4.0"
     combined-stream "^1.0.5"
@@ -832,7 +832,7 @@ form-data@~2.1.1:
 
 form-data@~2.3.1:
   version "2.3.2"
-  resolved "http://nexus.in.tdw/repository/npm/form-data/-/form-data-2.3.2.tgz#4970498be604c20c005d4f5c23aecd21d6b49099"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.3.2.tgz#4970498be604c20c005d4f5c23aecd21d6b49099"
   dependencies:
     asynckit "^0.4.0"
     combined-stream "1.0.6"
@@ -840,17 +840,17 @@ form-data@~2.3.1:
 
 formatio@1.1.1:
   version "1.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/formatio/-/formatio-1.1.1.tgz#5ed3ccd636551097383465d996199100e86161e9"
+  resolved "https://registry.yarnpkg.com/formatio/-/formatio-1.1.1.tgz#5ed3ccd636551097383465d996199100e86161e9"
   dependencies:
     samsam "~1.1"
 
 formidable@1.0.14:
   version "1.0.14"
-  resolved "http://nexus.in.tdw/repository/npm/formidable/-/formidable-1.0.14.tgz#2b3f4c411cbb5fdd695c44843e2a23514a43231a"
+  resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.0.14.tgz#2b3f4c411cbb5fdd695c44843e2a23514a43231a"
 
 fs-extra@^5.0.0:
   version "5.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/fs-extra/-/fs-extra-5.0.0.tgz#414d0110cdd06705734d055652c5411260c31abd"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-5.0.0.tgz#414d0110cdd06705734d055652c5411260c31abd"
   dependencies:
     graceful-fs "^4.1.2"
     jsonfile "^4.0.0"
@@ -858,18 +858,18 @@ fs-extra@^5.0.0:
 
 fs.realpath@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
+  resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
 
 fsevents@^1.0.0:
   version "1.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/fsevents/-/fsevents-1.1.3.tgz#11f82318f5fe7bb2cd22965a108e9306208216d8"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.1.3.tgz#11f82318f5fe7bb2cd22965a108e9306208216d8"
   dependencies:
     nan "^2.3.0"
     node-pre-gyp "^0.6.39"
 
 fstream-ignore@^1.0.5:
   version "1.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/fstream-ignore/-/fstream-ignore-1.0.5.tgz#9c31dae34767018fe1d249b24dada67d092da105"
+  resolved "https://registry.yarnpkg.com/fstream-ignore/-/fstream-ignore-1.0.5.tgz#9c31dae34767018fe1d249b24dada67d092da105"
   dependencies:
     fstream "^1.0.0"
     inherits "2"
@@ -877,7 +877,7 @@ fstream-ignore@^1.0.5:
 
 fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
   version "1.0.11"
-  resolved "http://nexus.in.tdw/repository/npm/fstream/-/fstream-1.0.11.tgz#5c1fb1f117477114f0632a0eb4b71b3cb0fd3171"
+  resolved "https://registry.yarnpkg.com/fstream/-/fstream-1.0.11.tgz#5c1fb1f117477114f0632a0eb4b71b3cb0fd3171"
   dependencies:
     graceful-fs "^4.1.2"
     inherits "~2.0.0"
@@ -886,7 +886,7 @@ fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
 
 gauge@~2.7.3:
   version "2.7.4"
-  resolved "http://nexus.in.tdw/repository/npm/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
+  resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
   dependencies:
     aproba "^1.0.3"
     console-control-strings "^1.0.0"
@@ -899,30 +899,30 @@ gauge@~2.7.3:
 
 get-caller-file@^1.0.1:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
+  resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
 
 getpass@^0.1.1:
   version "0.1.7"
-  resolved "http://nexus.in.tdw/repository/npm/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
+  resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
   dependencies:
     assert-plus "^1.0.0"
 
 glob-base@^0.3.0:
   version "0.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/glob-base/-/glob-base-0.3.0.tgz#dbb164f6221b1c0b1ccf82aea328b497df0ea3c4"
+  resolved "https://registry.yarnpkg.com/glob-base/-/glob-base-0.3.0.tgz#dbb164f6221b1c0b1ccf82aea328b497df0ea3c4"
   dependencies:
     glob-parent "^2.0.0"
     is-glob "^2.0.0"
 
 glob-parent@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/glob-parent/-/glob-parent-2.0.0.tgz#81383d72db054fcccf5336daa902f182f6edbb28"
+  resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-2.0.0.tgz#81383d72db054fcccf5336daa902f182f6edbb28"
   dependencies:
     is-glob "^2.0.0"
 
 glob@7.1.2, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1:
   version "7.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -933,19 +933,19 @@ glob@7.1.2, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1:
 
 globals@^9.18.0:
   version "9.18.0"
-  resolved "http://nexus.in.tdw/repository/npm/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.11"
-  resolved "http://nexus.in.tdw/repository/npm/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
 growl@1.10.3:
   version "1.10.3"
-  resolved "http://nexus.in.tdw/repository/npm/growl/-/growl-1.10.3.tgz#1926ba90cf3edfe2adb4927f5880bc22c66c790f"
+  resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.3.tgz#1926ba90cf3edfe2adb4927f5880bc22c66c790f"
 
 handlebars@^4.0.3:
   version "4.0.11"
-  resolved "http://nexus.in.tdw/repository/npm/handlebars/-/handlebars-4.0.11.tgz#630a35dfe0294bc281edae6ffc5d329fc7982dcc"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.11.tgz#630a35dfe0294bc281edae6ffc5d329fc7982dcc"
   dependencies:
     async "^1.4.0"
     optimist "^0.6.1"
@@ -955,7 +955,7 @@ handlebars@^4.0.3:
 
 hapi@^16.6.2:
   version "16.6.2"
-  resolved "http://nexus.in.tdw/repository/npm/hapi/-/hapi-16.6.2.tgz#690554fc9c5ca7ad2f8030bbfe21d5e5886cdc14"
+  resolved "https://registry.yarnpkg.com/hapi/-/hapi-16.6.2.tgz#690554fc9c5ca7ad2f8030bbfe21d5e5886cdc14"
   dependencies:
     accept "^2.1.4"
     ammo "^2.0.4"
@@ -978,51 +978,51 @@ hapi@^16.6.2:
 
 har-schema@^1.0.5:
   version "1.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/har-schema/-/har-schema-1.0.5.tgz#d263135f43307c02c602afc8fe95970c0151369e"
+  resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-1.0.5.tgz#d263135f43307c02c602afc8fe95970c0151369e"
 
 har-schema@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/har-schema/-/har-schema-2.0.0.tgz#a94c2224ebcac04782a0d9035521f24735b7ec92"
+  resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-2.0.0.tgz#a94c2224ebcac04782a0d9035521f24735b7ec92"
 
 har-validator@~4.2.1:
   version "4.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/har-validator/-/har-validator-4.2.1.tgz#33481d0f1bbff600dd203d75812a6a5fba002e2a"
+  resolved "https://registry.yarnpkg.com/har-validator/-/har-validator-4.2.1.tgz#33481d0f1bbff600dd203d75812a6a5fba002e2a"
   dependencies:
     ajv "^4.9.1"
     har-schema "^1.0.5"
 
 har-validator@~5.0.3:
   version "5.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/har-validator/-/har-validator-5.0.3.tgz#ba402c266194f15956ef15e0fcf242993f6a7dfd"
+  resolved "https://registry.yarnpkg.com/har-validator/-/har-validator-5.0.3.tgz#ba402c266194f15956ef15e0fcf242993f6a7dfd"
   dependencies:
     ajv "^5.1.0"
     har-schema "^2.0.0"
 
 has-ansi@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
+  resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
   dependencies:
     ansi-regex "^2.0.0"
 
 has-flag@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
+  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
 
 has-flag@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
+  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
 
 has-flag@^3.0.0:
   version "3.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
+  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
 
 has-unicode@^2.0.0:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
+  resolved "https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
 
 hawk@3.1.3, hawk@~3.1.3:
   version "3.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/hawk/-/hawk-3.1.3.tgz#078444bd7c1640b0fe540d2c9b73d59678e8e1c4"
+  resolved "https://registry.yarnpkg.com/hawk/-/hawk-3.1.3.tgz#078444bd7c1640b0fe540d2c9b73d59678e8e1c4"
   dependencies:
     boom "2.x.x"
     cryptiles "2.x.x"
@@ -1031,7 +1031,7 @@ hawk@3.1.3, hawk@~3.1.3:
 
 hawk@~6.0.2:
   version "6.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/hawk/-/hawk-6.0.2.tgz#af4d914eb065f9b5ce4d9d11c1cb2126eecc3038"
+  resolved "https://registry.yarnpkg.com/hawk/-/hawk-6.0.2.tgz#af4d914eb065f9b5ce4d9d11c1cb2126eecc3038"
   dependencies:
     boom "4.x.x"
     cryptiles "3.x.x"
@@ -1040,11 +1040,11 @@ hawk@~6.0.2:
 
 he@1.1.1:
   version "1.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
+  resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
 heavy@^4.0.4:
   version "4.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/heavy/-/heavy-4.0.4.tgz#36c91336c00ccfe852caa4d153086335cd2f00e9"
+  resolved "https://registry.yarnpkg.com/heavy/-/heavy-4.0.4.tgz#36c91336c00ccfe852caa4d153086335cd2f00e9"
   dependencies:
     boom "5.x.x"
     hoek "4.x.x"
@@ -1052,25 +1052,25 @@ heavy@^4.0.4:
 
 hoek@2.x.x:
   version "2.16.3"
-  resolved "http://nexus.in.tdw/repository/npm/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
 hoek@4.x.x, hoek@^4.2.0:
   version "4.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
 
 homedir-polyfill@^1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/homedir-polyfill/-/homedir-polyfill-1.0.1.tgz#4c2bbc8a758998feebf5ed68580f76d46768b4bc"
+  resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.1.tgz#4c2bbc8a758998feebf5ed68580f76d46768b4bc"
   dependencies:
     parse-passwd "^1.0.0"
 
 hosted-git-info@^2.1.4:
   version "2.5.0"
-  resolved "http://nexus.in.tdw/repository/npm/hosted-git-info/-/hosted-git-info-2.5.0.tgz#6d60e34b3abbc8313062c3b798ef8d901a07af3c"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.5.0.tgz#6d60e34b3abbc8313062c3b798ef8d901a07af3c"
 
 http-signature@~1.1.0:
   version "1.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/http-signature/-/http-signature-1.1.1.tgz#df72e267066cd0ac67fb76adf8e134a8fbcf91bf"
+  resolved "https://registry.yarnpkg.com/http-signature/-/http-signature-1.1.1.tgz#df72e267066cd0ac67fb76adf8e134a8fbcf91bf"
   dependencies:
     assert-plus "^0.2.0"
     jsprim "^1.2.2"
@@ -1078,7 +1078,7 @@ http-signature@~1.1.0:
 
 http-signature@~1.2.0:
   version "1.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/http-signature/-/http-signature-1.2.0.tgz#9aecd925114772f3d95b65a60abb8f7c18fbace1"
+  resolved "https://registry.yarnpkg.com/http-signature/-/http-signature-1.2.0.tgz#9aecd925114772f3d95b65a60abb8f7c18fbace1"
   dependencies:
     assert-plus "^1.0.0"
     jsprim "^1.2.2"
@@ -1086,40 +1086,40 @@ http-signature@~1.2.0:
 
 inflight@^1.0.4:
   version "1.0.6"
-  resolved "http://nexus.in.tdw/repository/npm/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
+  resolved "https://registry.yarnpkg.com/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
   dependencies:
     once "^1.3.0"
     wrappy "1"
 
 inherits@2, inherits@^2.0.1, inherits@~2.0.0, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
+  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
 
 inherits@2.0.1:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
+  resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.1.tgz#b17d08d326b4423e568eff719f91b0b1cbdf69f1"
 
 ini@~1.3.0:
   version "1.3.5"
-  resolved "http://nexus.in.tdw/repository/npm/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
+  resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
 
 injection-js@^2.2.1:
   version "2.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/injection-js/-/injection-js-2.2.1.tgz#a8d6a085b2f0b8d8650f6f4487f6abb8cc0d67ce"
+  resolved "https://registry.yarnpkg.com/injection-js/-/injection-js-2.2.1.tgz#a8d6a085b2f0b8d8650f6f4487f6abb8cc0d67ce"
 
 invariant@^2.2.2:
   version "2.2.3"
-  resolved "http://nexus.in.tdw/repository/npm/invariant/-/invariant-2.2.3.tgz#1a827dfde7dcbd7c323f0ca826be8fa7c5e9d688"
+  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.3.tgz#1a827dfde7dcbd7c323f0ca826be8fa7c5e9d688"
   dependencies:
     loose-envify "^1.0.0"
 
 invert-kv@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
+  resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
 
 iron@4.x.x, iron@^4.0.5:
   version "4.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/iron/-/iron-4.0.5.tgz#4f042cceb8b9738f346b59aa734c83a89bc31428"
+  resolved "https://registry.yarnpkg.com/iron/-/iron-4.0.5.tgz#4f042cceb8b9738f346b59aa734c83a89bc31428"
   dependencies:
     boom "5.x.x"
     cryptiles "3.x.x"
@@ -1127,123 +1127,123 @@ iron@4.x.x, iron@^4.0.5:
 
 is-arrayish@^0.2.1:
   version "0.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
+  resolved "https://registry.yarnpkg.com/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
 
 is-binary-path@^1.0.0:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/is-binary-path/-/is-binary-path-1.0.1.tgz#75f16642b480f187a711c814161fd3a4a7655898"
+  resolved "https://registry.yarnpkg.com/is-binary-path/-/is-binary-path-1.0.1.tgz#75f16642b480f187a711c814161fd3a4a7655898"
   dependencies:
     binary-extensions "^1.0.0"
 
 is-buffer@^1.1.5:
   version "1.1.6"
-  resolved "http://nexus.in.tdw/repository/npm/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
 
 is-builtin-module@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/is-builtin-module/-/is-builtin-module-1.0.0.tgz#540572d34f7ac3119f8f76c30cbc1b1e037affbe"
+  resolved "https://registry.yarnpkg.com/is-builtin-module/-/is-builtin-module-1.0.0.tgz#540572d34f7ac3119f8f76c30cbc1b1e037affbe"
   dependencies:
     builtin-modules "^1.0.0"
 
 is-dotfile@^1.0.0:
   version "1.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/is-dotfile/-/is-dotfile-1.0.3.tgz#a6a2f32ffd2dfb04f5ca25ecd0f6b83cf798a1e1"
+  resolved "https://registry.yarnpkg.com/is-dotfile/-/is-dotfile-1.0.3.tgz#a6a2f32ffd2dfb04f5ca25ecd0f6b83cf798a1e1"
 
 is-equal-shallow@^0.1.3:
   version "0.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/is-equal-shallow/-/is-equal-shallow-0.1.3.tgz#2238098fc221de0bcfa5d9eac4c45d638aa1c534"
+  resolved "https://registry.yarnpkg.com/is-equal-shallow/-/is-equal-shallow-0.1.3.tgz#2238098fc221de0bcfa5d9eac4c45d638aa1c534"
   dependencies:
     is-primitive "^2.0.0"
 
 is-extendable@^0.1.1:
   version "0.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/is-extendable/-/is-extendable-0.1.1.tgz#62b110e289a471418e3ec36a617d472e301dfc89"
+  resolved "https://registry.yarnpkg.com/is-extendable/-/is-extendable-0.1.1.tgz#62b110e289a471418e3ec36a617d472e301dfc89"
 
 is-extglob@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/is-extglob/-/is-extglob-1.0.0.tgz#ac468177c4943405a092fc8f29760c6ffc6206c0"
+  resolved "https://registry.yarnpkg.com/is-extglob/-/is-extglob-1.0.0.tgz#ac468177c4943405a092fc8f29760c6ffc6206c0"
 
 is-finite@^1.0.0:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/is-finite/-/is-finite-1.0.2.tgz#cc6677695602be550ef11e8b4aa6305342b6d0aa"
+  resolved "https://registry.yarnpkg.com/is-finite/-/is-finite-1.0.2.tgz#cc6677695602be550ef11e8b4aa6305342b6d0aa"
   dependencies:
     number-is-nan "^1.0.0"
 
 is-fullwidth-code-point@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/is-fullwidth-code-point/-/is-fullwidth-code-point-1.0.0.tgz#ef9e31386f031a7f0d643af82fde50c457ef00cb"
+  resolved "https://registry.yarnpkg.com/is-fullwidth-code-point/-/is-fullwidth-code-point-1.0.0.tgz#ef9e31386f031a7f0d643af82fde50c457ef00cb"
   dependencies:
     number-is-nan "^1.0.0"
 
 is-glob@^2.0.0, is-glob@^2.0.1:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/is-glob/-/is-glob-2.0.1.tgz#d096f926a3ded5600f3fdfd91198cb0888c2d863"
+  resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-2.0.1.tgz#d096f926a3ded5600f3fdfd91198cb0888c2d863"
   dependencies:
     is-extglob "^1.0.0"
 
 is-number@^2.1.0:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/is-number/-/is-number-2.1.0.tgz#01fcbbb393463a548f2f466cce16dece49db908f"
+  resolved "https://registry.yarnpkg.com/is-number/-/is-number-2.1.0.tgz#01fcbbb393463a548f2f466cce16dece49db908f"
   dependencies:
     kind-of "^3.0.2"
 
 is-number@^3.0.0:
   version "3.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/is-number/-/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"
+  resolved "https://registry.yarnpkg.com/is-number/-/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"
   dependencies:
     kind-of "^3.0.2"
 
 is-posix-bracket@^0.1.0:
   version "0.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
+  resolved "https://registry.yarnpkg.com/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
 
 is-primitive@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/is-primitive/-/is-primitive-2.0.0.tgz#207bab91638499c07b2adf240a41a87210034575"
+  resolved "https://registry.yarnpkg.com/is-primitive/-/is-primitive-2.0.0.tgz#207bab91638499c07b2adf240a41a87210034575"
 
 is-typedarray@^1.0.0, is-typedarray@~1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
+  resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
 
 is-utf8@^0.2.0:
   version "0.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
+  resolved "https://registry.yarnpkg.com/is-utf8/-/is-utf8-0.2.1.tgz#4b0da1442104d1b336340e80797e865cf39f7d72"
 
 isarray@0.0.1:
   version "0.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
+  resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
 
 isarray@1.0.0, isarray@~1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
+  resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
 
 isemail@2.x.x:
   version "2.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/isemail/-/isemail-2.2.1.tgz#0353d3d9a62951080c262c2aa0a42b8ea8e9e2a6"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-2.2.1.tgz#0353d3d9a62951080c262c2aa0a42b8ea8e9e2a6"
 
 isemail@3.x.x:
   version "3.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/isemail/-/isemail-3.1.1.tgz#e8450fe78ff1b48347db599122adcd0668bd92b5"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-3.1.1.tgz#e8450fe78ff1b48347db599122adcd0668bd92b5"
   dependencies:
     punycode "2.x.x"
 
 isexe@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
+  resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
 
 isobject@^2.0.0:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
+  resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
   dependencies:
     isarray "1.0.0"
 
 isstream@~0.1.2:
   version "0.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
+  resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
 istanbul-api@^1.1.0-alpha:
   version "1.2.2"
-  resolved "http://nexus.in.tdw/repository/npm/istanbul-api/-/istanbul-api-1.2.2.tgz#e17cd519dd5ec4141197f246fdf380b75487f3b1"
+  resolved "https://registry.yarnpkg.com/istanbul-api/-/istanbul-api-1.2.2.tgz#e17cd519dd5ec4141197f246fdf380b75487f3b1"
   dependencies:
     async "^2.1.4"
     fileset "^2.0.2"
@@ -1259,17 +1259,17 @@ istanbul-api@^1.1.0-alpha:
 
 istanbul-lib-coverage@^1.1.2:
   version "1.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/istanbul-lib-coverage/-/istanbul-lib-coverage-1.1.2.tgz#4113c8ff6b7a40a1ef7350b01016331f63afde14"
+  resolved "https://registry.yarnpkg.com/istanbul-lib-coverage/-/istanbul-lib-coverage-1.1.2.tgz#4113c8ff6b7a40a1ef7350b01016331f63afde14"
 
 istanbul-lib-hook@^1.1.0:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/istanbul-lib-hook/-/istanbul-lib-hook-1.1.0.tgz#8538d970372cb3716d53e55523dd54b557a8d89b"
+  resolved "https://registry.yarnpkg.com/istanbul-lib-hook/-/istanbul-lib-hook-1.1.0.tgz#8538d970372cb3716d53e55523dd54b557a8d89b"
   dependencies:
     append-transform "^0.4.0"
 
 istanbul-lib-instrument@^1.9.2:
   version "1.9.2"
-  resolved "http://nexus.in.tdw/repository/npm/istanbul-lib-instrument/-/istanbul-lib-instrument-1.9.2.tgz#84905bf47f7e0b401d6b840da7bad67086b4aab6"
+  resolved "https://registry.yarnpkg.com/istanbul-lib-instrument/-/istanbul-lib-instrument-1.9.2.tgz#84905bf47f7e0b401d6b840da7bad67086b4aab6"
   dependencies:
     babel-generator "^6.18.0"
     babel-template "^6.16.0"
@@ -1281,7 +1281,7 @@ istanbul-lib-instrument@^1.9.2:
 
 istanbul-lib-report@^1.1.3:
   version "1.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/istanbul-lib-report/-/istanbul-lib-report-1.1.3.tgz#2df12188c0fa77990c0d2176d2d0ba3394188259"
+  resolved "https://registry.yarnpkg.com/istanbul-lib-report/-/istanbul-lib-report-1.1.3.tgz#2df12188c0fa77990c0d2176d2d0ba3394188259"
   dependencies:
     istanbul-lib-coverage "^1.1.2"
     mkdirp "^0.5.1"
@@ -1290,7 +1290,7 @@ istanbul-lib-report@^1.1.3:
 
 istanbul-lib-source-maps@^1.2.3:
   version "1.2.3"
-  resolved "http://nexus.in.tdw/repository/npm/istanbul-lib-source-maps/-/istanbul-lib-source-maps-1.2.3.tgz#20fb54b14e14b3fb6edb6aca3571fd2143db44e6"
+  resolved "https://registry.yarnpkg.com/istanbul-lib-source-maps/-/istanbul-lib-source-maps-1.2.3.tgz#20fb54b14e14b3fb6edb6aca3571fd2143db44e6"
   dependencies:
     debug "^3.1.0"
     istanbul-lib-coverage "^1.1.2"
@@ -1300,13 +1300,13 @@ istanbul-lib-source-maps@^1.2.3:
 
 istanbul-reports@^1.1.4:
   version "1.1.4"
-  resolved "http://nexus.in.tdw/repository/npm/istanbul-reports/-/istanbul-reports-1.1.4.tgz#5ccba5e22b7b5a5d91d5e0a830f89be334bf97bd"
+  resolved "https://registry.yarnpkg.com/istanbul-reports/-/istanbul-reports-1.1.4.tgz#5ccba5e22b7b5a5d91d5e0a830f89be334bf97bd"
   dependencies:
     handlebars "^4.0.3"
 
 istanbul@^1.1.0-alpha.1:
   version "1.1.0-alpha.1"
-  resolved "http://nexus.in.tdw/repository/npm/istanbul/-/istanbul-1.1.0-alpha.1.tgz#781795656018a2174c5f60f367ee5d361cb57b77"
+  resolved "https://registry.yarnpkg.com/istanbul/-/istanbul-1.1.0-alpha.1.tgz#781795656018a2174c5f60f367ee5d361cb57b77"
   dependencies:
     abbrev "1.0.x"
     async "1.x"
@@ -1319,11 +1319,11 @@ istanbul@^1.1.0-alpha.1:
 
 items@2.x.x, items@^2.1.1:
   version "2.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/items/-/items-2.1.1.tgz#8bd16d9c83b19529de5aea321acaada78364a198"
+  resolved "https://registry.yarnpkg.com/items/-/items-2.1.1.tgz#8bd16d9c83b19529de5aea321acaada78364a198"
 
 joi@10.x.x:
   version "10.6.0"
-  resolved "http://nexus.in.tdw/repository/npm/joi/-/joi-10.6.0.tgz#52587f02d52b8b75cdb0c74f0b164a191a0e1fc2"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-10.6.0.tgz#52587f02d52b8b75cdb0c74f0b164a191a0e1fc2"
   dependencies:
     hoek "4.x.x"
     isemail "2.x.x"
@@ -1332,7 +1332,7 @@ joi@10.x.x:
 
 joi@^11.1.0:
   version "11.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/joi/-/joi-11.4.0.tgz#f674897537b625e9ac3d0b7e1604c828ad913ccb"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-11.4.0.tgz#f674897537b625e9ac3d0b7e1604c828ad913ccb"
   dependencies:
     hoek "4.x.x"
     isemail "3.x.x"
@@ -1340,54 +1340,54 @@ joi@^11.1.0:
 
 js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
 js-yaml@3.x, js-yaml@^3.6.1, js-yaml@^3.7.0:
   version "3.10.0"
-  resolved "http://nexus.in.tdw/repository/npm/js-yaml/-/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
 jsbn@~0.1.0:
   version "0.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
+  resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
 jsesc@^1.3.0:
   version "1.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/jsesc/-/jsesc-1.3.0.tgz#46c3fec8c1892b12b0833db9bc7622176dbab34b"
+  resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-1.3.0.tgz#46c3fec8c1892b12b0833db9bc7622176dbab34b"
 
 json-schema-traverse@^0.3.0:
   version "0.3.1"
-  resolved "http://nexus.in.tdw/repository/npm/json-schema-traverse/-/json-schema-traverse-0.3.1.tgz#349a6d44c53a51de89b40805c5d5e59b417d3340"
+  resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.3.1.tgz#349a6d44c53a51de89b40805c5d5e59b417d3340"
 
 json-schema@0.2.3:
   version "0.2.3"
-  resolved "http://nexus.in.tdw/repository/npm/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
+  resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
 
 json-stable-stringify@^1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/json-stable-stringify/-/json-stable-stringify-1.0.1.tgz#9a759d39c5f2ff503fd5300646ed445f88c4f9af"
+  resolved "https://registry.yarnpkg.com/json-stable-stringify/-/json-stable-stringify-1.0.1.tgz#9a759d39c5f2ff503fd5300646ed445f88c4f9af"
   dependencies:
     jsonify "~0.0.0"
 
 json-stringify-safe@~5.0.1:
   version "5.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
+  resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
 jsonfile@^4.0.0:
   version "4.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
   optionalDependencies:
     graceful-fs "^4.1.6"
 
 jsonify@~0.0.0:
   version "0.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
+  resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
 jsprim@^1.2.2:
   version "1.4.1"
-  resolved "http://nexus.in.tdw/repository/npm/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
+  resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
   dependencies:
     assert-plus "1.0.0"
     extsprintf "1.3.0"
@@ -1396,37 +1396,37 @@ jsprim@^1.2.2:
 
 kind-of@^3.0.2:
   version "3.2.2"
-  resolved "http://nexus.in.tdw/repository/npm/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
+  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
   dependencies:
     is-buffer "^1.1.5"
 
 kind-of@^4.0.0:
   version "4.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/kind-of/-/kind-of-4.0.0.tgz#20813df3d712928b207378691a45066fae72dd57"
+  resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-4.0.0.tgz#20813df3d712928b207378691a45066fae72dd57"
   dependencies:
     is-buffer "^1.1.5"
 
 "kindof@>= 1.0.0 < 2":
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/kindof/-/kindof-1.0.0.tgz#131899a8527537a94da2edcd5cc49fc609606560"
+  resolved "https://registry.yarnpkg.com/kindof/-/kindof-1.0.0.tgz#131899a8527537a94da2edcd5cc49fc609606560"
 
 lazy-cache@^1.0.3:
   version "1.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
+  resolved "https://registry.yarnpkg.com/lazy-cache/-/lazy-cache-1.0.4.tgz#a1d78fc3a50474cb80845d3b3b6e1da49a446e8e"
 
 lcid@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
+  resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
 
 lcov-parse@^0.0.10:
   version "0.0.10"
-  resolved "http://nexus.in.tdw/repository/npm/lcov-parse/-/lcov-parse-0.0.10.tgz#1b0b8ff9ac9c7889250582b70b71315d9da6d9a3"
+  resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-0.0.10.tgz#1b0b8ff9ac9c7889250582b70b71315d9da6d9a3"
 
 load-json-file@^1.0.0:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
+  resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
   dependencies:
     graceful-fs "^4.1.2"
     parse-json "^2.2.0"
@@ -1436,52 +1436,52 @@ load-json-file@^1.0.0:
 
 lodash@^3.7.0:
   version "3.10.1"
-  resolved "http://nexus.in.tdw/repository/npm/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
 lodash@^4.14.0, lodash@^4.17.4:
   version "4.17.5"
-  resolved "http://nexus.in.tdw/repository/npm/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
 log-driver@^1.2.5:
   version "1.2.7"
-  resolved "http://nexus.in.tdw/repository/npm/log-driver/-/log-driver-1.2.7.tgz#63b95021f0702fedfa2c9bb0a24e7797d71871d8"
+  resolved "https://registry.yarnpkg.com/log-driver/-/log-driver-1.2.7.tgz#63b95021f0702fedfa2c9bb0a24e7797d71871d8"
 
 lolex@1.3.2:
   version "1.3.2"
-  resolved "http://nexus.in.tdw/repository/npm/lolex/-/lolex-1.3.2.tgz#7c3da62ffcb30f0f5a80a2566ca24e45d8a01f31"
+  resolved "https://registry.yarnpkg.com/lolex/-/lolex-1.3.2.tgz#7c3da62ffcb30f0f5a80a2566ca24e45d8a01f31"
 
 longest@^1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
+  resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
 loose-envify@^1.0.0:
   version "1.3.1"
-  resolved "http://nexus.in.tdw/repository/npm/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
+  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
     js-tokens "^3.0.0"
 
 lru-cache@^4.0.1:
   version "4.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/lru-cache/-/lru-cache-4.1.1.tgz#622e32e82488b49279114a4f9ecf45e7cd6bba55"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.1.tgz#622e32e82488b49279114a4f9ecf45e7cd6bba55"
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
 make-error@^1.1.1:
   version "1.3.4"
-  resolved "http://nexus.in.tdw/repository/npm/make-error/-/make-error-1.3.4.tgz#19978ed575f9e9545d2ff8c13e33b5d18a67d535"
+  resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.4.tgz#19978ed575f9e9545d2ff8c13e33b5d18a67d535"
 
 methods@1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/methods/-/methods-1.0.1.tgz#75bc91943dffd7da037cf3eeb0ed73a0037cd14b"
+  resolved "https://registry.yarnpkg.com/methods/-/methods-1.0.1.tgz#75bc91943dffd7da037cf3eeb0ed73a0037cd14b"
 
 methods@1.x:
   version "1.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
+  resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
 
 micromatch@^2.1.5:
   version "2.3.11"
-  resolved "http://nexus.in.tdw/repository/npm/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
   dependencies:
     arr-diff "^2.0.0"
     array-unique "^0.2.1"
@@ -1499,52 +1499,52 @@ micromatch@^2.1.5:
 
 mime-db@1.x.x, mime-db@~1.33.0:
   version "1.33.0"
-  resolved "http://nexus.in.tdw/repository/npm/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"
 
 mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.7:
   version "2.1.18"
-  resolved "http://nexus.in.tdw/repository/npm/mime-types/-/mime-types-2.1.18.tgz#6f323f60a83d11146f831ff11fd66e2fe5503bb8"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.18.tgz#6f323f60a83d11146f831ff11fd66e2fe5503bb8"
   dependencies:
     mime-db "~1.33.0"
 
 mime@1.2.11, mime@~1.2.11:
   version "1.2.11"
-  resolved "http://nexus.in.tdw/repository/npm/mime/-/mime-1.2.11.tgz#58203eed86e3a5ef17aed2b7d9ebd47f0a60dd10"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-1.2.11.tgz#58203eed86e3a5ef17aed2b7d9ebd47f0a60dd10"
 
 mimos@^3.0.3:
   version "3.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/mimos/-/mimos-3.0.3.tgz#b9109072ad378c2b72f6a0101c43ddfb2b36641f"
+  resolved "https://registry.yarnpkg.com/mimos/-/mimos-3.0.3.tgz#b9109072ad378c2b72f6a0101c43ddfb2b36641f"
   dependencies:
     hoek "4.x.x"
     mime-db "1.x.x"
 
 minimatch@^3.0.0, minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4:
   version "3.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   dependencies:
     brace-expansion "^1.1.7"
 
 minimist@0.0.8:
   version "0.0.8"
-  resolved "http://nexus.in.tdw/repository/npm/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
 
 minimist@^1.2.0:
   version "1.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
 minimist@~0.0.1:
   version "0.0.10"
-  resolved "http://nexus.in.tdw/repository/npm/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
 
 mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.1:
   version "0.5.1"
-  resolved "http://nexus.in.tdw/repository/npm/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
 
 mocha-typescript@^1.1.12:
   version "1.1.12"
-  resolved "http://nexus.in.tdw/repository/npm/mocha-typescript/-/mocha-typescript-1.1.12.tgz#ff389bc2349677ecfc32c45cf0865993d82a2a17"
+  resolved "https://registry.yarnpkg.com/mocha-typescript/-/mocha-typescript-1.1.12.tgz#ff389bc2349677ecfc32c45cf0865993d82a2a17"
   dependencies:
     chalk "^1.1.3"
     cross-spawn "^5.1.0"
@@ -1552,7 +1552,7 @@ mocha-typescript@^1.1.12:
 
 mocha@^5.0.0:
   version "5.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/mocha/-/mocha-5.0.1.tgz#759b62c836b0732382a62b6b1fb245ec1bc943ac"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-5.0.1.tgz#759b62c836b0732382a62b6b1fb245ec1bc943ac"
   dependencies:
     browser-stdout "1.3.0"
     commander "2.11.0"
@@ -1567,28 +1567,28 @@ mocha@^5.0.0:
 
 ms@2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
 must@^0.12.0:
   version "0.12.0"
-  resolved "http://nexus.in.tdw/repository/npm/must/-/must-0.12.0.tgz#5741e729bedbc8b0fe2bc8c5006459415383d05d"
+  resolved "https://registry.yarnpkg.com/must/-/must-0.12.0.tgz#5741e729bedbc8b0fe2bc8c5006459415383d05d"
   dependencies:
     kindof ">= 1.0.0 < 2"
 
 nan@^2.3.0, nan@^2.3.3:
   version "2.9.2"
-  resolved "http://nexus.in.tdw/repository/npm/nan/-/nan-2.9.2.tgz#f564d75f5f8f36a6d9456cca7a6c4fe488ab7866"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.9.2.tgz#f564d75f5f8f36a6d9456cca7a6c4fe488ab7866"
 
 nigel@2.x.x:
   version "2.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/nigel/-/nigel-2.0.2.tgz#93a1866fb0c52d87390aa75e2b161f4b5c75e5b1"
+  resolved "https://registry.yarnpkg.com/nigel/-/nigel-2.0.2.tgz#93a1866fb0c52d87390aa75e2b161f4b5c75e5b1"
   dependencies:
     hoek "4.x.x"
     vise "2.x.x"
 
 node-pre-gyp@^0.6.39:
   version "0.6.39"
-  resolved "http://nexus.in.tdw/repository/npm/node-pre-gyp/-/node-pre-gyp-0.6.39.tgz#c00e96860b23c0e1420ac7befc5044e1d78d8649"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.39.tgz#c00e96860b23c0e1420ac7befc5044e1d78d8649"
   dependencies:
     detect-libc "^1.0.2"
     hawk "3.1.3"
@@ -1604,24 +1604,24 @@ node-pre-gyp@^0.6.39:
 
 "noder.io@>= 1.0.0 < 2.0.0":
   version "1.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/noder.io/-/noder.io-1.2.0.tgz#ad2bc6c6c3f9465891edbc6dbf5e84dcae2fa9e6"
+  resolved "https://registry.yarnpkg.com/noder.io/-/noder.io-1.2.0.tgz#ad2bc6c6c3f9465891edbc6dbf5e84dcae2fa9e6"
 
 nopt@3.x:
   version "3.0.6"
-  resolved "http://nexus.in.tdw/repository/npm/nopt/-/nopt-3.0.6.tgz#c6465dbf08abcd4db359317f79ac68a646b28ff9"
+  resolved "https://registry.yarnpkg.com/nopt/-/nopt-3.0.6.tgz#c6465dbf08abcd4db359317f79ac68a646b28ff9"
   dependencies:
     abbrev "1"
 
 nopt@^4.0.1:
   version "4.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
+  resolved "https://registry.yarnpkg.com/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
   dependencies:
     abbrev "1"
     osenv "^0.1.4"
 
 normalize-package-data@^2.3.2:
   version "2.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/normalize-package-data/-/normalize-package-data-2.4.0.tgz#12f95a307d58352075a04907b84ac8be98ac012f"
+  resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.4.0.tgz#12f95a307d58352075a04907b84ac8be98ac012f"
   dependencies:
     hosted-git-info "^2.1.4"
     is-builtin-module "^1.0.0"
@@ -1630,13 +1630,13 @@ normalize-package-data@^2.3.2:
 
 normalize-path@^2.0.0, normalize-path@^2.0.1:
   version "2.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
+  resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
   dependencies:
     remove-trailing-separator "^1.0.1"
 
 npmlog@^4.0.2:
   version "4.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/npmlog/-/npmlog-4.1.2.tgz#08a7f2a8bf734604779a9efa4ad5cc717abb954b"
+  resolved "https://registry.yarnpkg.com/npmlog/-/npmlog-4.1.2.tgz#08a7f2a8bf734604779a9efa4ad5cc717abb954b"
   dependencies:
     are-we-there-yet "~1.1.2"
     console-control-strings "~1.1.0"
@@ -1645,60 +1645,60 @@ npmlog@^4.0.2:
 
 number-is-nan@^1.0.0:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
+  resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
 oauth-sign@~0.8.1, oauth-sign@~0.8.2:
   version "0.8.2"
-  resolved "http://nexus.in.tdw/repository/npm/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
+  resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
 object-assign@^4.1.0:
   version "4.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
 object.omit@^2.0.0:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/object.omit/-/object.omit-2.0.1.tgz#1a9c744829f39dbb858c76ca3579ae2a54ebd1fa"
+  resolved "https://registry.yarnpkg.com/object.omit/-/object.omit-2.0.1.tgz#1a9c744829f39dbb858c76ca3579ae2a54ebd1fa"
   dependencies:
     for-own "^0.1.4"
     is-extendable "^0.1.1"
 
 once@^1.3.0, once@^1.3.3, once@^1.4.0:
   version "1.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
+  resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
   dependencies:
     wrappy "1"
 
 optimist@^0.6.1:
   version "0.6.1"
-  resolved "http://nexus.in.tdw/repository/npm/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
+  resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
   dependencies:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
 os-homedir@^1.0.0:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
+  resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
 
 os-locale@^1.4.0:
   version "1.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/os-locale/-/os-locale-1.4.0.tgz#20f9f17ae29ed345e8bde583b13d2009803c14d9"
+  resolved "https://registry.yarnpkg.com/os-locale/-/os-locale-1.4.0.tgz#20f9f17ae29ed345e8bde583b13d2009803c14d9"
   dependencies:
     lcid "^1.0.0"
 
 os-tmpdir@^1.0.0:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
+  resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
 osenv@^0.1.4:
   version "0.1.5"
-  resolved "http://nexus.in.tdw/repository/npm/osenv/-/osenv-0.1.5.tgz#85cdfafaeb28e8677f416e287592b5f3f49ea410"
+  resolved "https://registry.yarnpkg.com/osenv/-/osenv-0.1.5.tgz#85cdfafaeb28e8677f416e287592b5f3f49ea410"
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
 parse-glob@^3.0.4:
   version "3.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/parse-glob/-/parse-glob-3.0.4.tgz#b2c376cfb11f35513badd173ef0bb6e3a388391c"
+  resolved "https://registry.yarnpkg.com/parse-glob/-/parse-glob-3.0.4.tgz#b2c376cfb11f35513badd173ef0bb6e3a388391c"
   dependencies:
     glob-base "^0.3.0"
     is-dotfile "^1.0.0"
@@ -1707,31 +1707,31 @@ parse-glob@^3.0.4:
 
 parse-json@^2.2.0:
   version "2.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/parse-json/-/parse-json-2.2.0.tgz#f480f40434ef80741f8469099f8dea18f55a4dc9"
+  resolved "https://registry.yarnpkg.com/parse-json/-/parse-json-2.2.0.tgz#f480f40434ef80741f8469099f8dea18f55a4dc9"
   dependencies:
     error-ex "^1.2.0"
 
 parse-passwd@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
+  resolved "https://registry.yarnpkg.com/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
 
 path-exists@^2.0.0:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/path-exists/-/path-exists-2.1.0.tgz#0feb6c64f0fc518d9a754dd5efb62c7022761f4b"
+  resolved "https://registry.yarnpkg.com/path-exists/-/path-exists-2.1.0.tgz#0feb6c64f0fc518d9a754dd5efb62c7022761f4b"
   dependencies:
     pinkie-promise "^2.0.0"
 
 path-is-absolute@^1.0.0:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
+  resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
 
 path-parse@^1.0.5:
   version "1.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/path-parse/-/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
 
 path-type@^1.0.0:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/path-type/-/path-type-1.1.0.tgz#59c44f7ee491da704da415da5a4070ba4f8fe441"
+  resolved "https://registry.yarnpkg.com/path-type/-/path-type-1.1.0.tgz#59c44f7ee491da704da415da5a4070ba4f8fe441"
   dependencies:
     graceful-fs "^4.1.2"
     pify "^2.0.0"
@@ -1739,15 +1739,15 @@ path-type@^1.0.0:
 
 performance-now@^0.2.0:
   version "0.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
+  resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
 
 performance-now@^2.1.0:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
+  resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
 pez@2.x.x:
   version "2.1.5"
-  resolved "http://nexus.in.tdw/repository/npm/pez/-/pez-2.1.5.tgz#5ec2cc62500cc3eb4236d4a414cf5a17b5eb5007"
+  resolved "https://registry.yarnpkg.com/pez/-/pez-2.1.5.tgz#5ec2cc62500cc3eb4236d4a414cf5a17b5eb5007"
   dependencies:
     b64 "3.x.x"
     boom "5.x.x"
@@ -1757,21 +1757,21 @@ pez@2.x.x:
 
 pify@^2.0.0:
   version "2.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
+  resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa"
+  resolved "https://registry.yarnpkg.com/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa"
   dependencies:
     pinkie "^2.0.0"
 
 pinkie@^2.0.0:
   version "2.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
+  resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
 podium@^1.3.0:
   version "1.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/podium/-/podium-1.3.0.tgz#3c490f54d16f10f5260cbe98641f1cb733a8851c"
+  resolved "https://registry.yarnpkg.com/podium/-/podium-1.3.0.tgz#3c490f54d16f10f5260cbe98641f1cb733a8851c"
   dependencies:
     hoek "4.x.x"
     items "2.x.x"
@@ -1779,46 +1779,46 @@ podium@^1.3.0:
 
 preserve@^0.2.0:
   version "0.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
+  resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
 process-nextick-args@~2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
+  resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
 
 pseudomap@^1.0.2:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
+  resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
 
 punycode@2.x.x:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
+  resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.0.tgz#5f863edc89b96db09074bad7947bf09056ca4e7d"
 
 punycode@^1.4.1:
   version "1.4.1"
-  resolved "http://nexus.in.tdw/repository/npm/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
+  resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
 qs@1.2.0:
   version "1.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/qs/-/qs-1.2.0.tgz#ed079be28682147e6fd9a34cc2b0c1e0ec6453ee"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-1.2.0.tgz#ed079be28682147e6fd9a34cc2b0c1e0ec6453ee"
 
 qs@~6.4.0:
   version "6.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
 qs@~6.5.1:
   version "6.5.1"
-  resolved "http://nexus.in.tdw/repository/npm/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
 randomatic@^1.1.3:
   version "1.1.7"
-  resolved "http://nexus.in.tdw/repository/npm/randomatic/-/randomatic-1.1.7.tgz#c7abe9cc8b87c0baa876b19fde83fd464797e38c"
+  resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-1.1.7.tgz#c7abe9cc8b87c0baa876b19fde83fd464797e38c"
   dependencies:
     is-number "^3.0.0"
     kind-of "^4.0.0"
 
 rc@^1.1.7:
   version "1.2.5"
-  resolved "http://nexus.in.tdw/repository/npm/rc/-/rc-1.2.5.tgz#275cd687f6e3b36cc756baa26dfee80a790301fd"
+  resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.5.tgz#275cd687f6e3b36cc756baa26dfee80a790301fd"
   dependencies:
     deep-extend "~0.4.0"
     ini "~1.3.0"
@@ -1827,14 +1827,14 @@ rc@^1.1.7:
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/read-pkg-up/-/read-pkg-up-1.0.1.tgz#9d63c13276c065918d57f002a57f40a1b643fb02"
+  resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-1.0.1.tgz#9d63c13276c065918d57f002a57f40a1b643fb02"
   dependencies:
     find-up "^1.0.0"
     read-pkg "^1.0.0"
 
 read-pkg@^1.0.0:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/read-pkg/-/read-pkg-1.1.0.tgz#f5ffaa5ecd29cb31c0474bca7d756b6bb29e3f28"
+  resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-1.1.0.tgz#f5ffaa5ecd29cb31c0474bca7d756b6bb29e3f28"
   dependencies:
     load-json-file "^1.0.0"
     normalize-package-data "^2.3.2"
@@ -1842,7 +1842,7 @@ read-pkg@^1.0.0:
 
 readable-stream@1.0.27-1:
   version "1.0.27-1"
-  resolved "http://nexus.in.tdw/repository/npm/readable-stream/-/readable-stream-1.0.27-1.tgz#6b67983c20357cefd07f0165001a16d710d91078"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.0.27-1.tgz#6b67983c20357cefd07f0165001a16d710d91078"
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.1"
@@ -1851,7 +1851,7 @@ readable-stream@1.0.27-1:
 
 readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.4:
   version "2.3.4"
-  resolved "http://nexus.in.tdw/repository/npm/readable-stream/-/readable-stream-2.3.4.tgz#c946c3f47fa7d8eabc0b6150f4a12f69a4574071"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.4.tgz#c946c3f47fa7d8eabc0b6150f4a12f69a4574071"
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.3"
@@ -1863,7 +1863,7 @@ readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.1.4:
 
 readdirp@^2.0.0:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/readdirp/-/readdirp-2.1.0.tgz#4ed0ad060df3073300c48440373f72d1cc642d78"
+  resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-2.1.0.tgz#4ed0ad060df3073300c48440373f72d1cc642d78"
   dependencies:
     graceful-fs "^4.1.2"
     minimatch "^3.0.2"
@@ -1872,43 +1872,43 @@ readdirp@^2.0.0:
 
 reduce-component@1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/reduce-component/-/reduce-component-1.0.1.tgz#e0c93542c574521bea13df0f9488ed82ab77c5da"
+  resolved "https://registry.yarnpkg.com/reduce-component/-/reduce-component-1.0.1.tgz#e0c93542c574521bea13df0f9488ed82ab77c5da"
 
 reflect-metadata@^0.1.10, reflect-metadata@^0.1.2:
   version "0.1.12"
-  resolved "http://nexus.in.tdw/repository/npm/reflect-metadata/-/reflect-metadata-0.1.12.tgz#311bf0c6b63cd782f228a81abe146a2bfa9c56f2"
+  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.12.tgz#311bf0c6b63cd782f228a81abe146a2bfa9c56f2"
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
-  resolved "http://nexus.in.tdw/repository/npm/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
 
 regex-cache@^0.4.2:
   version "0.4.4"
-  resolved "http://nexus.in.tdw/repository/npm/regex-cache/-/regex-cache-0.4.4.tgz#75bdc58a2a1496cec48a12835bc54c8d562336dd"
+  resolved "https://registry.yarnpkg.com/regex-cache/-/regex-cache-0.4.4.tgz#75bdc58a2a1496cec48a12835bc54c8d562336dd"
   dependencies:
     is-equal-shallow "^0.1.3"
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
+  resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
 
 repeat-element@^1.1.2:
   version "1.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/repeat-element/-/repeat-element-1.1.2.tgz#ef089a178d1483baae4d93eb98b4f9e4e11d990a"
+  resolved "https://registry.yarnpkg.com/repeat-element/-/repeat-element-1.1.2.tgz#ef089a178d1483baae4d93eb98b4f9e4e11d990a"
 
 repeat-string@^1.5.2:
   version "1.6.1"
-  resolved "http://nexus.in.tdw/repository/npm/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
+  resolved "https://registry.yarnpkg.com/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
 
 repeating@^2.0.0:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/repeating/-/repeating-2.0.1.tgz#5214c53a926d3552707527fbab415dbc08d06dda"
+  resolved "https://registry.yarnpkg.com/repeating/-/repeating-2.0.1.tgz#5214c53a926d3552707527fbab415dbc08d06dda"
   dependencies:
     is-finite "^1.0.0"
 
 request@2.81.0:
   version "2.81.0"
-  resolved "http://nexus.in.tdw/repository/npm/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
     aws-sign2 "~0.6.0"
     aws4 "^1.2.1"
@@ -1935,7 +1935,7 @@ request@2.81.0:
 
 request@^2.79.0:
   version "2.83.0"
-  resolved "http://nexus.in.tdw/repository/npm/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
   dependencies:
     aws-sign2 "~0.7.0"
     aws4 "^1.6.0"
@@ -1962,96 +1962,96 @@ request@^2.79.0:
 
 require-directory@^2.1.1:
   version "2.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
+  resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
 
 require-main-filename@^1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
+  resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
 
 resolve@^1.3.2:
   version "1.5.0"
-  resolved "http://nexus.in.tdw/repository/npm/resolve/-/resolve-1.5.0.tgz#1f09acce796c9a762579f31b2c1cc4c3cddf9f36"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.5.0.tgz#1f09acce796c9a762579f31b2c1cc4c3cddf9f36"
   dependencies:
     path-parse "^1.0.5"
 
 right-align@^0.1.1:
   version "0.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/right-align/-/right-align-0.1.3.tgz#61339b722fe6a3515689210d24e14c96148613ef"
+  resolved "https://registry.yarnpkg.com/right-align/-/right-align-0.1.3.tgz#61339b722fe6a3515689210d24e14c96148613ef"
   dependencies:
     align-text "^0.1.1"
 
 rimraf@2, rimraf@^2.5.1, rimraf@^2.6.1, rimraf@^2.6.2:
   version "2.6.2"
-  resolved "http://nexus.in.tdw/repository/npm/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
     glob "^7.0.5"
 
 rxjs@^5.5.6:
   version "5.5.6"
-  resolved "http://nexus.in.tdw/repository/npm/rxjs/-/rxjs-5.5.6.tgz#e31fb96d6fd2ff1fd84bcea8ae9c02d007179c02"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.6.tgz#e31fb96d6fd2ff1fd84bcea8ae9c02d007179c02"
   dependencies:
     symbol-observable "1.0.1"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
 samsam@1.1.2:
   version "1.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/samsam/-/samsam-1.1.2.tgz#bec11fdc83a9fda063401210e40176c3024d1567"
+  resolved "https://registry.yarnpkg.com/samsam/-/samsam-1.1.2.tgz#bec11fdc83a9fda063401210e40176c3024d1567"
 
 samsam@~1.1:
   version "1.1.3"
-  resolved "http://nexus.in.tdw/repository/npm/samsam/-/samsam-1.1.3.tgz#9f5087419b4d091f232571e7fa52e90b0f552621"
+  resolved "https://registry.yarnpkg.com/samsam/-/samsam-1.1.3.tgz#9f5087419b4d091f232571e7fa52e90b0f552621"
 
 "semver@2 || 3 || 4 || 5", semver@^5.3.0:
   version "5.5.0"
-  resolved "http://nexus.in.tdw/repository/npm/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
 
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
+  resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
 
 set-immediate-shim@^1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz#4b2b1b27eb808a9f8dcc481a58e5e56f599f3f61"
+  resolved "https://registry.yarnpkg.com/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz#4b2b1b27eb808a9f8dcc481a58e5e56f599f3f61"
 
 shebang-command@^1.2.0:
   version "1.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea"
+  resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea"
   dependencies:
     shebang-regex "^1.0.0"
 
 shebang-regex@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
+  resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
 
 shot@^3.4.2:
   version "3.4.2"
-  resolved "http://nexus.in.tdw/repository/npm/shot/-/shot-3.4.2.tgz#1e5c3f6f2b26649adc42f7eb350214a5a0291d67"
+  resolved "https://registry.yarnpkg.com/shot/-/shot-3.4.2.tgz#1e5c3f6f2b26649adc42f7eb350214a5a0291d67"
   dependencies:
     hoek "4.x.x"
     joi "10.x.x"
 
 should-equal@0.3.1:
   version "0.3.1"
-  resolved "http://nexus.in.tdw/repository/npm/should-equal/-/should-equal-0.3.1.tgz#bd8ea97a6748e39fad476a3be6fd72ebc2e72bf0"
+  resolved "https://registry.yarnpkg.com/should-equal/-/should-equal-0.3.1.tgz#bd8ea97a6748e39fad476a3be6fd72ebc2e72bf0"
   dependencies:
     should-type "0.0.4"
 
 should-format@0.0.7:
   version "0.0.7"
-  resolved "http://nexus.in.tdw/repository/npm/should-format/-/should-format-0.0.7.tgz#1e2ef86bd91da9c2e0412335b56ababd9a2fde12"
+  resolved "https://registry.yarnpkg.com/should-format/-/should-format-0.0.7.tgz#1e2ef86bd91da9c2e0412335b56ababd9a2fde12"
   dependencies:
     should-type "0.0.4"
 
 should-type@0.0.4:
   version "0.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/should-type/-/should-type-0.0.4.tgz#0132a05417a6126866426acf116f1ed5623a5cd0"
+  resolved "https://registry.yarnpkg.com/should-type/-/should-type-0.0.4.tgz#0132a05417a6126866426acf116f1ed5623a5cd0"
 
 should@^6.0.1:
   version "6.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/should/-/should-6.0.3.tgz#daee30786a557662fbc774c008d7c58791edb1d9"
+  resolved "https://registry.yarnpkg.com/should/-/should-6.0.3.tgz#daee30786a557662fbc774c008d7c58791edb1d9"
   dependencies:
     should-equal "0.3.1"
     should-format "0.0.7"
@@ -2059,11 +2059,11 @@ should@^6.0.1:
 
 signal-exit@^3.0.0:
   version "3.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+  resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
 "sinon@>= 1.14.1 < 2.0.0":
   version "1.17.7"
-  resolved "http://nexus.in.tdw/repository/npm/sinon/-/sinon-1.17.7.tgz#4542a4f49ba0c45c05eb2e9dd9d203e2b8efe0bf"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-1.17.7.tgz#4542a4f49ba0c45c05eb2e9dd9d203e2b8efe0bf"
   dependencies:
     formatio "1.1.1"
     lolex "1.3.2"
@@ -2072,63 +2072,63 @@ signal-exit@^3.0.0:
 
 sntp@1.x.x:
   version "1.0.9"
-  resolved "http://nexus.in.tdw/repository/npm/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
+  resolved "https://registry.yarnpkg.com/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
   dependencies:
     hoek "2.x.x"
 
 sntp@2.x.x:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/sntp/-/sntp-2.1.0.tgz#2c6cec14fedc2222739caf9b5c3d85d1cc5a2cc8"
+  resolved "https://registry.yarnpkg.com/sntp/-/sntp-2.1.0.tgz#2c6cec14fedc2222739caf9b5c3d85d1cc5a2cc8"
   dependencies:
     hoek "4.x.x"
 
 source-map-support@^0.4.0:
   version "0.4.18"
-  resolved "http://nexus.in.tdw/repository/npm/source-map-support/-/source-map-support-0.4.18.tgz#0286a6de8be42641338594e97ccea75f0a2c585f"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.18.tgz#0286a6de8be42641338594e97ccea75f0a2c585f"
   dependencies:
     source-map "^0.5.6"
 
 source-map-support@^0.5.0:
   version "0.5.3"
-  resolved "http://nexus.in.tdw/repository/npm/source-map-support/-/source-map-support-0.5.3.tgz#2b3d5fff298cfa4d1afd7d4352d569e9a0158e76"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.3.tgz#2b3d5fff298cfa4d1afd7d4352d569e9a0158e76"
   dependencies:
     source-map "^0.6.0"
 
 source-map@^0.4.4:
   version "0.4.4"
-  resolved "http://nexus.in.tdw/repository/npm/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
   dependencies:
     amdefine ">=0.0.4"
 
 source-map@^0.5.3, source-map@^0.5.6, source-map@^0.5.7, source-map@~0.5.1:
   version "0.5.7"
-  resolved "http://nexus.in.tdw/repository/npm/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
 
 source-map@^0.6.0:
   version "0.6.1"
-  resolved "http://nexus.in.tdw/repository/npm/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
 
 spdx-correct@~1.0.0:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/spdx-correct/-/spdx-correct-1.0.2.tgz#4b3073d933ff51f3912f03ac5519498a4150db40"
+  resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-1.0.2.tgz#4b3073d933ff51f3912f03ac5519498a4150db40"
   dependencies:
     spdx-license-ids "^1.0.2"
 
 spdx-expression-parse@~1.0.0:
   version "1.0.4"
-  resolved "http://nexus.in.tdw/repository/npm/spdx-expression-parse/-/spdx-expression-parse-1.0.4.tgz#9bdf2f20e1f40ed447fbe273266191fced51626c"
+  resolved "https://registry.yarnpkg.com/spdx-expression-parse/-/spdx-expression-parse-1.0.4.tgz#9bdf2f20e1f40ed447fbe273266191fced51626c"
 
 spdx-license-ids@^1.0.2:
   version "1.2.2"
-  resolved "http://nexus.in.tdw/repository/npm/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
+  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-1.2.2.tgz#c9df7a3424594ade6bd11900d596696dc06bac57"
 
 sprintf-js@~1.0.2:
   version "1.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
 sshpk@^1.7.0:
   version "1.13.1"
-  resolved "http://nexus.in.tdw/repository/npm/sshpk/-/sshpk-1.13.1.tgz#512df6da6287144316dc4c18fe1cf1d940739be3"
+  resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.13.1.tgz#512df6da6287144316dc4c18fe1cf1d940739be3"
   dependencies:
     asn1 "~0.2.3"
     assert-plus "^1.0.0"
@@ -2142,7 +2142,7 @@ sshpk@^1.7.0:
 
 statehood@^5.0.3:
   version "5.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/statehood/-/statehood-5.0.3.tgz#c07a75620db5379b60d2edd47f538002a8ac7dd6"
+  resolved "https://registry.yarnpkg.com/statehood/-/statehood-5.0.3.tgz#c07a75620db5379b60d2edd47f538002a8ac7dd6"
   dependencies:
     boom "5.x.x"
     cryptiles "3.x.x"
@@ -2153,7 +2153,7 @@ statehood@^5.0.3:
 
 string-width@^1.0.1, string-width@^1.0.2:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/string-width/-/string-width-1.0.2.tgz#118bdf5b8cdc51a2a7e70d211e07e2b0b9b107d3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-1.0.2.tgz#118bdf5b8cdc51a2a7e70d211e07e2b0b9b107d3"
   dependencies:
     code-point-at "^1.0.0"
     is-fullwidth-code-point "^1.0.0"
@@ -2161,41 +2161,41 @@ string-width@^1.0.1, string-width@^1.0.2:
 
 string_decoder@~0.10.x:
   version "0.10.31"
-  resolved "http://nexus.in.tdw/repository/npm/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
 
 string_decoder@~1.0.3:
   version "1.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
   dependencies:
     safe-buffer "~5.1.0"
 
 stringstream@~0.0.4, stringstream@~0.0.5:
   version "0.0.5"
-  resolved "http://nexus.in.tdw/repository/npm/stringstream/-/stringstream-0.0.5.tgz#4e484cd4de5a0bbbee18e46307710a8a81621878"
+  resolved "https://registry.yarnpkg.com/stringstream/-/stringstream-0.0.5.tgz#4e484cd4de5a0bbbee18e46307710a8a81621878"
 
 strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/strip-ansi/-/strip-ansi-3.0.1.tgz#6a385fb8853d952d5ff05d0e8aaf94278dc63dcf"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-3.0.1.tgz#6a385fb8853d952d5ff05d0e8aaf94278dc63dcf"
   dependencies:
     ansi-regex "^2.0.0"
 
 strip-bom@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/strip-bom/-/strip-bom-2.0.0.tgz#6219a85616520491f35788bdbf1447a99c7e6b0e"
+  resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-2.0.0.tgz#6219a85616520491f35788bdbf1447a99c7e6b0e"
   dependencies:
     is-utf8 "^0.2.0"
 
 strip-bom@^3.0.0:
   version "3.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
+  resolved "https://registry.yarnpkg.com/strip-bom/-/strip-bom-3.0.0.tgz#2334c18e9c759f7bdd56fdef7e9ae3d588e68ed3"
 
 strip-json-comments@^2.0.0, strip-json-comments@~2.0.1:
   version "2.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
+  resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
 subtext@^5.0.0:
   version "5.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/subtext/-/subtext-5.0.0.tgz#9c3f083018bb1586b167ad8cfd87083f5ccdfe0f"
+  resolved "https://registry.yarnpkg.com/subtext/-/subtext-5.0.0.tgz#9c3f083018bb1586b167ad8cfd87083f5ccdfe0f"
   dependencies:
     boom "5.x.x"
     content "3.x.x"
@@ -2205,7 +2205,7 @@ subtext@^5.0.0:
 
 superagent@~0.21.0:
   version "0.21.0"
-  resolved "http://nexus.in.tdw/repository/npm/superagent/-/superagent-0.21.0.tgz#fb15027984751ee7152200e6cd21cd6e19a5de87"
+  resolved "https://registry.yarnpkg.com/superagent/-/superagent-0.21.0.tgz#fb15027984751ee7152200e6cd21cd6e19a5de87"
   dependencies:
     component-emitter "1.1.2"
     cookiejar "2.0.1"
@@ -2221,40 +2221,40 @@ superagent@~0.21.0:
 
 "supertest@>= 0.15.0 < 1.0.0":
   version "0.15.0"
-  resolved "http://nexus.in.tdw/repository/npm/supertest/-/supertest-0.15.0.tgz#86118695de4be58869b3ee94c45e1d084ca7fac5"
+  resolved "https://registry.yarnpkg.com/supertest/-/supertest-0.15.0.tgz#86118695de4be58869b3ee94c45e1d084ca7fac5"
   dependencies:
     methods "1.x"
     superagent "~0.21.0"
 
 supports-color@4.4.0:
   version "4.4.0"
-  resolved "http://nexus.in.tdw/repository/npm/supports-color/-/supports-color-4.4.0.tgz#883f7ddabc165142b2a61427f3352ded195d1a3e"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.4.0.tgz#883f7ddabc165142b2a61427f3352ded195d1a3e"
   dependencies:
     has-flag "^2.0.0"
 
 supports-color@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
 supports-color@^3.1.2:
   version "3.2.3"
-  resolved "http://nexus.in.tdw/repository/npm/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
     has-flag "^1.0.0"
 
 supports-color@^5.2.0:
   version "5.2.0"
-  resolved "http://nexus.in.tdw/repository/npm/supports-color/-/supports-color-5.2.0.tgz#b0d5333b1184dd3666cbe5aa0b45c5ac7ac17a4a"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.2.0.tgz#b0d5333b1184dd3666cbe5aa0b45c5ac7ac17a4a"
   dependencies:
     has-flag "^3.0.0"
 
 symbol-observable@1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
 
 tar-pack@^3.4.0:
   version "3.4.1"
-  resolved "http://nexus.in.tdw/repository/npm/tar-pack/-/tar-pack-3.4.1.tgz#e1dbc03a9b9d3ba07e896ad027317eb679a10a1f"
+  resolved "https://registry.yarnpkg.com/tar-pack/-/tar-pack-3.4.1.tgz#e1dbc03a9b9d3ba07e896ad027317eb679a10a1f"
   dependencies:
     debug "^2.2.0"
     fstream "^1.0.10"
@@ -2267,7 +2267,7 @@ tar-pack@^3.4.0:
 
 tar@^2.2.1:
   version "2.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/tar/-/tar-2.2.1.tgz#8e4d2a256c0e2185c6b18ad694aec968b83cb1d1"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-2.2.1.tgz#8e4d2a256c0e2185c6b18ad694aec968b83cb1d1"
   dependencies:
     block-stream "*"
     fstream "^1.0.2"
@@ -2275,27 +2275,27 @@ tar@^2.2.1:
 
 to-fast-properties@^1.0.3:
   version "1.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
+  resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
 
 topo@2.x.x, topo@^2.0.2:
   version "2.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/topo/-/topo-2.0.2.tgz#cd5615752539057c0dc0491a621c3bc6fbe1d182"
+  resolved "https://registry.yarnpkg.com/topo/-/topo-2.0.2.tgz#cd5615752539057c0dc0491a621c3bc6fbe1d182"
   dependencies:
     hoek "4.x.x"
 
 tough-cookie@~2.3.0, tough-cookie@~2.3.3:
   version "2.3.3"
-  resolved "http://nexus.in.tdw/repository/npm/tough-cookie/-/tough-cookie-2.3.3.tgz#0b618a5565b6dea90bf3425d04d55edc475a7561"
+  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.3.tgz#0b618a5565b6dea90bf3425d04d55edc475a7561"
   dependencies:
     punycode "^1.4.1"
 
 trim-right@^1.0.1:
   version "1.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
+  resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
 ts-node@^3.3.0:
   version "3.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/ts-node/-/ts-node-3.3.0.tgz#c13c6a3024e30be1180dd53038fc209289d4bf69"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-3.3.0.tgz#c13c6a3024e30be1180dd53038fc209289d4bf69"
   dependencies:
     arrify "^1.0.0"
     chalk "^2.0.0"
@@ -2310,14 +2310,14 @@ ts-node@^3.3.0:
 
 tsconfig@^6.0.0:
   version "6.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/tsconfig/-/tsconfig-6.0.0.tgz#6b0e8376003d7af1864f8df8f89dd0059ffcd032"
+  resolved "https://registry.yarnpkg.com/tsconfig/-/tsconfig-6.0.0.tgz#6b0e8376003d7af1864f8df8f89dd0059ffcd032"
   dependencies:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
 tsickle@^0.27.2:
   version "0.27.2"
-  resolved "http://nexus.in.tdw/repository/npm/tsickle/-/tsickle-0.27.2.tgz#f33d46d046f73dd5c155a37922e422816e878736"
+  resolved "https://registry.yarnpkg.com/tsickle/-/tsickle-0.27.2.tgz#f33d46d046f73dd5c155a37922e422816e878736"
   dependencies:
     minimist "^1.2.0"
     mkdirp "^0.5.1"
@@ -2326,11 +2326,11 @@ tsickle@^0.27.2:
 
 tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1:
   version "1.9.0"
-  resolved "http://nexus.in.tdw/repository/npm/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
 
 tslint@^5.9.1:
   version "5.9.1"
-  resolved "http://nexus.in.tdw/repository/npm/tslint/-/tslint-5.9.1.tgz#1255f87a3ff57eb0b0e1f0e610a8b4748046c9ae"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.9.1.tgz#1255f87a3ff57eb0b0e1f0e610a8b4748046c9ae"
   dependencies:
     babel-code-frame "^6.22.0"
     builtin-modules "^1.1.1"
@@ -2347,33 +2347,33 @@ tslint@^5.9.1:
 
 tsutils@^2.12.1:
   version "2.21.2"
-  resolved "http://nexus.in.tdw/repository/npm/tsutils/-/tsutils-2.21.2.tgz#902aa5987e1440c47673543d96752df8d44ab9c7"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.21.2.tgz#902aa5987e1440c47673543d96752df8d44ab9c7"
   dependencies:
     tslib "^1.8.1"
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
-  resolved "http://nexus.in.tdw/repository/npm/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
+  resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
   dependencies:
     safe-buffer "^5.0.1"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
-  resolved "http://nexus.in.tdw/repository/npm/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
+  resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
 typedarray-to-buffer@^3.1.2:
   version "3.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/typedarray-to-buffer/-/typedarray-to-buffer-3.1.2.tgz#1017b32d984ff556eba100f501589aba1ace2e04"
+  resolved "https://registry.yarnpkg.com/typedarray-to-buffer/-/typedarray-to-buffer-3.1.2.tgz#1017b32d984ff556eba100f501589aba1ace2e04"
   dependencies:
     is-typedarray "^1.0.0"
 
 typescript@~2.6.2:
   version "2.6.2"
-  resolved "http://nexus.in.tdw/repository/npm/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
 
 uglify-js@^2.6:
   version "2.8.29"
-  resolved "http://nexus.in.tdw/repository/npm/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
   dependencies:
     source-map "~0.5.1"
     yargs "~3.10.0"
@@ -2382,15 +2382,15 @@ uglify-js@^2.6:
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
+  resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
 
 uid-number@^0.0.6:
   version "0.0.6"
-  resolved "http://nexus.in.tdw/repository/npm/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
+  resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
 unit.js@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/unit.js/-/unit.js-2.0.0.tgz#e91b56abc50c530dba03cdbfe0e1df2a3ee3aa32"
+  resolved "https://registry.yarnpkg.com/unit.js/-/unit.js-2.0.0.tgz#e91b56abc50c530dba03cdbfe0e1df2a3ee3aa32"
   dependencies:
     bluebird "^2.9.9"
     lodash "^3.7.0"
@@ -2402,38 +2402,38 @@ unit.js@^2.0.0:
 
 universalify@^0.1.0:
   version "0.1.1"
-  resolved "http://nexus.in.tdw/repository/npm/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
 
 util-deprecate@~1.0.1:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
+  resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
 "util@>=0.10.3 <1":
   version "0.10.3"
-  resolved "http://nexus.in.tdw/repository/npm/util/-/util-0.10.3.tgz#7afb1afe50805246489e3db7fe0ed379336ac0f9"
+  resolved "https://registry.yarnpkg.com/util/-/util-0.10.3.tgz#7afb1afe50805246489e3db7fe0ed379336ac0f9"
   dependencies:
     inherits "2.0.1"
 
 uuid@^3.0.0, uuid@^3.1.0:
   version "3.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 
 v8flags@^3.0.0:
   version "3.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/v8flags/-/v8flags-3.0.1.tgz#dce8fc379c17d9f2c9e9ed78d89ce00052b1b76b"
+  resolved "https://registry.yarnpkg.com/v8flags/-/v8flags-3.0.1.tgz#dce8fc379c17d9f2c9e9ed78d89ce00052b1b76b"
   dependencies:
     homedir-polyfill "^1.0.1"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
-  resolved "http://nexus.in.tdw/repository/npm/validate-npm-package-license/-/validate-npm-package-license-3.0.1.tgz#2804babe712ad3379459acfbe24746ab2c303fbc"
+  resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.1.tgz#2804babe712ad3379459acfbe24746ab2c303fbc"
   dependencies:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
 verror@1.10.0:
   version "1.10.0"
-  resolved "http://nexus.in.tdw/repository/npm/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"
+  resolved "https://registry.yarnpkg.com/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"
   dependencies:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
@@ -2441,13 +2441,13 @@ verror@1.10.0:
 
 vise@2.x.x:
   version "2.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/vise/-/vise-2.0.2.tgz#6b08e8fb4cb76e3a50cd6dd0ec37338e811a0d39"
+  resolved "https://registry.yarnpkg.com/vise/-/vise-2.0.2.tgz#6b08e8fb4cb76e3a50cd6dd0ec37338e811a0d39"
   dependencies:
     hoek "4.x.x"
 
 websocket@^1.0.25:
   version "1.0.25"
-  resolved "http://nexus.in.tdw/repository/npm/websocket/-/websocket-1.0.25.tgz#998ec790f0a3eacb8b08b50a4350026692a11958"
+  resolved "https://registry.yarnpkg.com/websocket/-/websocket-1.0.25.tgz#998ec790f0a3eacb8b08b50a4350026692a11958"
   dependencies:
     debug "^2.2.0"
     nan "^2.3.3"
@@ -2456,79 +2456,79 @@ websocket@^1.0.25:
 
 which-module@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
+  resolved "https://registry.yarnpkg.com/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
 
 which@^1.1.1, which@^1.2.9:
   version "1.3.0"
-  resolved "http://nexus.in.tdw/repository/npm/which/-/which-1.3.0.tgz#ff04bdfc010ee547d780bec38e1ac1c2777d253a"
+  resolved "https://registry.yarnpkg.com/which/-/which-1.3.0.tgz#ff04bdfc010ee547d780bec38e1ac1c2777d253a"
   dependencies:
     isexe "^2.0.0"
 
 wide-align@^1.1.0:
   version "1.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/wide-align/-/wide-align-1.1.2.tgz#571e0f1b0604636ebc0dfc21b0339bbe31341710"
+  resolved "https://registry.yarnpkg.com/wide-align/-/wide-align-1.1.2.tgz#571e0f1b0604636ebc0dfc21b0339bbe31341710"
   dependencies:
     string-width "^1.0.2"
 
 window-size@0.1.0:
   version "0.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
+  resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
 
 wordwrap@0.0.2:
   version "0.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
+  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.2.tgz#b79669bb42ecb409f83d583cad52ca17eaa1643f"
 
 wordwrap@^1.0.0:
   version "1.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
+  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
 
 wordwrap@~0.0.2:
   version "0.0.3"
-  resolved "http://nexus.in.tdw/repository/npm/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
+  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
-  resolved "http://nexus.in.tdw/repository/npm/wrap-ansi/-/wrap-ansi-2.1.0.tgz#d8fc3d284dd05794fe84973caecdd1cf824fdd85"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-2.1.0.tgz#d8fc3d284dd05794fe84973caecdd1cf824fdd85"
   dependencies:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
 
 wrappy@1:
   version "1.0.2"
-  resolved "http://nexus.in.tdw/repository/npm/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+  resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
 
 wreck@12.x.x:
   version "12.5.1"
-  resolved "http://nexus.in.tdw/repository/npm/wreck/-/wreck-12.5.1.tgz#cd2ffce167449e1f0242ed9cf80552e20fb6902a"
+  resolved "https://registry.yarnpkg.com/wreck/-/wreck-12.5.1.tgz#cd2ffce167449e1f0242ed9cf80552e20fb6902a"
   dependencies:
     boom "5.x.x"
     hoek "4.x.x"
 
 xhr2@^0.1.4:
   version "0.1.4"
-  resolved "http://nexus.in.tdw/repository/npm/xhr2/-/xhr2-0.1.4.tgz#7f87658847716db5026323812f818cadab387a5f"
+  resolved "https://registry.yarnpkg.com/xhr2/-/xhr2-0.1.4.tgz#7f87658847716db5026323812f818cadab387a5f"
 
 y18n@^3.2.1:
   version "3.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
 
 yaeti@^0.0.6:
   version "0.0.6"
-  resolved "http://nexus.in.tdw/repository/npm/yaeti/-/yaeti-0.0.6.tgz#f26f484d72684cf42bedfb76970aa1608fbf9577"
+  resolved "https://registry.yarnpkg.com/yaeti/-/yaeti-0.0.6.tgz#f26f484d72684cf42bedfb76970aa1608fbf9577"
 
 yallist@^2.1.2:
   version "2.1.2"
-  resolved "http://nexus.in.tdw/repository/npm/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
+  resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
 yargs-parser@^4.2.0:
   version "4.2.1"
-  resolved "http://nexus.in.tdw/repository/npm/yargs-parser/-/yargs-parser-4.2.1.tgz#29cceac0dc4f03c6c87b4a9f217dd18c9f74871c"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-4.2.1.tgz#29cceac0dc4f03c6c87b4a9f217dd18c9f74871c"
   dependencies:
     camelcase "^3.0.0"
 
 yargs@^6.5.0:
   version "6.6.0"
-  resolved "http://nexus.in.tdw/repository/npm/yargs/-/yargs-6.6.0.tgz#782ec21ef403345f830a808ca3d513af56065208"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-6.6.0.tgz#782ec21ef403345f830a808ca3d513af56065208"
   dependencies:
     camelcase "^3.0.0"
     cliui "^3.2.0"
@@ -2546,7 +2546,7 @@ yargs@^6.5.0:
 
 yargs@~3.10.0:
   version "3.10.0"
-  resolved "http://nexus.in.tdw/repository/npm/yargs/-/yargs-3.10.0.tgz#f7ee7bd857dd7c1d2d38c0e74efbd681d1431fd1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-3.10.0.tgz#f7ee7bd857dd7c1d2d38c0e74efbd681d1431fd1"
   dependencies:
     camelcase "^1.0.2"
     cliui "^2.1.0"
@@ -2555,8 +2555,8 @@ yargs@~3.10.0:
 
 yn@^2.0.0:
   version "2.0.0"
-  resolved "http://nexus.in.tdw/repository/npm/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
+  resolved "https://registry.yarnpkg.com/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
 
 zone.js@^0.8.20:
   version "0.8.20"
-  resolved "http://nexus.in.tdw/repository/npm/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.20.tgz#a218c48db09464b19ff6fc8f0d4bb5b1046e185d"
