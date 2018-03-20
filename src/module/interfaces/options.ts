@@ -1,12 +1,12 @@
 import { NgModuleFactory, StaticProvider, Type } from '@angular/core';
-import { ɵa } from '@nguniversal/module-map-ngfactory-loader';
+import { ɵa as ModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 /**
  * These are the allowed options for the module
  */
 export interface NgSetupOptions {
     bootstrap: Type<{}> | NgModuleFactory<{}>;
-    lazyModuleMap: ɵa;
+    lazyModuleMap: ModuleMap;
     staticContent: StaticContent;
     providers?: StaticProvider[];
 }
