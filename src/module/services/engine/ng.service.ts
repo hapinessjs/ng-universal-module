@@ -2,7 +2,7 @@ import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse, Re
 import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
-import { ModuleMap, provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import { ɵa, provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 import { Observable } from 'rxjs/Observable';
 import { toArray, filter, flatMap, map, tap } from 'rxjs/operators';
@@ -56,7 +56,7 @@ export class NgEngineService {
      *
      * store original function to stub it in tests
      */
-    private _provideModuleMap: (moduleMap: ModuleMap) => StaticProvider;
+    private _provideModuleMap: (moduleMap: ɵa) => StaticProvider;
 
     /**
      * Service constructor
@@ -246,7 +246,7 @@ export class NgEngineService {
      * @private
      */
     private _extraProviders(request: Request, reply: ReplyNoContinue, providers: StaticProvider[],
-                            lazyModuleMap: ModuleMap, filePath: string): StaticProvider[] {
+                            lazyModuleMap: ɵa, filePath: string): StaticProvider[] {
         return providers!.concat(
             providers!,
             this._provideModuleMap(lazyModuleMap),
