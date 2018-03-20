@@ -2,7 +2,7 @@ import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse, Re
 import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
-import { ModuleMap, provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import { ɵa as ModuleMap, provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 import { Observable } from 'rxjs/Observable';
 import { toArray, filter, flatMap, map, tap } from 'rxjs/operators';
