@@ -1,11 +1,11 @@
-import {ReplyNoContinue} from '@hapiness/core';
-import {test, suite} from 'mocha-typescript';
-import {GetHtmlUniversalRoute} from '../../src/module/routes';
-import {NgEngineService} from '../../src/module/services';
+import { ReplyNoContinue } from '@hapiness/core';
+import { test, suite } from 'mocha-typescript';
+import { GetHtmlUniversalRoute } from '../../src/module/routes';
+import { NgEngineService } from '../../src/module/services';
 
 import * as unit from 'unit.js';
-import {of} from 'rxjs/observable/of';
-import {Buffer} from 'buffer';
+import { of } from 'rxjs';
+import { Buffer } from 'buffer';
 
 @suite('- Unit GetHtmlUniversalRouteTest file')
 export class GetHtmlUniversalRouteTest {
@@ -43,7 +43,7 @@ export class GetHtmlUniversalRouteTest {
      * Function executed before each test
      */
     before() {
-        this._request = {raw: {req: {url: ''}, res: {}}};
+        this._request = { raw: { req: { url: '' }, res: {} } };
         this._reply = {};
         this._response = {};
         this._getHtmlUniversalRoute = new GetHtmlUniversalRoute(
@@ -86,7 +86,7 @@ export class GetHtmlUniversalRouteTest {
         this._ngEngineServiceMock
             .expects('universal')
             .once()
-            .returns(of({response: Buffer.from('<h1>Hello Angular</h1>')}));
+            .returns(of({ response: Buffer.from('<h1>Hello Angular</h1>') }));
 
         this._getHtmlUniversalRoute.onGet(this._request, <ReplyNoContinue>(res => {
             unit
@@ -191,7 +191,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `replyResponse()` calls the reply function with a statusCode, no header and a response')
     testReplyResponseWithoutPropertyToRedirectWithStatusCodeResponseWithoutHeader(done) {
-        this._response = {statusCode: 200, headers: {}, response: '<h1>Hello Angular</h1>'};
+        this._response = { statusCode: 200, headers: {}, response: '<h1>Hello Angular</h1>' };
 
         let responseMock = {
             code: (code) => {
@@ -233,7 +233,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `replyResponse()` calls the reply function with a statusCode, header and a response')
     testReplyResponseWithoutPropertyToRedirectWithStatusCodeResponseHeader(done) {
-        this._response = {statusCode: 200, headers: {test: 'test'}, response: '<h1>Hello Angular</h1>'};
+        this._response = { statusCode: 200, headers: { test: 'test' }, response: '<h1>Hello Angular</h1>' };
 
         let responseMock = {
             code: (code) => {
@@ -275,7 +275,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `replyResponse()` calls the reply function with header and a response and without statusCode')
     testReplyResponseWithoutPropertyToRedirectWithResponseHeaderWithoutCodeStatus(done) {
-        this._response = {headers: {test: 'test'}, response: '<h1>Hello Angular</h1>'};
+        this._response = { headers: { test: 'test' }, response: '<h1>Hello Angular</h1>' };
 
         let responseMock = {
             code: (code) => {
@@ -415,7 +415,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `formatResponse` returns a new object depending on the given response')
     testFormatResponseReturnObjectGivenResponse() {
-        const res = this._getHtmlUniversalRoute['_formatResponse']({statusCode: 402, headers: {}, response: '<h1>Hello Angular</h1>'});
+        const res = this._getHtmlUniversalRoute['_formatResponse']({ statusCode: 402, headers: {}, response: '<h1>Hello Angular</h1>' });
         unit.object(res).matchEach((it, key) => {
             if (key === 'statusCode') {
                 return (typeof it === 'number' && it === 402);
@@ -452,7 +452,7 @@ export class GetHtmlUniversalRouteTest {
      */
     @test('- `isValid` returns true when the response is well defined')
     testIsValidReturnTrue() {
-        const res: boolean = this._getHtmlUniversalRoute['_isValid']({test: 'test'});
+        const res: boolean = this._getHtmlUniversalRoute['_isValid']({ test: 'test' });
         unit.bool(res).isTrue();
     }
 }

@@ -1,48 +1,48 @@
+/*
 import { test, suite } from 'mocha-typescript';
 import { Hapiness, HapinessModule, HttpServerExt, HttpServerService, OnError, OnStart } from '@hapiness/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable, from } from 'rxjs';
 import { NgUniversalModule } from '../../src';
 
 import * as unit from 'unit.js';
 import { join } from 'path';
-import { fromPromise } from 'rxjs/observable/fromPromise';
 
 @suite('- Integration NgUniversalModuleTest file')
 export class NgUniversalModuleTest {
-    /**
+    /!**
      * Function executed before the suite
-     */
+     *!/
     static before() {
     }
 
-    /**
+    /!**
      * Function executed after the suite
-     */
+     *!/
     static after() {
     }
 
-    /**
+    /!**
      * Class constructor
      * New lifecycle
-     */
+     *!/
     constructor() {
     }
 
-    /**
+    /!**
      * Function executed before each test
-     */
+     *!/
     before() {
     }
 
-    /**
+    /!**
      * Function executed after each test
-     */
+     *!/
     after() {
     }
 
-    /**
+    /!**
      * Test if universal route returns an error if bad value in module config bootstrap
-     */
+     *!/
     @test('- check if universal route returns an error if bad value in module config bootstrap')
     testGetHtmlUniversalRouteErrorInModuleConfigBootstrap(done) {
         @HapinessModule({
@@ -62,10 +62,11 @@ export class NgUniversalModuleTest {
             ]
         })
         class NUMTest implements OnError, OnStart {
-            constructor(private _httpServer: HttpServerService) {}
+            constructor(private _httpServer: HttpServerService) {
+            }
 
             onStart(): Observable<any> {
-                return fromPromise(this._httpServer.instance().inject('/'));
+                return from(this._httpServer.instance().inject('/'));
             }
 
             onError(error: Error): void {
@@ -80,9 +81,9 @@ export class NgUniversalModuleTest {
         ]);
     }
 
-    /**
+    /!**
      * Test if universal route returns an error if no module config
-     */
+     *!/
     @test('- check if universal route returns an error if no module config')
     testGetHtmlUniversalRouteErrorOnModuleBootstrap(done) {
         @HapinessModule({
@@ -95,10 +96,11 @@ export class NgUniversalModuleTest {
             ]
         })
         class NUMTest implements OnError, OnStart {
-            constructor(private _httpServer: HttpServerService) {}
+            constructor(private _httpServer: HttpServerService) {
+            }
 
             onStart(): Observable<any> {
-                return fromPromise(this._httpServer.instance().inject('/'));
+                return from(this._httpServer.instance().inject('/'));
             }
 
             onError(error: Error): void {
@@ -114,3 +116,4 @@ export class NgUniversalModuleTest {
         ]);
     }
 }
+*/

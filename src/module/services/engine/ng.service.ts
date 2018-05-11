@@ -2,14 +2,13 @@ import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse, Re
 import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
-import { ɵa as ModuleMap, provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import {
+    ɵnguniversal_modules_module_map_ngfactory_loader_module_map_ngfactory_loader_a as ModuleMap,
+    provideModuleMap
+} from '@nguniversal/module-map-ngfactory-loader';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable, merge, of, from, throwError } from 'rxjs';
 import { toArray, filter, flatMap, map, tap } from 'rxjs/operators';
-import { mergeStatic } from 'rxjs/operators/merge';
-import { of } from 'rxjs/observable/of';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { _throw } from 'rxjs/observable/throw';
 
 import * as fs from 'fs';
 import { join } from 'path';
@@ -91,7 +90,7 @@ export class NgEngineService {
      * @return {Observable<any | HTTPHandlerResponse>}
      */
     universal(request: Request, reply: ReplyNoContinue): Observable<any | HTTPHandlerResponse> {
-        return mergeStatic(
+        return merge(
             this._checkRequest(request),
             this._checkConfig()
         )
@@ -105,7 +104,7 @@ export class NgEngineService {
                     })
                 ),
                 map(_ => Object.assign(_, { mime: this._httpServerService.instance().mime.path(_.request.raw.req.url).type })),
-                flatMap(_ => mergeStatic(
+                flatMap(_ => merge(
                     this._getStaticContent(_),
                     this._getFactoryContent(_)
                     )
@@ -166,7 +165,7 @@ export class NgEngineService {
                     this._getFactory(__.moduleOrFactory)
                         .pipe(
                             flatMap(factory =>
-                                fromPromise(this._renderModuleFactory(factory, { extraProviders: __.extraProviders }))
+                                from(this._renderModuleFactory(factory, { extraProviders: __.extraProviders }))
                             )
                         )
                 )
@@ -187,7 +186,7 @@ export class NgEngineService {
             .pipe(
                 flatMap(_ => (!!_ && !!_.raw && !!_.raw.req && _.raw.req.url !== undefined) ?
                     of(_) :
-                    _throw(new Error('url is undefined'))
+                    throwError(new Error('url is undefined'))
                 )
             );
     }
@@ -204,23 +203,23 @@ export class NgEngineService {
             .pipe(
                 flatMap(_ => (!!_ && !!_.bootstrap) ?
                     of(_) :
-                    _throw(new Error('You must pass in config a NgModule or NgModuleFactory to be bootstrapped'))
+                    throwError(new Error('You must pass in config a NgModule or NgModuleFactory to be bootstrapped'))
                 ),
                 flatMap(_ => (!!_ && !!_.lazyModuleMap) ?
                     of(_) :
-                    _throw(new Error('You must pass in config lazy module map'))
+                    throwError(new Error('You must pass in config lazy module map'))
                 ),
                 flatMap(_ => (!!_ && !!_.staticContent) ?
                     of(_) :
-                    _throw(new Error('You must pass in config the static content object'))
+                    throwError(new Error('You must pass in config the static content object'))
                 ),
                 flatMap(_ => (!!_ && !!_.staticContent.indexFile) ?
                     of(_) :
-                    _throw(new Error('You must pass in config the static content object with index file'))
+                    throwError(new Error('You must pass in config the static content object with index file'))
                 ),
                 flatMap(_ => (!!_ && !!_.staticContent.rootPath) ?
                     of(_) :
-                    _throw(new Error('You must pass in config the static content object with root path'))
+                    throwError(new Error('You must pass in config the static content object with root path'))
                 ),
                 flatMap(_ => of({
                         bootstrap: _.bootstrap,
@@ -278,7 +277,7 @@ export class NgEngineService {
         )
             .pipe(
                 flatMap(obs =>
-                    mergeStatic(
+                    merge(
                         obs
                             .pipe(
                                 filter(_ => _ instanceof NgModuleFactory)
@@ -304,7 +303,7 @@ export class NgEngineService {
      * @private
      */
     private _compile(module: Type<{}>): Observable<NgModuleFactory<{}>> {
-        return <Observable<NgModuleFactory<{}>>> fromPromise(this._compiler.compileModuleAsync(module))
+        return <Observable<NgModuleFactory<{}>>> from(this._compiler.compileModuleAsync(module))
             .pipe(
                 tap(_ => this._factoryCacheMap.set(module, _))
             );
