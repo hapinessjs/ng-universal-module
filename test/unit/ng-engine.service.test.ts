@@ -1,6 +1,6 @@
 import { test, suite } from 'mocha-typescript';
 import { Buffer } from 'buffer';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { NgEngineService } from '../../src/module/services';
 
 import * as unit from 'unit.js';

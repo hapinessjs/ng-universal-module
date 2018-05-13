@@ -1,10 +1,8 @@
-import {OnGet, Request, Route, ReplyNoContinue, HTTPHandlerResponse} from '@hapiness/core';
-import {NgEngineService} from '../../../services';
-import {Response} from 'hapi';
-import {of} from 'rxjs/observable/of';
-import {mergeStatic} from 'rxjs/operators/merge';
-import {filter, flatMap, map, tap} from 'rxjs/operators';
-import {Observable} from 'rxjs/Observable';
+import { OnGet, Request, Route, ReplyNoContinue, HTTPHandlerResponse } from '@hapiness/core';
+import { NgEngineService } from '../../../services';
+import { Response } from 'hapi';
+import { Observable, of, merge } from 'rxjs';
+import { filter, flatMap, map, tap } from 'rxjs/operators';
 
 
 @Route({
@@ -48,21 +46,21 @@ export class GetHtmlUniversalRoute implements OnGet {
         return of(of(request))
             .pipe(
                 flatMap(obs =>
-                    mergeStatic(
+                    merge(
                         obs.pipe(
                             filter(__ => !!__ && !!__['universal_redirect']),
-                            map(__ => of({redirect: true, data: __['universal_redirect']}))
+                            map(__ => of({ redirect: true, data: __['universal_redirect'] }))
                         ),
                         obs.pipe(
                             filter(__ => !!__ && !__['universal_redirect']),
                             map(__ => response),
                             map(__ => this._formatResponse(__)),
-                            map(__ => of({redirect: false, data: __}))
+                            map(__ => of({ redirect: false, data: __ }))
                         )
                     )
                 ),
                 flatMap(obs =>
-                    mergeStatic(
+                    merge(
                         obs.pipe(
                             filter(__ => !!__ && !!__.redirect),
                             tap(__ => reply.redirect(__.data)),
@@ -71,9 +69,11 @@ export class GetHtmlUniversalRoute implements OnGet {
                         obs.pipe(
                             filter(__ => !!__ && !__.redirect),
                             tap(__ => {
-                                let repl: Response = reply(__.data.response)
-                                    .code(this._isValid(__.data.response) ? __.data.statusCode : 204);
-                                repl.headers = Object.assign(__.data.headers, repl.headers);
+                                const rep: Response = reply(__.data.response);
+                                if (!!rep) {
+                                    rep.code(this._isValid(__.data.response) ? __.data.statusCode : 204);
+                                    rep.headers = Object.assign(__.data.headers, rep.headers);
+                                }
                             }),
                             map(__ => 'Handle Angular response')
                         )

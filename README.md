@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@5.2.9` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@6.0.1` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -59,8 +59,8 @@ We use `yarn` as package manager.
 - [Step 2: Create a server "main" file and tsconfig to build it](#step-2-create-a-server-main-file-and-tsconfig-to-build-it)
     - [src/main.server.ts](#srcmainserverts)
     - [src/tsconfig.server.json](#srctsconfigserverjson)
-- [Step 3: Create a new project in .angular-cli.json](#step-3-create-a-new-project-in-angular-clijson)
-    - [.angular-cli.json](#angular-clijson)
+- [Step 3: Create a new target in angular.json](#step-3-create-a-new-target-in-angularjson)
+    - [angular.json](#angularjson)
     - [Building the bundle](#building-the-bundle)
 - [Step 4: Setting up a Hapiness Application to run our Universal bundles](#step-4-setting-up-a-hapiness-application-to-run-our-universal-bundles)
     - [./server.ts (root project level)](#serverts-root-project-level)
@@ -80,15 +80,17 @@ We use `yarn` as package manager.
 
 Install `@angular/platform-server` into your project. Make sure you use the same version as the other `@angular` packages in your project.
 
-> You also need :
-> - `ts-loader` for your webpack build we'll show later and it's only in `devDependencies`.
-> - `@nguniversal/module-map-ngfactory-loader`, as it's used to handle lazy-loading in the context of a server-render. (by loading the chunks right away)
-
 Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your project: [`@hapiness/core`](https://github.com/hapinessjs/hapiness), [`@hapiness/ng-universal`](https://github.com/hapinessjs/ng-universal-module) and [`@hapiness/ng-universal-transfer-http`](https://github.com/hapinessjs/ng-universal-transfer-http).
 
+> You also need :
+> - `ts-loader` and `webpack`, `webpack-cli` for your webpack build we'll show later and it's only in `devDependencies`.
+> - `@nguniversal/module-map-ngfactory-loader`, as it's used to handle lazy-loading in the context of a server-render. (by loading the chunks right away)
+> - `rxjs-compat`, until `@hapiness/core` is migrated to `rxjs` v6.
+
+
 ```bash
-$ yarn add --dev ts-loader
-$ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @hapiness/core @hapiness/ng-universal @hapiness/ng-universal-transfer-http
+$ yarn add --dev ts-loader webpack webpack-cli
+$ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @hapiness/core @hapiness/ng-universal @hapiness/ng-universal-transfer-http rxjs-compat
 ```
 
 ## Step 1: Prepare your App for Universal rendering
@@ -227,79 +229,63 @@ Add a section for `"angularCompilerOptions"` and set `"entryModule"` to your `Ap
 
 <hr />
 
-## Step 3: Create a new project in `.angular-cli.json`
+## Step 3: Create a new target in `angular.json`
 
-In `.angular-cli.json` there is an array under the key `"apps"`. Copy the configuration for your client application there, and paste it as a new entry in the array, with an additional keys `"platform"` and `"name"` set to `"server"`.
+In `angular.json` locate the **architect** property inside your project, and add a new **server target**.
 
-Then, remove the `"polyfills"` key - those aren't needed on the server, and adjust `"main"`, and `"tsconfig"` to point to the files you wrote in step 2.
+In **build target**, adapt `options.outputPath` to `dist/browser`.
 
-Finally, adjust `"outDir"` to a new location (this example uses `dist/server`).
-
-### .angular-cli.json:
+### angular.json:
 
 ```
 {
   ...
-  "apps": [
-    {
-      // Keep your original application config intact here, this is app 0
-      // -EXCEPT- for outDir, udpate it to dist/browser
-      "outDir": "dist/browser" // <-- update this
-    },
-    {
-      // This is your server app.
-      "platform": "server",
-      "name": "server",
-      "root": "src",
-      // Build to dist/server instead of dist. This prevents
-      // client and server builds from overwriting each other.
-      "outDir": "dist/server",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
-      "index": "index.html",
-      // Change the main file to point to your server main.
-      "main": "main.server.ts",
-      // Remove polyfills.
-      // "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      // Change the tsconfig to point to your server config.
-      "tsconfig": "tsconfig.server.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "styles": [
-        "styles.css"
-      ],
-      "scripts": [],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+  "architect": {
+    "build": {
+      "builder": "@angular-devkit/build-angular:browser",
+      "options: {
+        "outputPath": "dist/browser",
+        ...
+      },
+      ...
+    }
+    "server": {
+      "builder": "@angular-devkit/build-angular:server",
+      "options": {
+        "outputPath": "dist/server",
+        "main": "src/main.server.ts",
+        "tsConfig": "src/tsconfig.server.json",
+        "fileReplacements": [
+          {
+            "replace": "src/environments/environment.ts",
+            "with": "src/environments/environment.prod.ts"
+          }
+        ],
+        "optimization": true
       }
     }
-  ],
+  }
   ...
 }
 ```
 
 ### Building the bundle:
 
-With these steps complete, you should be able to build a server bundle for your application, using the `--app` flag to tell the CLI to build the server bundle, referencing with name `"server"` in the `"apps"` array in `.angular-cli.json`:
+With these steps complete, you should be able to build a server bundle for your application:
 
 ```bash
 # This builds the client application in dist/browser/
 $ ng build --prod
 ...
 # This builds the server bundle in dist/server/
-$ ng build --prod --app server --output-hashing=none
+$ ng run your-project-name:server
 
 # outputs:
 Date: 2017-10-21T21:54:49.240Z                                                       
 Hash: 3034f2772435757f234a
 Time: 3689ms
-chunk {0} main.bundle.js (main) 9.2 kB [entry] [rendered]
-chunk {1} styles.bundle.css (styles) 0 bytes [entry] [rendered]
+chunk {0} main.js (main) 9.2 kB [entry] [rendered]
+chunk {1} styles.css (styles) 0 bytes [entry] [rendered]
 ```
 
 [back to top](#table-of-contents)
@@ -330,6 +316,8 @@ At the ROOT level of your project (where package.json / etc are), created a file
 // These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
+// * NOTE :: leave this until @hapiness/core will be migrated to rxjs v6
+import 'rxjs-compat';
 
 import { enableProdMode } from '@angular/core';
 import { Hapiness, HapinessModule, HttpServerExt, HttpServerService, OnError, OnStart } from '@hapiness/core';
@@ -342,7 +330,7 @@ const BROWSER_FOLDER = join(process.cwd(), 'dist', 'browser');
 enableProdMode();
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main.bundle');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');
 
 // Create our Hapiness application
 @HapinessModule({
@@ -450,7 +438,7 @@ module.exports = {
   resolve: { extensions: ['.ts', '.js'] },
   target: 'node',
   // this makes sure we include node_modules and other 3rd party libraries
-  externals: [/(node_modules|main\..*\.js)/],
+  externals: [/(node_modules)/],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
@@ -479,7 +467,9 @@ module.exports = {
   ],
   stats: {
     warnings: false
-  }
+  },
+  // Temporary fix for issue: https://github.com/angular/angular-cli/issues/10787#issuecomment-388512231
+  mode: 'none'
 };
 ```
 
@@ -516,7 +506,7 @@ Now lets create a few handy scripts to help us do all of this in the future.
   "serve:dynamic": "node dist/server.js",
 
   // Helpers for the above scripts
-  "build:client-and-server-bundles": "ng build --prod && ng build --prod --app server --output-hashing=none",
+  "build:client-and-server-bundles": "ng build --prod && ng run your-project-name:server",
   "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
 }
 ```
@@ -550,49 +540,9 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
-* v5.4.0 (2018-03-20)
-    * `Angular v5.2.9+`
-    * Fix `@nguniversal/module-map-ngfactory-loader` dependencies with new bundle
-    * Documentation
-* v5.3.0 (2018-02-26)
-    * `Angular v5.2.6+`
-    * Handle `302` redirect
-    * Documentation
-* v5.2.5 (2018-02-14)
-    * `Angular v5.2.5+`
-    * Documentation
-* v5.2.3 (2018-02-01)
-    * `Angular v5.2.3+`
-    * Documentation
-* v5.2.2 (2018-01-29)
-    * `Angular v5.2.2+`
-    * Documentation
-* v5.2.1 (2017-12-20)
-    * `Angular v5.1.1+`
-    * Documentation
-* v5.2.0 (2017-12-12)
-    * `Angular v5.1.0+`
-    * `RxJS v5.5.5+`
-    * Change `RESPONSE InjectionToken` signature to be a `reply` interface from `HapiJS` 
-    * Documentation
-* v5.1.2 (2017-12-05)
-    * `Angular v5.0.5+`
-    * `RxJS v5.5.3+`
-    * Fix compilation of `Angular InjectionToken` instances for `Request` and `Response` objects
-* v5.1.1 (2017-12-01)
-    * `Angular v5.0.4+`
-    * Change signature of `universal service response` related to latest `@hapiness/core`
-* v5.1.0 (2017-11-18)
-    * `Angular v5.0.2+`
-    * Returns `Observable` in route instead of to use `ReplyNoContinue` interface
-    * Update tests
-    * Change packaging process
-    * Documentation
-* v5.0.0 (2017-11-13)
-    * `Angular v5.0.0+`
-    * Publish all features of the module
-    * Lettable operators for `RxJS` 
-    * Tests
+* v6.0.0 (2018-05-11)
+    * `Angular v6.0.1+`
+    * `RxJS v6.1.0+`
     * Documentation
 
 [Back to top](#table-of-contents)
