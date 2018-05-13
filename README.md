@@ -83,13 +83,13 @@ Install `@angular/platform-server` into your project. Make sure you use the same
 Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your project: [`@hapiness/core`](https://github.com/hapinessjs/hapiness), [`@hapiness/ng-universal`](https://github.com/hapinessjs/ng-universal-module) and [`@hapiness/ng-universal-transfer-http`](https://github.com/hapinessjs/ng-universal-transfer-http).
 
 > You also need :
-> - `ts-loader` for your webpack build we'll show later and it's only in `devDependencies`.
+> - `ts-loader` and `webpack`, `webpack-cli` for your webpack build we'll show later and it's only in `devDependencies`.
 > - `@nguniversal/module-map-ngfactory-loader`, as it's used to handle lazy-loading in the context of a server-render. (by loading the chunks right away)
 > - `rxjs-compat`, until `@hapiness/core` is migrated to `rxjs` v6.
 
 
 ```bash
-$ yarn add --dev ts-loader
+$ yarn add --dev ts-loader webpack webpack-cli
 $ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @hapiness/core @hapiness/ng-universal @hapiness/ng-universal-transfer-http rxjs-compat
 ```
 
@@ -162,9 +162,7 @@ export class AppServerModule {
 }
 ```
 
-`TransferHttpCacheModule` installs a provider to delay the **app bootstrap** process to ensure that the `DOM` content is loaded before state transfer initialization.
-
-Simply import the module into your project and you will no longer need to wrap your component bootstrap function in an `DOMContentLoaded` callback.
+Then, you must set an event on `DOMContentLoaded` to be sure `TransferState` will be passed between `server` and `client`.
 
 ### src/main.ts:
 
@@ -179,8 +177,10 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppModule)
     .catch(err => console.log(err));
+});
 ```
 
 [back to top](#table-of-contents)
@@ -254,7 +254,14 @@ In **build target**, adapt `options.outputPath` to `dist/browser`.
       "options": {
         "outputPath": "dist/server",
         "main": "src/main.server.ts",
-        "tsConfig": "src/tsconfig.server.json"
+        "tsConfig": "src/tsconfig.server.json",
+        "fileReplacements": [
+          {
+            "replace": "src/environments/environment.ts",
+            "with": "src/environments/environment.prod.ts"
+          }
+        ],
+        "optimization": true
       }
     }
   }
@@ -431,7 +438,7 @@ module.exports = {
   resolve: { extensions: ['.ts', '.js'] },
   target: 'node',
   // this makes sure we include node_modules and other 3rd party libraries
-  externals: [/(node_modules|main\..*\.js)/],
+  externals: [/(node_modules)/],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
@@ -460,7 +467,9 @@ module.exports = {
   ],
   stats: {
     warnings: false
-  }
+  },
+  // Temporary fix for issue: https://github.com/angular/angular-cli/issues/10787#issuecomment-388512231
+  mode: 'none'
 };
 ```
 
