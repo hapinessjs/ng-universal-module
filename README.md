@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@6.0.1` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@6.0.3` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -261,7 +261,8 @@ In **build target**, adapt `options.outputPath` to `dist/browser`.
             "with": "src/environments/environment.prod.ts"
           }
         ],
-        "optimization": true
+        "optimization": true,
+        "sourceMap": false
       }
     }
   }
@@ -540,6 +541,10 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v6.0.1 (2018-05-25)
+    * `Angular v6.0.3+`
+    * `RxJS v6.2.0+`
+    * Documentation
 * v6.0.0 (2018-05-11)
     * `Angular v6.0.1+`
     * `RxJS v6.1.0+`
