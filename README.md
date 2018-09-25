@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@6.1.0` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@6.1.8` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -85,7 +85,6 @@ Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your pro
 > You also need :
 > - `ts-loader` and `webpack`, `webpack-cli` for your webpack build we'll show later and it's only in `devDependencies`.
 > - `@nguniversal/module-map-ngfactory-loader`, as it's used to handle lazy-loading in the context of a server-render. (by loading the chunks right away)
-> - `rxjs-compat`, until `@hapiness/core` is migrated to `rxjs` v6.
 
 
 ```bash
@@ -317,7 +316,7 @@ At the ROOT level of your project (where package.json / etc are), created a file
 // These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-// * NOTE :: leave this until @hapiness/core will be migrated to rxjs v6
+// * NOTE :: leave this until @hapiness/core will be migrated to rxjs v6 - This library is installed automatically
 import 'rxjs-compat';
 
 import { enableProdMode } from '@angular/core';
@@ -435,9 +434,14 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  // Temporary fix for issue: https://github.com/angular/angular-cli/issues/10787#issuecomment-388512231
+  mode: 'none',
   entry: {  server: './server.ts' },
-  resolve: { extensions: ['.ts', '.js'] },
   target: 'node',
+  resolve: { extensions: ['.ts', '.js'] },
+  optimization: {
+    minimize: false
+  },
   // this makes sure we include node_modules and other 3rd party libraries
   externals: [/(node_modules)/],
   output: {
@@ -446,7 +450,13 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.ts$/, loader: 'ts-loader' }
+      { test: /\.ts$/, loader: 'ts-loader' },
+      {
+        // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
+        // Removing this will cause deprecation warnings to appear.
+        test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
+        parser: { system: true },
+      }
     ]
   },
   plugins: [
@@ -460,17 +470,17 @@ module.exports = {
     new webpack.ContextReplacementPlugin(
       /(.+)?hapiness(\\|\/)core(.+)?/,
       path.join(__dirname, 'src'),
+      {}
     ),
     new webpack.ContextReplacementPlugin(
       /(.+)?hapiness(\\|\/)ng-universal(.+)?/,
       path.join(__dirname, 'src'),
+      {}
     )
   ],
   stats: {
     warnings: false
-  },
-  // Temporary fix for issue: https://github.com/angular/angular-cli/issues/10787#issuecomment-388512231
-  mode: 'none'
+  }
 };
 ```
 
@@ -541,6 +551,12 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v6.2.0 (2018-09-24)
+    * `Angular v6.1.8+`
+    * Latest packages' versions
+    * Install automatically `rxj-compat@6.2.2` to be compatible with all `Hapiness` extensions
+    * Update doc of [webpack.server.config.ts]((#webpackserverconfigjs-root-project-level)) to match with latest version of `Angular Universal` [story](https://github.com/angular/angular-cli/wiki/stories-universal-rendering#webpackserverconfigjs-root-project-level)
+    * Documentation
 * v6.1.0 (2018-07-26)
     * `Angular v6.1.0+`
     * Documentation
