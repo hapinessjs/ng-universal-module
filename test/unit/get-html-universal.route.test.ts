@@ -1,458 +1,401 @@
-import { ReplyNoContinue } from '@hapiness/core';
-import { test, suite } from 'mocha-typescript';
-import { GetHtmlUniversalRoute } from '../../src/module/routes';
-import { NgEngineService } from '../../src/module/services';
-
-import * as unit from 'unit.js';
+import { GetHtmlUniversalRoute } from '../../src/module/routes/universal/get';
+import { NgEngineService } from '../../src/module/services/engine';
 import { of } from 'rxjs';
 import { Buffer } from 'buffer';
+import { ReplyNoContinue } from '@hapiness/core';
 
-@suite('- Unit GetHtmlUniversalRouteTest file')
-export class GetHtmlUniversalRouteTest {
-    // private property to store mock service instance
-    private _ngEngineServiceMock: any;
-    // private property to store route instance
-    private _getHtmlUniversalRoute: GetHtmlUniversalRoute;
-    // private property to store request mock
-    private _request: any;
-    // private property to store reply mock
-    private _reply: any;
-    // private property to store reply mock
-    private _response: any;
+// mock NgEngineService constructor and all its methods
+jest.mock('../../src/module/services/engine/ng.service');
 
-    /**
-     * Function executed before the suite
-     */
-    static before() {
-    }
+// static mocks
+const request: any = { raw: { req: { url: '' }, res: {} } };
+
+describe('- Unit get-html-universal.route.test.ts file', () => {
+    afterAll(() => {
+        // restores the original (non-mocked) implementation.
+        (<any> NgEngineService).mockRestore();
+    });
 
     /**
-     * Function executed after the suite
+     * Test if `GetHtmlUniversalRoute` has `onGet`, `_replyResponse` and `_isValid` functions
      */
-    static after() {
-    }
+    test('- `GetHtmlUniversalRoute` must have `onGet`, `_replyResponse` and `_isValid` functions', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
 
-    /**
-     * Class constructor
-     * New lifecycle
-     */
-    constructor() {
-    }
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(new NgEngineService(null, null));
 
-    /**
-     * Function executed before each test
-     */
-    before() {
-        this._request = { raw: { req: { url: '' }, res: {} } };
-        this._reply = {};
-        this._response = {};
-        this._getHtmlUniversalRoute = new GetHtmlUniversalRoute(
-            new NgEngineService(null, null)
-        );
+        expect(typeof getHtmlUniversalRoute.onGet).toBe('function');
+        expect(typeof getHtmlUniversalRoute['_replyResponse']).toBe('function');
+        expect(typeof getHtmlUniversalRoute['_formatResponse']).toBe('function');
+        expect(typeof getHtmlUniversalRoute['_isValid']).toBe('function');
 
-        unit.spy();
-
-        this._ngEngineServiceMock = unit.mock(
-            this._getHtmlUniversalRoute['_ngEngineService']
-        );
-    }
-
-    /**
-     * Function executed after each test
-     */
-    after() {
-        this._getHtmlUniversalRoute = undefined;
-        this._ngEngineServiceMock = undefined;
-    }
-
-    /**
-     * Test if `GetHtmlUniversalRoute` as a `onGet` function
-     */
-    @test('- `GetHtmlUniversalRoute` must have `onGet` function')
-    testGetHtmlUniversalRouteOnGet() {
-        unit.function(this._getHtmlUniversalRoute.onGet);
-        unit.function(this._getHtmlUniversalRoute['_replyResponse']);
-        unit.function(this._getHtmlUniversalRoute['_formatResponse']);
-        unit.function(this._getHtmlUniversalRoute['_isValid']);
-    }
+        // NgEngineService constructor should have been called only 1 time
+        expect(NgEngineService).toHaveBeenCalledTimes(1);
+    });
 
     /**
      * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html data and no header
      */
-    @test(
-        '- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and no header'
-    )
-    testGetHtmlUniversalRouteOnGetObservableHtmlWithoutHeader(done) {
-        this._ngEngineServiceMock
-            .expects('universal')
-            .once()
-            .returns(of({ response: Buffer.from('<h1>Hello Angular</h1>') }));
+    test(
+        '- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html data and no header',
+        () => {
+            // show that mockClear() is working
+            expect(NgEngineService).not.toHaveBeenCalled();
 
-        this._getHtmlUniversalRoute.onGet(this._request, <ReplyNoContinue>(res => {
-            unit
-                .string(res.toString())
-                .is('<h1>Hello Angular</h1>')
-                .when(_ => {
-                    this._ngEngineServiceMock.verify();
-                    this._ngEngineServiceMock.restore();
-                    done();
-                });
-        }));
-    }
+            const getHtmlUniversalRoute = new GetHtmlUniversalRoute(new NgEngineService(null, null));
+
+            (<any> NgEngineService).mock.instances[0]
+                .universal.mockReturnValueOnce(of({ response: '<h1>Hello Angular</h1>' }));
+
+            getHtmlUniversalRoute.onGet(request, <ReplyNoContinue>(res => {
+                expect(res).toBe('<h1>Hello Angular</h1>');
+
+                // NgEngineService constructor should have been called only 1 time
+                expect(NgEngineService).toHaveBeenCalledTimes(1);
+            }));
+        }
+    );
 
     /**
      * Test if `GetHtmlUniversalRoute.onGet()` function returns an Observable with html buffer and with header
      */
-    @test(
-        '- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html buffer and header'
-    )
-    testGetHtmlUniversalRouteOnGetObservableHtmlWithHeader(done) {
-        this._ngEngineServiceMock
-            .expects('universal')
-            .once()
-            .returns(
+    test(
+        '- `GetHtmlUniversalRoute.onGet()` function must return an Observable with html buffer and header',
+        () => {
+            // show that mockClear() is working
+            expect(NgEngineService).not.toHaveBeenCalled();
+
+            const getHtmlUniversalRoute = new GetHtmlUniversalRoute(new NgEngineService(null, null));
+
+            (<any> NgEngineService).mock.instances[0].universal.mockReturnValueOnce(
                 of({
                     response: Buffer.from('<h1>Hello Angular</h1>'),
                     mime: 'text/html'
                 })
             );
 
+            getHtmlUniversalRoute.onGet(request, <ReplyNoContinue>(res => {
+                expect(res.toString()).toBe('<h1>Hello Angular</h1>');
 
-        this._getHtmlUniversalRoute.onGet(this._request, <ReplyNoContinue>(res => {
-            unit
-                .string(res.toString())
-                .is('<h1>Hello Angular</h1>')
-                .when(_ => {
-                    this._ngEngineServiceMock.verify();
-                    this._ngEngineServiceMock.restore();
-                    done();
-                });
-        }));
-    }
+                // NgEngineService constructor should have been called only 1 time
+                expect(NgEngineService).toHaveBeenCalledTimes(1);
+            }));
+        }
+    );
 
     /**
      * Test if `GetHtmlUniversalRoute.onGet()` function calls reply request
      */
-    @test('- `GetHtmlUniversalRoute.onGet()` function calls reply request')
-    testGetHtmlUniversalRouteOnGetWithReplyHeader(done) {
-        this._request['universal_redirect'] = 'http://localhost:4200/test';
+    test('- `GetHtmlUniversalRoute.onGet()` function calls reply request', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
 
-        this._ngEngineServiceMock
-            .expects('universal')
-            .once()
-            .returns(
-                of({
-                    redirect: (res: string) => {
-                        return res;
-                    }
-                })
-            );
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
 
-        this._reply = {
+        (<any> NgEngineService).mock.instances[0].universal.mockReturnValueOnce(of({ redirect: (res: string) => res }));
+
+        getHtmlUniversalRoute.onGet(Object.assign({}, request, { 'universal_redirect': 'http://universal_redirect' }), <ReplyNoContinue>({
             redirect: res => {
-                unit
-                    .string(res)
-                    .is('http://localhost:4200/test')
-                    .when(_ => {
-                        this._ngEngineServiceMock.verify();
-                        this._ngEngineServiceMock.restore();
-                        done();
-                    });
-            }
-        };
+                expect(res).toBe('http://universal_redirect');
 
-        this._getHtmlUniversalRoute.onGet(this._request, this._reply);
-    }
+                // NgEngineService constructor should have been called only 1 time
+                expect(NgEngineService).toHaveBeenCalledTimes(1);
+            }
+        }));
+    });
 
     /**
-     * Test if `replyResponse()` calls the redirect function of reply
+     * Test if `GetHtmlUniversalRoute._replyResponse()` calls the redirect function of reply
      */
-    @test('- `replyResponse()` calls the redirect function of reply')
-    testReplyResponseWithPropertyToRedirect(done) {
-        this._request['universal_redirect'] = 'http://localhost:4200/test';
-        this._response = 'HTML';
-        this._reply = {
-            redirect: res => {
-                unit
-                    .string(res)
-                    .is('http://localhost:4200/test')
-                    .when(_ => {
-                        this._ngEngineServiceMock.verify();
-                        this._ngEngineServiceMock.restore();
-                        done();
-                    });
-            }
-        };
-        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
-    }
+    test('- `GetHtmlUniversalRoute._replyResponse()` calls the redirect function of reply', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
+
+        getHtmlUniversalRoute['_replyResponse'](
+            Object.assign({}, request, { 'universal_redirect': 'http://universal_redirect' }),
+            <ReplyNoContinue>({
+                redirect: res => {
+                    expect(res).toBe('http://universal_redirect');
+
+                    // NgEngineService constructor should have been called only 1 time
+                    expect(NgEngineService).toHaveBeenCalledTimes(1);
+                }
+            }),
+            ''
+        ).subscribe();
+    });
 
     /**
-     * Test if `replyResponse()` calls the reply function with a statusCode, no header and a response
+     * Test if `GetHtmlUniversalRoute._replyResponse()` calls the reply function with a statusCode, no header and a response
      */
-    @test('- `replyResponse()` calls the reply function with a statusCode, no header and a response')
-    testReplyResponseWithoutPropertyToRedirectWithStatusCodeResponseWithoutHeader(done) {
-        this._response = { statusCode: 200, headers: {}, response: '<h1>Hello Angular</h1>' };
+    test('- `GetHtmlUniversalRoute._replyResponse()` calls the reply function with a statusCode, no header and a response', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
 
         let responseMock = {
-            code: (code) => {
-                responseMock.statusCode = code;
-                return responseMock;
-            },
+            code: code => responseMock.statusCode = code,
             statusCode: 0,
             headers: {},
             response: ''
         };
-        this._reply = (res: any) => {
-            unit.string(res);
-            responseMock.response = res;
-            return responseMock;
-        };
-        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
-        unit.object(responseMock).matchEach((it, key) => {
-            if (key === 'statusCode') {
-                return (typeof it === 'number' && it === 200);
-            }
+        getHtmlUniversalRoute['_replyResponse'](
+            request,
+            (res => {
+                expect(res).toBe('<h1>Hello Angular</h1>');
+                return Object.assign(responseMock, { response: res });
+            }) as any,
+            { statusCode: 200, headers: {}, response: '<h1>Hello Angular</h1>' }
+        ).subscribe(undefined, undefined, () => {
+            expect(responseMock.statusCode).toBe(200);
+            expect(responseMock.response).toBe('<h1>Hello Angular</h1>');
+            expect(Object.keys(responseMock.headers)).toHaveLength(0);
 
-            if (key === 'response') {
-                return (typeof it === 'string' && it === '<h1>Hello Angular</h1>');
-            }
-
-            if (key === 'headers') {
-                return (typeof it === 'object' && Object.keys(it).length === 0);
-            }
-            // For the function : Code
-            return true;
+            // NgEngineService constructor should have been called only 1 time
+            expect(NgEngineService).toHaveBeenCalledTimes(1);
         });
-
-        done();
-    }
+    });
 
     /**
-     * Test if `replyResponse()` calls the reply function with a statusCode, header and a response
+     * Test if `GetHtmlUniversalRoute._replyResponse()` calls the reply function with a statusCode, header and a response
      */
-    @test('- `replyResponse()` calls the reply function with a statusCode, header and a response')
-    testReplyResponseWithoutPropertyToRedirectWithStatusCodeResponseHeader(done) {
-        this._response = { statusCode: 200, headers: { test: 'test' }, response: '<h1>Hello Angular</h1>' };
+    test('- `GetHtmlUniversalRoute._replyResponse()` calls the reply function with a statusCode, header and a response', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
 
         let responseMock = {
-            code: (code) => {
-                responseMock.statusCode = code;
-                return responseMock;
-            },
+            code: code => responseMock.statusCode = code,
             statusCode: 0,
             headers: {},
             response: ''
         };
-        this._reply = (res: any) => {
-            unit.string(res);
-            responseMock.response = res;
-            return responseMock;
-        };
-        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
-        unit.object(responseMock).matchEach((it, key) => {
-            if (key === 'statusCode') {
-                return (typeof it === 'number' && it === 200);
-            }
+        getHtmlUniversalRoute['_replyResponse'](
+            request,
+            (res => {
+                expect(res).toBe('<h1>Hello Angular</h1>');
+                return Object.assign(responseMock, { response: res });
+            }) as any,
+            { statusCode: 200, headers: { test: 'test' }, response: '<h1>Hello Angular</h1>' }
+        ).subscribe(undefined, undefined, () => {
+            expect(responseMock.statusCode).toBe(200);
+            expect(responseMock.response).toBe('<h1>Hello Angular</h1>');
+            expect(Object.keys(responseMock.headers)).toHaveLength(1);
+            expect(responseMock.headers['test']).toBe('test');
 
-            if (key === 'response') {
-                return (typeof it === 'string' && it === '<h1>Hello Angular</h1>');
-            }
-
-            if (key === 'headers') {
-                return (typeof it === 'object' && Object.keys(it).length === 1 && it.test === 'test');
-            }
-            // For the function : Code
-            return true;
+            // NgEngineService constructor should have been called only 1 time
+            expect(NgEngineService).toHaveBeenCalledTimes(1);
         });
-
-        done();
-    }
+    });
 
     /**
-     * Test if `replyResponse()` calls the reply function with header and a response and without statusCode
+     * Test if `GetHtmlUniversalRoute._replyResponse()` calls the reply function with header and a response and without statusCode
      */
-    @test('- `replyResponse()` calls the reply function with header and a response and without statusCode')
-    testReplyResponseWithoutPropertyToRedirectWithResponseHeaderWithoutCodeStatus(done) {
-        this._response = { headers: { test: 'test' }, response: '<h1>Hello Angular</h1>' };
+    test('- `GetHtmlUniversalRoute._replyResponse()` calls the reply function with header and a response and without statusCode', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
 
         let responseMock = {
-            code: (code) => {
-                responseMock.statusCode = code;
-                return responseMock;
-            },
+            code: code => responseMock.statusCode = code,
             statusCode: 0,
             headers: {},
             response: ''
         };
-        this._reply = (res: any) => {
-            unit.string(res);
-            responseMock.response = res;
-            return responseMock;
-        };
-        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
-        unit.object(responseMock).matchEach((it, key) => {
-            if (key === 'statusCode') {
-                return (typeof it === 'number' && it === 200);
-            }
+        getHtmlUniversalRoute['_replyResponse'](
+            request,
+            (res => {
+                expect(res).toBe('<h1>Hello Angular</h1>');
+                return Object.assign(responseMock, { response: res });
+            }) as any,
+            { headers: { test: 'test' }, response: '<h1>Hello Angular</h1>' }
+        ).subscribe(undefined, undefined, () => {
+            expect(responseMock.statusCode).toBe(200);
+            expect(responseMock.response).toBe('<h1>Hello Angular</h1>');
+            expect(Object.keys(responseMock.headers)).toHaveLength(1);
+            expect(responseMock.headers['test']).toBe('test');
 
-            if (key === 'response') {
-                return (typeof it === 'string' && it === '<h1>Hello Angular</h1>');
-            }
-
-            if (key === 'headers') {
-                return (typeof it === 'object' && Object.keys(it).length === 1 && it.test === 'test');
-            }
-            // For the function : Code
-            return true;
+            // NgEngineService constructor should have been called only 1 time
+            expect(NgEngineService).toHaveBeenCalledTimes(1);
         });
-
-        done();
-    }
+    });
 
     /**
-     * Test if `replyResponse()` calls the reply function with only html
+     * Test if `GetHtmlUniversalRoute._replyResponse()` calls the reply function with only html
      */
-    @test('- `replyResponse()` calls the reply function with only html')
-    testReplyResponseWithoutPropertyToRedirectWithOnlyHtml(done) {
-        this._response = '<h1>Hello Angular</h1>';
+    test('- `GetHtmlUniversalRoute._replyResponse()` calls the reply function with only html', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
 
         let responseMock = {
-            code: (code) => {
-                responseMock.statusCode = code;
-                return responseMock;
-            },
+            code: code => responseMock.statusCode = code,
             statusCode: 0,
             headers: {},
             response: ''
         };
-        this._reply = (res: any) => {
-            unit.string(res);
-            responseMock.response = res;
-            return responseMock;
-        };
-        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
-        unit.object(responseMock).matchEach((it, key) => {
-            if (key === 'statusCode') {
-                return (typeof it === 'number' && it === 200);
-            }
+        getHtmlUniversalRoute['_replyResponse'](
+            request,
+            (res => {
+                expect(res).toBe('<h1>Hello Angular</h1>');
+                return Object.assign(responseMock, { response: res });
+            }) as any,
+            '<h1>Hello Angular</h1>'
+        ).subscribe(undefined, undefined, () => {
+            expect(responseMock.statusCode).toBe(200);
+            expect(responseMock.response).toBe('<h1>Hello Angular</h1>');
+            expect(Object.keys(responseMock.headers)).toHaveLength(0);
 
-            if (key === 'response') {
-                return (typeof it === 'string' && it === '<h1>Hello Angular</h1>');
-            }
-
-            if (key === 'headers') {
-                return (typeof it === 'object' && Object.keys(it).length === 0);
-            }
-            // For the function : Code
-            return true;
+            // NgEngineService constructor should have been called only 1 time
+            expect(NgEngineService).toHaveBeenCalledTimes(1);
         });
-
-        done();
-    }
+    });
 
     /**
-     * Test if `replyResponse()` calls the reply function with headers, statusCode without response
+     * Test if `GetHtmlUniversalRoute._replyResponse()` calls the reply function with headers, statusCode without response
      */
-    @test('- `replyResponse()` calls the reply function with headers, statusCode without response')
-    testReplyResponseWithoutPropertyToRedirectWithHeadersStatusCodeWithoutResponse(done) {
-        this._response = null;
+    test('- `GetHtmlUniversalRoute._replyResponse()` calls the reply function with headers, statusCode without response', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
 
         let responseMock = {
-            code: (code) => {
-                responseMock.statusCode = code;
-                return responseMock;
-            },
+            code: code => responseMock.statusCode = code,
             statusCode: 0,
             headers: {},
             response: ''
         };
-        this._reply = (res: any) => {
-            responseMock.response = res;
-            return responseMock;
-        };
-        this._getHtmlUniversalRoute['_replyResponse'](this._request, this._reply, this._response).subscribe();
 
-        unit.object(responseMock).matchEach((it, key) => {
-            if (key === 'statusCode') {
-                return (typeof it === 'number' && it === 204);
-            }
+        getHtmlUniversalRoute['_replyResponse'](
+            request,
+            (res => Object.assign(responseMock, { response: res })) as any,
+            null
+        ).subscribe(undefined, undefined, () => {
+            expect(responseMock.statusCode).toBe(204);
+            expect(Object.keys(responseMock.headers)).toHaveLength(0);
+            expect(responseMock.response).toBe(null);
 
-            if (key === 'headers') {
-                return (typeof it === 'object' && Object.keys(it).length === 0);
-            }
-            // For the function : Code
-            return true;
+            // NgEngineService constructor should have been called only 1 time
+            expect(NgEngineService).toHaveBeenCalledTimes(1);
         });
-
-        done();
-    }
+    });
 
     /**
-     * Test if `formatResponse` returns an empty object
+     * Test if `GetHtmlUniversalRoute._formatResponse()` returns an empty object
      */
-    @test('- `formatResponse` returns an empty object')
-    testFormatResponseReturnEmptyObject() {
-        const res = this._getHtmlUniversalRoute['_formatResponse'](null);
-        unit.object(res).matchEach((it, key) => {
-            if (key === 'statusCode') {
-                return (typeof it === 'number' && it === 204);
-            }
-            if (key === 'headers') {
-                return (typeof it === 'object' && Object.keys(it).length === 0);
-            }
-            if (key === 'response') {
-                return (it === null);
-            }
-        });
-    }
+    test('- `GetHtmlUniversalRoute._formatResponse()` returns an empty object', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
+
+        const res = getHtmlUniversalRoute['_formatResponse'](null);
+
+        expect(res.statusCode).toBe(204);
+        expect(Object.keys(res.headers)).toHaveLength(0);
+        expect(res.response).toBe(null);
+
+        // NgEngineService constructor should have been called only 1 time
+        expect(NgEngineService).toHaveBeenCalledTimes(1);
+    });
 
     /**
-     * Test if `formatResponse` returns a new object depending on the given response
+     * Test if `GetHtmlUniversalRoute._formatResponse()` returns a new object depending on the given response
      */
-    @test('- `formatResponse` returns a new object depending on the given response')
-    testFormatResponseReturnObjectGivenResponse() {
-        const res = this._getHtmlUniversalRoute['_formatResponse']({ statusCode: 402, headers: {}, response: '<h1>Hello Angular</h1>' });
-        unit.object(res).matchEach((it, key) => {
-            if (key === 'statusCode') {
-                return (typeof it === 'number' && it === 402);
-            }
-            if (key === 'headers') {
-                return (typeof it === 'object' && Object.keys(it).length === 0);
-            }
-            if (key === 'response') {
-                return (typeof it === 'string' && it === '<h1>Hello Angular</h1>');
-            }
-        });
-    }
+    test('- `GetHtmlUniversalRoute._formatResponse()` returns a new object depending on the given response', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
+
+        const res = getHtmlUniversalRoute['_formatResponse']({ statusCode: 402, headers: {}, response: '<h1>Hello Angular</h1>' });
+
+        expect(res.statusCode).toBe(402);
+        expect(Object.keys(res.headers)).toHaveLength(0);
+        expect(res.response).toBe('<h1>Hello Angular</h1>');
+
+        // NgEngineService constructor should have been called only 1 time
+        expect(NgEngineService).toHaveBeenCalledTimes(1);
+    });
 
     /**
-     * Test if `isValid` returns false when the response is null
+     * Test if `GetHtmlUniversalRoute._isValid` returns false when the response is null
      */
-    @test('- `isValid` returns false when the response is null')
-    testIsValidReturnFalseNullResponse() {
-        const res: boolean = this._getHtmlUniversalRoute['_isValid'](null);
-        unit.bool(res).isFalse();
-    }
+    test('- `GetHtmlUniversalRoute._isValid` returns false when the response is null', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
+
+        expect(getHtmlUniversalRoute['_isValid'](null)).toBeFalsy();
+
+        // NgEngineService constructor should have been called only 1 time
+        expect(NgEngineService).toHaveBeenCalledTimes(1);
+    });
 
     /**
-     * Test if `isValid` returns false when the response is undefined
+     * Test if `GetHtmlUniversalRoute._isValid` returns false when the response is undefined
      */
-    @test('- `isValid` returns false when the response is undefined')
-    testIsValidReturnFalseUndefinedResponse() {
-        const res: boolean = this._getHtmlUniversalRoute['_isValid'](undefined);
-        unit.bool(res).isFalse();
-    }
+    test('- `GetHtmlUniversalRoute._isValid` returns false when the response is undefined', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
+
+        expect(getHtmlUniversalRoute['_isValid'](undefined)).toBeFalsy();
+
+        // NgEngineService constructor should have been called only 1 time
+        expect(NgEngineService).toHaveBeenCalledTimes(1);
+    });
 
     /**
-     * Test if `isValid` returns true when the response is well defined
+     * Test if `GetHtmlUniversalRoute._isValid` returns true when the response is well defined
      */
-    @test('- `isValid` returns true when the response is well defined')
-    testIsValidReturnTrue() {
-        const res: boolean = this._getHtmlUniversalRoute['_isValid']({ test: 'test' });
-        unit.bool(res).isTrue();
-    }
-}
+    test('- `GetHtmlUniversalRoute._isValid` returns true when the response is well defined', () => {
+        // show that mockClear() is working
+        expect(NgEngineService).not.toHaveBeenCalled();
+
+        const getHtmlUniversalRoute = new GetHtmlUniversalRoute(
+            new NgEngineService(null, null)
+        );
+
+        expect(getHtmlUniversalRoute['_isValid']({ test: 'test' })).toBeTruthy();
+
+        // NgEngineService constructor should have been called only 1 time
+        expect(NgEngineService).toHaveBeenCalledTimes(1);
+    });
+});

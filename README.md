@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@6.1.8` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@7.0.1` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -551,6 +551,11 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v7.0.0 (2018-10-31)
+    * `Angular v7.0.1+`
+    * Migrate tests to [jest](https://jestjs.io/en/) and [ts-jest](https://kulshekhar.github.io/ts-jest/)
+    * Code refactoring
+    * Documentation
 * v6.2.0 (2018-09-24)
     * `Angular v6.1.8+`
     * Latest packages' versions

@@ -43,7 +43,7 @@ export class NgEngineService {
      *
      * store original function to stub it in tests
      */
-    private _renderModuleFactory: <T>(moduleFactory: NgModuleFactory<T>, options: {
+    private readonly _renderModuleFactory: <T>(moduleFactory: NgModuleFactory<T>, options: {
         document?: string;
         url?: string;
         extraProviders?: StaticProvider[];
@@ -55,7 +55,7 @@ export class NgEngineService {
      *
      * store original function to stub it in tests
      */
-    private _provideModuleMap: (moduleMap: ModuleMap) => StaticProvider;
+    private readonly _provideModuleMap: (moduleMap: ModuleMap) => StaticProvider;
 
     /**
      * Service constructor

@@ -1,226 +1,183 @@
-import { test, suite } from 'mocha-typescript';
-import { Buffer } from 'buffer';
+import { NgEngineService } from '../../src/module/services/engine';
 import { Observable } from 'rxjs';
-import { NgEngineService } from '../../src/module/services';
-
-import * as unit from 'unit.js';
 import * as fs from 'fs';
+import { Buffer } from 'buffer';
 
-@suite('- Unit NgEngineServiceTest file')
-export class NgEngineServiceTest {
-    // private property to store service instance
-    private _ngEngineService: NgEngineService;
-    // private property to store request mock
-    private _request: any;
-    // private property to store reply mock
-    private _reply: any;
-    // private property to store fs stub
-    private _fsStub: any;
-    private _server: any;
+const request: any = { raw: { req: { url: '' }, res: {} } };
+const reply: any = {};
+const server: any = { instance: () => ({ mime: { path: (p: string) => ({ type: '' }) } }) };
 
-    /**
-     * Function executed before the suite
-     */
-    static before() {
-    }
+// jest.mock('fs');
 
-    /**
-     * Function executed after the suite
-     */
-    static after() {
-    }
-
-    /**
-     * Class constructor
-     * New lifecycle
-     */
-    constructor() {
-    }
-
-    /**
-     * Function executed before each test
-     */
-    before() {
-        this._ngEngineService = new NgEngineService(null, null);
-        this._request = { raw: { req: { url: '' }, res: {} } };
-        this._reply = {};
-        this._server = { instance: () => ({ mime: { path: (p: string) => ({ type: '' }) } }) };
-        this._fsStub = unit.stub(fs, 'readFileSync').returns(Buffer.from(''));
-    }
-
-    /**
-     * Function executed after each test
-     */
-    after() {
-        this._ngEngineService = undefined;
-        this._request = undefined;
-        this._server = undefined;
-        this._reply = undefined;
-        this._fsStub.restore();
-        this._fsStub = undefined;
-    }
-
+describe('- Unit ng-engine.service.test.ts file', () => {
     /**
      * Test if `NgEngineService` as a `universal` function
      */
-    @test('- `NgEngineService` must have `universal` function')
-    testNgEngineServiceUniversal() {
-        unit.function(this._ngEngineService.universal);
-    }
+    test('- `NgEngineService` must have `universal` function',
+        () => expect(typeof new NgEngineService(null, null).universal).toBe('function'));
 
     /**
      * Test if `NgEngineService.universal()` function returns an Observable
      */
-    @test('- `NgEngineService.universal()` function must return an Observable')
-    testNgEngineServiceUniversalObservable(done) {
-        unit.object(this._ngEngineService.universal(null, null)).isInstanceOf(Observable).when(_ => done());
-    }
+    test('- `NgEngineService.universal()` function must return an Observable', () => {
+        expect(new NgEngineService(null, null).universal(null, null)).toBeInstanceOf(Observable);
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns an Observable Error if parameter is wrong
      */
-    @test('- `NgEngineService.universal()` function must return an Observable Error if parameter is wrong')
-    testNgEngineServiceUniversalObservableReqParamError(done) {
-        this._ngEngineService.universal(null, null)
-            .subscribe(null, e => unit.string(e.message).is('url is undefined').when(_ => done()));
-    }
+    test('- `NgEngineService.universal()` function must return an Observable Error if parameter is wrong', () => {
+        new NgEngineService(null, null).universal(null, null).subscribe(undefined, e => expect(e.message).toBe('url is undefined'));
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns an Observable Error if missing bootstrap in config
      */
-    @test('- `NgEngineService.universal()` function must return an Observable Error if missing bootstrap in config')
-    testNgEngineServiceUniversalObservableConfigBootstrapError(done) {
-        this._ngEngineService.universal(this._request, this._reply)
-            .subscribe(null, e => unit.string(e.message)
-                .is('You must pass in config a NgModule or NgModuleFactory to be bootstrapped').when(_ => done()));
-    }
+    test('- `NgEngineService.universal()` function must return an Observable Error if missing bootstrap in config', () => {
+        new NgEngineService(null, null).universal(request, reply)
+            .subscribe(undefined, e => expect(e.message).toBe('You must pass in config a NgModule or NgModuleFactory to be bootstrapped'));
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns an Observable Error if missing lazyModuleMap in config
      */
-    @test('- `NgEngineService.universal()` function must return an Observable Error if missing lazyModuleMap in config')
-    testNgEngineServiceUniversalObservableConfigLazyModuleMapError(done) {
+    test('- `NgEngineService.universal()` function must return an Observable Error if missing lazyModuleMap in config', () => {
         const ngE = new NgEngineService({
             bootstrap: <any> {},
             lazyModuleMap: null,
             staticContent: null
         }, null);
-        ngE.universal(this._request, this._reply)
-            .subscribe(null, e => unit.string(e.message)
-                .is('You must pass in config lazy module map').when(_ => done()));
-    }
+
+        ngE.universal(request, reply).subscribe(undefined, e => expect(e.message).toBe('You must pass in config lazy module map'));
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns an Observable Error if missing staticContent in config
      */
-    @test('- `NgEngineService.universal()` function must return an Observable Error if missing staticContent in config')
-    testNgEngineServiceUniversalObservableConfigStaticContentError(done) {
+    test('- `NgEngineService.universal()` function must return an Observable Error if missing staticContent in config', () => {
         const ngE = new NgEngineService({ bootstrap: <any> {}, lazyModuleMap: {}, staticContent: null }, null);
-        ngE.universal(this._request, this._reply)
-            .subscribe(null, e => unit.string(e.message)
-                .is('You must pass in config the static content object').when(_ => done()));
-    }
+        ngE.universal(request, reply)
+            .subscribe(undefined, e => expect(e.message).toBe('You must pass in config the static content object'));
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns an Observable Error if missing staticContent indexFile in config
      */
-    @test('- `NgEngineService.universal()` function must return an Observable Error if missing staticContent indexFile in config')
-    testNgEngineServiceUniversalObservableConfigStaticContentIndexFileError(done) {
+    test('- `NgEngineService.universal()` function must return an Observable Error if missing staticContent indexFile in config', () => {
         const ngE = new NgEngineService({
             bootstrap: <any> {},
             lazyModuleMap: {},
             staticContent: { indexFile: null, rootPath: '' }
         }, null);
-        ngE.universal(this._request, this._reply)
-            .subscribe(null, e => unit.string(e.message)
-                .is('You must pass in config the static content object with index file').when(_ => done()));
-    }
+
+        ngE.universal(request, reply)
+            .subscribe(undefined, e => expect(e.message).toBe('You must pass in config the static content object with index file'));
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns an Observable Error if missing staticContent rootPath in config
      */
-    @test('- `NgEngineService.universal()` function must return an Observable Error if missing staticContent rootPath in config')
-    testNgEngineServiceUniversalObservableConfigStaticContentRootPathError(done) {
+    test('- `NgEngineService.universal()` function must return an Observable Error if missing staticContent rootPath in config', () => {
         const ngE = new NgEngineService({
             bootstrap: <any> {},
             lazyModuleMap: {},
             staticContent: { indexFile: '/', rootPath: '' }
         }, null);
-        ngE.universal(this._request, this._reply)
-            .subscribe(null, e => unit.string(e.message)
-                .is('You must pass in config the static content object with root path').when(_ => done()));
-    }
+
+        ngE.universal(request, reply)
+            .subscribe(undefined, e => expect(e.message).toBe('You must pass in config the static content object with root path'));
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns success with compiler
      */
-    @test('- `NgEngineService.universal()` success execution with compiler')
-    testNgEngineServiceUniversalSuccessWithCompile(done) {
+    test('- `NgEngineService.universal()` success execution with compiler', () => {
         const ngE = new NgEngineService({
             bootstrap: <any> {}, lazyModuleMap: {}, staticContent: {
-                rootPath: './test/integration',
+                rootPath: './root/path',
                 indexFile: 'test.html'
             }
-        }, this._server);
+        }, server);
 
-        const compilerStub = unit.stub(ngE['_compiler'], 'compileModuleAsync').returns(new Promise((resolve) => resolve({})));
-        const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
-            .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
+        // create all mocks
+        const compilerStub = jest.spyOn(ngE['_compiler'], 'compileModuleAsync').mockReturnValueOnce(new Promise((resolve) => resolve({})));
+        const renderModuleFactoryStub = jest.spyOn<any, keyof any>(ngE, '_renderModuleFactory')
+            .mockReturnValueOnce(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
+        const fsStub = jest.spyOn(fs, 'readFileSync').mockReturnValueOnce(Buffer.from(''));
 
-        ngE.universal(this._request, this._reply)
-            .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
-                .when(__ => {
-                    compilerStub.restore();
-                    renderModuleFactoryStub.restore();
-                    done();
-                })
-            );
-    }
+        ngE.universal(request, reply).subscribe(_ => {
+            expect(_).toBe('<h1>Hello Angular</h1>');
+
+            // compilerStub should have been called only 1 time
+            expect(compilerStub).toHaveBeenCalledTimes(1);
+
+            // renderModuleFactoryStub should have been called only 1 time
+            expect(renderModuleFactoryStub).toHaveBeenCalledTimes(1);
+
+            // fsStub should have been called only 1 time
+            expect(fsStub).toHaveBeenCalledTimes(1);
+
+            // restore mocks
+            compilerStub.mockRestore();
+            renderModuleFactoryStub.mockRestore();
+            fsStub.mockRestore();
+        });
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns success with cache
      */
-    @test('- `NgEngineService.universal()` success execution with cache')
-    testNgEngineServiceUniversalSuccessWithCache(done) {
+    test('- `NgEngineService.universal()` success execution with cache', () => {
         const ngE = new NgEngineService({
             bootstrap: NgEngineService, lazyModuleMap: {}, staticContent: {
-                rootPath: './test/integration',
+                rootPath: './root/path',
                 indexFile: 'test.html'
             }
-        }, this._server);
+        }, server);
 
         ngE['_factoryCacheMap'].set(NgEngineService, <any> {});
 
-        const renderModuleFactoryStub = unit.stub(ngE, '_renderModuleFactory')
-            .returns(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
+        // create all mocks
+        const renderModuleFactoryStub = jest.spyOn<any, keyof any>(ngE, '_renderModuleFactory')
+            .mockReturnValueOnce(new Promise((resolve) => resolve('<h1>Hello Angular</h1>')));
+        const fsStub = jest.spyOn(fs, 'readFileSync').mockReturnValueOnce(Buffer.from(''));
 
-        ngE.universal(this._request, this._reply)
-            .subscribe(_ => unit.string(_).is('<h1>Hello Angular</h1>')
-                .when(__ => {
-                    renderModuleFactoryStub.restore();
-                    done();
-                })
-            );
-    }
+        ngE.universal(request, reply).subscribe(_ => {
+            expect(_).toBe('<h1>Hello Angular</h1>');
+
+            // renderModuleFactoryStub should have been called only 1 time
+            expect(renderModuleFactoryStub).toHaveBeenCalledTimes(1);
+
+            // fsStub should have been called only 1 time
+            expect(fsStub).toHaveBeenCalledTimes(1);
+
+            // restore mocks
+            renderModuleFactoryStub.mockRestore();
+            fsStub.mockRestore();
+        });
+    });
 
     /**
      * Test if `NgEngineService.universal()` function returns success with static content
      */
-    @test('- `NgEngineService.universal()` success execution with static content')
-    testNgEngineServiceUniversalSuccessWithStaticContent(done) {
+    test('- `NgEngineService.universal()` success execution with static content', () => {
         const ngE = new NgEngineService({
             bootstrap: <any> {}, lazyModuleMap: {}, staticContent: {
-                rootPath: '/',
-                indexFile: 'index.html'
+                rootPath: './root/path',
+                indexFile: 'test.html'
             }
         }, <any> { instance: () => ({ mime: { path: (p: string) => ({ type: 'plain/text' }) } }) });
 
+        const fsStub = jest.spyOn(fs, 'readFileSync').mockReturnValueOnce(Buffer.from(''));
 
-        ngE.universal(<any> { raw: { req: { url: '/' } } }, this._reply)
-            .subscribe(_ => unit.string(_.response.toString()).is('')
-                .when(__ => {
-                    done();
-                })
-            );
-    }
-}
+        ngE.universal(<any> { raw: { req: { url: '/' } } }, reply).subscribe(_ => {
+            expect(_.response.toString()).toBe('');
+
+            // fsStub should have been called only 1 time
+            expect(fsStub).toHaveBeenCalledTimes(1);
+
+            // restore mocks
+            fsStub.mockRestore();
+        });
+    });
+});
