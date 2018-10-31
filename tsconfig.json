@@ -16,7 +16,8 @@
         "typeRoots": ["./node_modules/@types"],
         "types": [
             "node",
-            "fs-extra"
+            "fs-extra",
+            "jest"
         ],
         "lib": [
             "dom",

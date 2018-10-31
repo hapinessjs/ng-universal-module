@@ -1,67 +1,21 @@
-import { test, suite } from 'mocha-typescript';
 import { NgUniversalModule } from '../../src';
 
-import * as unit from 'unit.js';
-
-@suite('- Unit NgUniversalModuleTest file')
-export class NgUniversalModuleTest {
-    /**
-     * Function executed before the suite
-     */
-    static before() {
-    }
-
-    /**
-     * Function executed after the suite
-     */
-    static after() {
-    }
-
-    /**
-     * Class constructor
-     * New lifecycle
-     */
-    constructor() {
-    }
-
-    /**
-     * Function executed before each test
-     */
-    before() {
-    }
-
-    /**
-     * Function executed after each test
-     */
-    after() {
-    }
-
+describe('- Unit ng-universal.module.test.ts file', () => {
     /**
      * Test if `NgUniversalModule` as a `setConfig` static function
      */
-    @test('- `NgUniversalModule` must have `setConfig` static function')
-    testNgUniversalModuleSetConfig() {
-        unit.function(NgUniversalModule.setConfig);
-    }
+    test('- `NgUniversalModule` must have `setConfig` static function', () => expect(typeof NgUniversalModule.setConfig).toBe('function'));
 
     /**
      * Test if `NgUniversalModule.universal()` static function returns CoreModuleWithProviders
      */
-    @test('- `NgUniversalModule.setConfig()` static function must return CoreModuleWithProviders')
-    testNgUniversalModuleSetConfigReturnsCoreModuleWithProviders(done) {
+    test('- `NgUniversalModule.setConfig()` static function must return CoreModuleWithProviders', () => {
         const cwp = NgUniversalModule.setConfig({ bootstrap: <any> {}, lazyModuleMap: {}, staticContent: null });
-        unit.object(cwp)
-            .hasProperty('module')
-            .hasProperty('providers')
-            .when(_ => {
-                unit.array(cwp.providers)
-                    .hasLength(1)
-                    .when(__ => {
-                        unit.object(cwp.providers.pop())
-                            .hasProperty('provide')
-                            .hasProperty('useValue');
-                        done();
-                    });
-            });
-    }
-}
+        expect(cwp).toHaveProperty('module');
+        expect(cwp).toHaveProperty('providers');
+        expect(cwp.providers).toHaveLength(1);
+        const provider = cwp.providers.pop();
+        expect(provider).toHaveProperty('provide');
+        expect(provider).toHaveProperty('useValue');
+    });
+});

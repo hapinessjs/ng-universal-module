@@ -1,7 +1,7 @@
-import { OnGet, Request, Route, ReplyNoContinue, HTTPHandlerResponse } from '@hapiness/core';
+import { HTTPHandlerResponse, OnGet, ReplyNoContinue, Request, Route } from '@hapiness/core';
 import { NgEngineService } from '../../../services';
 import { Response } from 'hapi';
-import { Observable, of, merge } from 'rxjs';
+import { EMPTY, merge, Observable, of } from 'rxjs';
 import { filter, flatMap, map, tap } from 'rxjs/operators';
 
 
@@ -27,9 +27,11 @@ export class GetHtmlUniversalRoute implements OnGet {
      * @returns {Observable<any | HTTPHandlerResponse>}
      */
     onGet(request: Request, reply: ReplyNoContinue) {
-        this._ngEngineService.universal(request, reply).pipe(
-            flatMap(_ => this._replyResponse(request, reply, _))
-        ).subscribe();
+        this._ngEngineService.universal(request, reply)
+            .pipe(
+                flatMap(_ => this._replyResponse(request, reply, _))
+            )
+            .subscribe();
     }
 
 
@@ -42,7 +44,7 @@ export class GetHtmlUniversalRoute implements OnGet {
      * @param {ReplyNoContinue} reply
      * @param {any | HTTPHandlerResponse} response
      */
-    private _replyResponse(request: Request, reply: ReplyNoContinue, response: any | HTTPHandlerResponse): Observable<string> {
+    private _replyResponse(request: Request, reply: ReplyNoContinue, response: any | HTTPHandlerResponse): Observable<never> {
         return of(of(request))
             .pipe(
                 flatMap(obs =>
@@ -53,9 +55,7 @@ export class GetHtmlUniversalRoute implements OnGet {
                         ),
                         obs.pipe(
                             filter(__ => !!__ && !__['universal_redirect']),
-                            map(__ => response),
-                            map(__ => this._formatResponse(__)),
-                            map(__ => of({ redirect: false, data: __ }))
+                            map(__ => of({ redirect: false, data: this._formatResponse(response) }))
                         )
                     )
                 ),
@@ -64,18 +64,19 @@ export class GetHtmlUniversalRoute implements OnGet {
                         obs.pipe(
                             filter(__ => !!__ && !!__.redirect),
                             tap(__ => reply.redirect(__.data)),
-                            map(__ => 'Handle 302 redirect')
+                            flatMap(__ => EMPTY)
                         ),
                         obs.pipe(
                             filter(__ => !!__ && !__.redirect),
+                            map(__ => __.data),
                             tap(__ => {
-                                const rep: Response = reply(__.data.response);
+                                const rep: Response = reply(__.response);
                                 if (!!rep) {
-                                    rep.code(this._isValid(__.data.response) ? __.data.statusCode : 204);
-                                    rep.headers = Object.assign(__.data.headers, rep.headers);
+                                    rep.code(this._isValid(__.response) ? __.statusCode : 204);
+                                    Object.assign(rep.headers, __.headers);
                                 }
                             }),
-                            map(__ => 'Handle Angular response')
+                            flatMap(__ => EMPTY)
                         )
                     )
                 )
