@@ -1,22 +1,27 @@
-import { HttpServerService, Inject, Injectable, Request, HTTPHandlerResponse, ReplyNoContinue } from '@hapiness/core';
 import { Compiler, CompilerFactory, NgModuleFactory, StaticProvider, Type } from '@angular/core';
 import { INITIAL_CONFIG, platformDynamicServer, renderModuleFactory } from '@angular/platform-server';
 import { ResourceLoader } from '@angular/compiler';
 import {
-    ɵnguniversal_modules_module_map_ngfactory_loader_module_map_ngfactory_loader_a as ModuleMap,
-    provideModuleMap
+    provideModuleMap,
+    ɵnguniversal_modules_module_map_ngfactory_loader_module_map_ngfactory_loader_a as ModuleMap
 } from '@nguniversal/module-map-ngfactory-loader';
 
-import { Observable, merge, of, from, throwError } from 'rxjs';
-import { toArray, filter, flatMap, map, tap } from 'rxjs/operators';
+import { from, merge, Observable, of, throwError } from 'rxjs';
+import { filter, flatMap, map, tap, toArray } from 'rxjs/operators';
 
 import * as fs from 'fs';
 import { join } from 'path';
+import * as Mimos from '@hapi/mimos';
 
 import { NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions, StaticContent } from '../../interfaces';
-import { REQUEST, RESPONSE } from '../../../injection';
+import { REPLY, REQUEST, UTILS } from '../../../injection';
+import { Inject, Service } from '@hapiness/core';
 
-@Injectable()
+import { HttpResponse, HttpServerRequest } from '@hapiness/core/httpserver';
+import { HttpServerReply } from '../reply';
+import { HttpUtils } from '../utils';
+
+@Service()
 export class NgEngineService {
     /**
      * This holds a cached version of each data used.
@@ -56,14 +61,23 @@ export class NgEngineService {
      * store original function to stub it in tests
      */
     private readonly _provideModuleMap: (moduleMap: ModuleMap) => StaticProvider;
+    /**
+     * Store mimos instance to stub it in tests
+     */
+    private _mimos: Mimos;
 
     /**
      * Service constructor
      *
      * @param {NgSetupOptions} _config
-     * @param {HttpServerService} _httpServerService
+     * @param {HttpServerRequest} _request
+     * @param {HttpServerReply} _reply helper to modify the response
+     * @param {HttpUtils} _utils helper to manage data in request/response like cookies
      */
-    constructor(@Inject(NG_UNIVERSAL_MODULE_CONFIG) private _config: NgSetupOptions, private _httpServerService: HttpServerService) {
+    constructor(@Inject(NG_UNIVERSAL_MODULE_CONFIG) private _config: NgSetupOptions,
+                private _request: HttpServerRequest,
+                private _reply: HttpServerReply,
+                private _utils: HttpUtils) {
         this._dataCache = {};
         this._factoryCacheMap = new Map<Type<{}>, NgModuleFactory<{}>>();
 
@@ -79,55 +93,52 @@ export class NgEngineService {
 
         this._renderModuleFactory = renderModuleFactory;
         this._provideModuleMap = provideModuleMap;
+        this._mimos = new Mimos();
     }
 
     /**
      * Returns universal rendering of HTML
      *
-     * @param {Request} request initial request
-     * @param {ReplyNoContinue} reply initial response
-     *
-     * @return {Observable<any | HTTPHandlerResponse>}
+     * @return {Observable<HttpResponse<any>>}
      */
-    universal(request: Request, reply: ReplyNoContinue): Observable<any | HTTPHandlerResponse> {
+    universal(): Observable<HttpResponse<any>> {
         return merge(
-            this._checkRequest(request),
+            this._checkRequest(),
             this._checkConfig()
         )
             .pipe(
                 toArray(),
                 map(_ =>
                     ({
-                        request: <Request> _.shift(),
-                        reply: reply,
-                        config: <NgSetupOptions> _.pop()
+                        config: <NgSetupOptions>_.pop()
                     })
                 ),
-                map(_ => Object.assign(_, { mime: this._httpServerService.instance().mime.path(_.request.raw.req.url).type })),
-                flatMap(_ => merge(
-                    this._getStaticContent(_),
-                    this._getFactoryContent(_)
+                map(_ => Object.assign(_, { mime: this._mimos.path(this._request.raw.url).type })),
+                flatMap(_ =>
+                    merge(
+                        this._getStaticContent(_),
+                        this._getFactoryContent(_)
                     )
                 )
             );
     }
 
     /**
-     * Returns HTTPHandlerResponse from static content
+     * Returns HttpResponse<any> from static content
      *
      * @param _
      *
-     * @returns {Observable<HTTPHandlerResponse>}
+     * @returns {Observable<HttpResponse<any>>}
      *
      * @private
      */
-    private _getStaticContent(_: any): Observable<HTTPHandlerResponse> {
+    private _getStaticContent(_: any): Observable<HttpResponse<any>> {
         return of(_)
             .pipe(
                 filter(__ => !!__.mime),
-                flatMap(__ =>
-                    of({
-                        response: this._getDocument(this._buildFilePath(__.config.staticContent, __.mime, __.request.raw.req.url)),
+                map(__ =>
+                    ({
+                        value: this._getDocument(this._buildFilePath(__.config.staticContent, __.mime, this._request.raw.url)),
                         headers: {
                             'content-type': __.mime
                         }
@@ -141,11 +152,11 @@ export class NgEngineService {
      *
      * @param _
      *
-     * @returns {Observable<any>}
+     * @returns {Observable<HttpResponse<any>>}
      *
      * @private
      */
-    private _getFactoryContent(_: any): Observable<any> {
+    private _getFactoryContent(_: any): Observable<HttpResponse<any>> {
         return of(_)
             .pipe(
                 filter(__ => !__.mime),
@@ -153,8 +164,6 @@ export class NgEngineService {
                     ({
                         moduleOrFactory: __.config.bootstrap,
                         extraProviders: this._extraProviders(
-                            __.request,
-                            __.reply,
                             __.config.providers,
                             __.config.lazyModuleMap,
                             this._buildFilePath(__.config.staticContent)
@@ -166,6 +175,14 @@ export class NgEngineService {
                         .pipe(
                             flatMap(factory =>
                                 from(this._renderModuleFactory(factory, { extraProviders: __.extraProviders }))
+                            ),
+                            map(html =>
+                                ({
+                                    value: html,
+                                    headers: {
+                                        'content-type': 'text/html'
+                                    }
+                                })
                             )
                         )
                 )
@@ -175,17 +192,15 @@ export class NgEngineService {
     /**
      * Function to check request parameter
      *
-     * @param {Request} request
-     *
-     * @returns {Observable<Request>}
+     * @returns {Observable<true>}
      *
      * @private
      */
-    private _checkRequest(request: Request): Observable<Request> {
-        return of(request)
+    private _checkRequest(): Observable<boolean> {
+        return of(this._request)
             .pipe(
-                flatMap(_ => (!!_ && !!_.raw && !!_.raw.req && _.raw.req.url !== undefined) ?
-                    of(_) :
+                flatMap(_ => (!!_ && !!_.raw && _.raw.url !== undefined) ?
+                    of(true) :
                     throwError(new Error('url is undefined'))
                 )
             );
@@ -234,8 +249,6 @@ export class NgEngineService {
     /**
      * Builds extra providers
      *
-     * @param {Request} request
-     * @param {ReplyNoContinue} reply
      * @param {StaticProvider[]} providers
      * @param {ModuleMap} lazyModuleMap
      * @param {string} filePath
@@ -244,18 +257,18 @@ export class NgEngineService {
      *
      * @private
      */
-    private _extraProviders(request: Request, reply: ReplyNoContinue, providers: StaticProvider[],
+    private _extraProviders(providers: StaticProvider[],
                             lazyModuleMap: ModuleMap, filePath: string): StaticProvider[] {
         return providers!.concat(
             providers!,
             this._provideModuleMap(lazyModuleMap),
-            this._getRequestProviders(request, reply),
+            this._getAdditionalProviders(),
             [
                 {
                     provide: INITIAL_CONFIG,
                     useValue: {
                         document: this._getDocument(filePath).toString(),
-                        url: request.raw.req.url
+                        url: this._request.raw.url
                     }
                 }
             ]
@@ -272,7 +285,7 @@ export class NgEngineService {
      * @private
      */
     private _getFactory(moduleOrFactory: Type<{}> | NgModuleFactory<{}>): Observable<NgModuleFactory<{}>> {
-        return <Observable<NgModuleFactory<{}>>> of(
+        return <Observable<NgModuleFactory<{}>>>of(
             of(moduleOrFactory)
         )
             .pipe(
@@ -286,7 +299,7 @@ export class NgEngineService {
                             .pipe(
                                 filter(_ => !(_ instanceof NgModuleFactory)),
                                 map((_: Type<{}>) => this._factoryCacheMap.get(_)),
-                                flatMap(_ => !!_ ? of(_) : this._compile(<Type<{}>> moduleOrFactory))
+                                flatMap(_ => !!_ ? of(_) : this._compile(<Type<{}>>moduleOrFactory))
                             )
                     )
                 )
@@ -303,7 +316,7 @@ export class NgEngineService {
      * @private
      */
     private _compile(module: Type<{}>): Observable<NgModuleFactory<{}>> {
-        return <Observable<NgModuleFactory<{}>>> from(this._compiler.compileModuleAsync(module))
+        return <Observable<NgModuleFactory<{}>>>from(this._compiler.compileModuleAsync(module))
             .pipe(
                 tap(_ => this._factoryCacheMap.set(module, _))
             );
@@ -312,22 +325,23 @@ export class NgEngineService {
     /**
      * Get providers of the request and response
      *
-     * @param {Request} request current request
-     * @param {ReplyNoContinue} reply current response
-     *
      * @return {StaticProvider[]}
      *
      * @private
      */
-    private _getRequestProviders(request: Request, reply: ReplyNoContinue): StaticProvider[] {
-        return <StaticProvider[]> [
+    private _getAdditionalProviders(): StaticProvider[] {
+        return <StaticProvider[]>[
             {
                 provide: REQUEST,
-                useValue: request
+                useValue: this._request
             },
             {
-                provide: RESPONSE,
-                useValue: reply
+                provide: REPLY,
+                useValue: this._reply
+            },
+            {
+                provide: UTILS,
+                useValue: this._utils
             }
         ];
     }

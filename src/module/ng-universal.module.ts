@@ -1,17 +1,19 @@
-import { CoreModuleWithProviders, HapinessModule, HttpServerService } from '@hapiness/core';
-import { NgEngineService } from './services';
-import { GetHtmlUniversalRoute } from './routes';
+import { CoreModuleWithProviders, Module } from '@hapiness/core';
+import { HttpServerReply, HttpUtils, NgEngineService } from './services';
+import { HtmlUniversalRoute } from './routes';
 import { NG_UNIVERSAL_MODULE_CONFIG, NgSetupOptions } from './interfaces';
 
-@HapinessModule({
-    version: '6.0.0',
-    declarations: [
-        GetHtmlUniversalRoute
+@Module({
+    version: '8.0.0-alpha.1',
+    components: [
+        HtmlUniversalRoute
     ],
     providers: [
         NgEngineService,
-        HttpServerService
-    ]
+        HttpUtils,
+        HttpServerReply
+    ],
+    prefix: false
 })
 export class NgUniversalModule {
     static setConfig(config: NgSetupOptions): CoreModuleWithProviders {
