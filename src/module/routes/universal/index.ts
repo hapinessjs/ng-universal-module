@@ -1,1 +1,1 @@
-export * from './get';
+export * from './html.route';

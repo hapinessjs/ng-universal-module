@@ -24,9 +24,9 @@
         <img src="http://reactivex.io/assets/Rx_Logo_S.png"
              align="right" alt="ReactiveX logo" width="50" height="50" style="border:none;" />
     </a>
-    <a href="http://hapijs.com">
-        <img src="http://bit.ly/2lYPYPw"
-             align="right" alt="Hapijs logo" width="75" style="border:none;" />
+    <a href="https://www.fastify.io">
+        <img src="https://www.fastify.io/images/fastify-logo-menu.d13f8da7a965c800.png"
+             align="right" alt="Fastify logo" height="55" style="border:none;" />
     </a>
     <a href="https://www.angular.io">
             <img src="https://angular.io/assets/images/logos/angular/angular.svg"
@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@7.0.1` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@8.0.0` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -58,14 +58,14 @@ We use `yarn` as package manager.
     - [src/main.ts](#srcmaints)
 - [Step 2: Create a server "main" file and tsconfig to build it](#step-2-create-a-server-main-file-and-tsconfig-to-build-it)
     - [src/main.server.ts](#srcmainserverts)
-    - [src/tsconfig.server.json](#srctsconfigserverjson)
+    - [./tsconfig.server.json](#tsconfigserverjson)
 - [Step 3: Create a new target in angular.json](#step-3-create-a-new-target-in-angularjson)
     - [angular.json](#angularjson)
     - [Building the bundle](#building-the-bundle)
 - [Step 4: Setting up a Hapiness Application to run our Universal bundles](#step-4-setting-up-a-hapiness-application-to-run-our-universal-bundles)
     - [./server.ts (root project level)](#serverts-root-project-level)
     - [Extra Providers](#extra-providers)
-    - [Using the Request and Response](#using-the-request-and-response)
+    - [Using the Request, Reply and Utils](#using-the-requestreply-and-utils)
 - [Step 5: Setup a webpack config to handle this Node server.ts file and serve your application!](#step-5-setup-a-webpack-config-to-handle-this-node-serverts-file-and-serve-your-application)
     - [./webpack.server.config.js (root project level)](#webpackserverconfigjs-root-project-level)
     - [Almost there](#almost-there)
@@ -89,7 +89,7 @@ Install [Hapiness](https://github.com/hapinessjs/hapiness) modules into your pro
 
 ```bash
 $ yarn add --dev ts-loader webpack webpack-cli
-$ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @hapiness/core @hapiness/ng-universal @hapiness/ng-universal-transfer-http rxjs-compat
+$ yarn add @angular/platform-server @nguniversal/module-map-ngfactory-loader @hapiness/core @hapiness/ng-universal @hapiness/ng-universal-transfer-http
 ```
 
 ## Step 1: Prepare your App for Universal rendering
@@ -198,29 +198,29 @@ export { AppServerModule } from './app/app.server.module';
 
 Copy `tsconfig.app.json` to `tsconfig.server.json` and change it to build with a `"module"` target of `"commonjs"`.
 
-Add a section for `"angularCompilerOptions"` and set `"entryModule"` to your `AppServerModule`, specified as a path to the import with a hash (`#`) containing the symbol name. In this example, this would be `app/app.server.module#AppServerModule`.
+Add a section for `"angularCompilerOptions"` and set `"entryModule"` to your `AppServerModule`, specified as a path to the import with a hash (`#`) containing the symbol name. In this example, this would be `src/app/app.server.module#AppServerModule`.
 
 ### src/tsconfig.server.json:
 
 ```
 {
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../out-tsc/app",
-    "baseUrl": "./",
-    // Set the module format to "commonjs":
-    "module": "commonjs",
-    "types": []
-  },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ],
-  // Add "angularCompilerOptions" with the AppServerModule you wrote
-  // set as the "entryModule".
-  "angularCompilerOptions": {
-    "entryModule": "app/app.server.module#AppServerModule"
-  }
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./out-tsc/app",
+        "baseUrl": "./",
+        "module": "commonjs",
+        "types": []
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "test.ts",
+        "**/*.spec.ts"
+    ],
+    "angularCompilerOptions": {
+        "entryModule": "src/app/app.server.module#AppServerModule"
+    }
 }
 ```
 
@@ -253,7 +253,7 @@ In **build target**, adapt `options.outputPath` to `dist/browser`.
       "options": {
         "outputPath": "dist/server",
         "main": "src/main.server.ts",
-        "tsConfig": "src/tsconfig.server.json",
+        "tsConfig": "tsconfig.server.json",
         "fileReplacements": [
           {
             "replace": "src/environments/environment.ts",
@@ -314,13 +314,12 @@ At the ROOT level of your project (where package.json / etc are), created a file
 
 ```typescript
 // These are important and needed before anything else
-import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-// * NOTE :: leave this until @hapiness/core will be migrated to rxjs v6 - This library is installed automatically
-import 'rxjs-compat';
+import 'zone.js/dist/zone-node';
 
 import { enableProdMode } from '@angular/core';
-import { Hapiness, HapinessModule, HttpServerExt, HttpServerService, OnError, OnStart } from '@hapiness/core';
+import { Hapiness, Module } from '@hapiness/core';
+import { HttpServer, HttpServerConfig } from '@hapiness/core/httpserver';
 import { NgUniversalModule } from '@hapiness/ng-universal';
 import { join } from 'path';
 
@@ -333,52 +332,42 @@ enableProdMode();
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');
 
 // Create our Hapiness application
-@HapinessModule({
-  version: '1.0.0',
-  imports: [
-    NgUniversalModule.setConfig({
-      bootstrap: AppServerModuleNgFactory,
-      lazyModuleMap: LAZY_MODULE_MAP,
-      staticContent: {
-        indexFile: 'index.html',
-        rootPath: BROWSER_FOLDER
-      }
-    })
-  ],
-  providers: [
-    HttpServerService
-  ]
+@Module({
+    version: '1.0.0',
+    imports: [
+        NgUniversalModule.setConfig({
+            bootstrap: AppServerModuleNgFactory,
+            lazyModuleMap: LAZY_MODULE_MAP,
+            staticContent: {
+                indexFile: 'index.html',
+                rootPath: BROWSER_FOLDER
+            }
+        })
+    ]
 })
-class HapinessApplication implements OnStart, OnError {
-  /**
-   * Class constructor
-   *
-   * @param {HttpServerService} _httpServer DI for HttpServerService to provide .instance() method to give original Hapi.js server
-   */
-  constructor(private _httpServer: HttpServerService) {
-  }
+class HapinessApplication {
+    /**
+     * OnStart process
+     */
+    onStart(): void {
+        console.log(`SSR application is running`);
+    }
 
-  /**
-   * OnStart process
-   */
-  onStart(): void {
-    console.log(`Node server listening on ${this._httpServer.instance().info.uri}`);
-  }
-
-  /**
-   * OnError process
-   */
-  onError(error: Error): void {
-    console.error(error);
-  }
+    /**
+     * OnError process
+     */
+    onError(error: Error): void {
+        console.error(error);
+    }
 }
+
 
 // Boostrap Hapiness application
 Hapiness.bootstrap(HapinessApplication, [
-  HttpServerExt.setConfig({
-    host: '0.0.0.0',
-    port: 4000
-  })
+    HttpServer.setConfig<HttpServerConfig>({
+        host: '0.0.0.0',
+        port: 4000
+    })
 ]);
 ```
 
@@ -400,20 +389,29 @@ NgUniversalModule.setConfig({
 })
 ```
 
-### Using the Request and Response:
+### Using the Request, Reply and Utils:
 
-The `Request` and `Response` objects are injected into the app via injection tokens. You can access them by `@Inject`
+The `Request`, `Reply` and `Utils` objects are injected into the app via injection tokens (`REQUEST`, `REPLY` and `UTILS`). You can access them by `@Inject`
 
 ```typescript
-import { Request, REQUEST } from '@hapiness/ng-universal';
+import { Inject, Injectable } from '@angular/core';
+import { HttpServerRequest, REQUEST } from '@hapiness/ng-universal';
 
 @Injectable()
 export class RequestService {
-  constructor(@Inject(REQUEST) private _request: Request) {}
+  constructor(@Inject(REQUEST) private _request: HttpServerRequest) {}
 }
 ```
 
 If your app runs on the `client` side too, you will have to provide your own versions of these in the client app.
+
+- `REQUEST` token will inject `HttpServerRequest` the current instance of [Fastify Request](https://www.fastify.io/docs/latest/Request/).
+- `REPLY` token will inject `HttpServerReply` current instance provides:
+    - `header(key: string, value: string): HttpServerReply` method to add `new header` in `SSR` response
+    - `redirect(url: string): HttpServerReply` method to `redirect` the response with a `302` to the given `URL`.
+- `UTILS` token will inject `HttpUtils` current instance provides:
+    - `parseCookie(str: string, options?: any)` method which is the same of original `cookie` [library](https://github.com/jshttp/cookie#cookieparsestr-options).
+    - `serializeCookie(name: string, value: string, options?: any)` method which is the same of original `cookie` [library](https://github.com/jshttp/cookie#cookieparsestr-options).
 
 [back to top](#table-of-contents)
 
@@ -434,53 +432,66 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  // Temporary fix for issue: https://github.com/angular/angular-cli/issues/10787#issuecomment-388512231
-  mode: 'none',
-  entry: {  server: './server.ts' },
-  target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
-  optimization: {
-    minimize: false
-  },
-  // this makes sure we include node_modules and other 3rd party libraries
-  externals: [/(node_modules)/],
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
-  },
-  module: {
-    rules: [
-      { test: /\.ts$/, loader: 'ts-loader' },
-      {
-        // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
-        // Removing this will cause deprecation warnings to appear.
-        test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
-        parser: { system: true },
-      }
-    ]
-  },
-  plugins: [
-    // Temporary Fix for issue: https://github.com/angular/angular/issues/11580
-    // for "WARNING Critical dependency: the request of a dependency is an expression"
-    new webpack.ContextReplacementPlugin(
-      /(.+)?angular(\\|\/)core(.+)?/,
-      path.join(__dirname, 'src'), // location of your src
-      {} // a map of your routes
-    ),
-    new webpack.ContextReplacementPlugin(
-      /(.+)?hapiness(\\|\/)core(.+)?/,
-      path.join(__dirname, 'src'),
-      {}
-    ),
-    new webpack.ContextReplacementPlugin(
-      /(.+)?hapiness(\\|\/)ng-universal(.+)?/,
-      path.join(__dirname, 'src'),
-      {}
-    )
-  ],
-  stats: {
-    warnings: false
-  }
+    mode: 'none',
+    entry: { server: './server.ts' },
+    target: 'node',
+    resolve: {
+        extensions: [ '.ts', '.js' ]
+    },
+    optimization: {
+        minimize: false
+    },
+    externals: [
+        /(node_modules)/,
+        {
+            // Temporary Fix for issue: https://github.com/ethanent/centra/pull/2
+            // to prevent unknown module when executing SSR
+            // You have to install it until fix is merged
+            // npm i centra
+            centra: {
+                commonjs: 'centra',
+                root: 'centra'
+            }
+        }
+    ],
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js',
+        libraryTarget: "commonjs"
+    },
+    module: {
+        rules: [
+            { test: /\.ts$/, loader: 'ts-loader' },
+            {
+                // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
+                // Removing this will cause deprecation warnings to appear.
+                test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
+                parser: { system: true },
+            }
+        ]
+    },
+    plugins: [
+        // Temporary Fix for issue: https://github.com/angular/angular/issues/11580
+        // for "WARNING Critical dependency: the request of a dependency is an expression"
+        new webpack.ContextReplacementPlugin(
+            /(.+)?angular(\\|\/)core(.+)?/,
+            path.join(__dirname, 'src'), // location of your src
+            {} // a map of your routes
+        ),
+        new webpack.ContextReplacementPlugin(
+            /(.+)?hapiness(\\|\/)core(.+)?/,
+            path.join(__dirname, 'src'),
+            {}
+        ),
+        new webpack.ContextReplacementPlugin(
+            /(.+)?hapiness(\\|\/)ng-universal(.+)?/,
+            path.join(__dirname, 'src'),
+            {}
+        )
+    ],
+    stats: {
+        warnings: false
+    }
 };
 ```
 
@@ -551,6 +562,12 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v8.0.0 (2019-05-31)
+    * `Angular v8.0.0+`
+    * Migrate server to `Hapiness` v2 based on [Fastify](https://www.fastify.io/)
+    * Code refactoring
+    * Adapt tests
+    * Documentation
 * v7.0.0 (2018-10-31)
     * `Angular v7.0.1+`
     * Migrate tests to [jest](https://jestjs.io/en/) and [ts-jest](https://kulshekhar.github.io/ts-jest/)
@@ -584,17 +601,15 @@ To set up your development environment:
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/Juneil"><img src="https://avatars3.githubusercontent.com/u/6546204?v=3&s=117" width="117"/></a></td>
-        <td align="center"><a href="https://github.com/antoinegomez"><img src="https://avatars3.githubusercontent.com/u/997028?v=3&s=117" width="117"/></a></td>
         <td align="center"><a href="https://github.com/reptilbud"><img src="https://avatars3.githubusercontent.com/u/6841511?v=3&s=117" width="117"/></a></td>
         <td align="center"><a href="https://github.com/njl07"><img src="https://avatars3.githubusercontent.com/u/1673977?v=3&s=117" width="117"/></a></td>
-        <td align="center"><a href="https://github.com/njl07"><img src="https://avatars2.githubusercontent.com/u/6479712?s=117&v=4" width="117"/></a></td>
+        <td align="center"><a href="https://github.com/sopretty"><img src="https://avatars2.githubusercontent.com/u/6479712?s=117&v=4" width="117"/></a></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/Juneil">Julien Fauville</a></td>
-        <td align="center"><a href="https://github.com/antoinegomez">Antoine Gomez</a></td>
         <td align="center"><a href="https://github.com/reptilbud">Sébastien Ritz</a></td>
         <td align="center"><a href="https://github.com/njl07">Nicolas Jessel</a></td>
-        <td align="center"><a href="https://github.com/njl07">Mathieu Jeanmougin</a></td>
+        <td align="center"><a href="https://github.com/sopretty">Mathieu Jeanmougin</a></td>
     </tr>
 </table>
 
