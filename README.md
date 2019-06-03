@@ -442,17 +442,7 @@ module.exports = {
         minimize: false
     },
     externals: [
-        /(node_modules)/,
-        {
-            // Temporary Fix for issue: https://github.com/ethanent/centra/pull/2
-            // to prevent unknown module when executing SSR
-            // You have to install it until fix is merged
-            // npm i centra
-            centra: {
-                commonjs: 'centra',
-                root: 'centra'
-            }
-        }
+        /(node_modules)/
     ],
     output: {
         path: path.join(__dirname, 'dist'),
