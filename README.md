@@ -45,7 +45,7 @@ This is a [Hapiness](https://github.com/hapinessjs/hapiness) Engine for running 
 
 This story will show you how to set up Universal bundling for an existing `@angular/cli`.
 
-We support actually `@angular` `@8.0.0` and next so you must upgrade all packages inside your project.
+We support actually `@angular` `@8.1.0` and next so you must upgrade all packages inside your project.
 
 We use `yarn` as package manager.
 
@@ -193,7 +193,17 @@ Create a main file for your Universal bundle. This file only needs to export you
 ### src/main.server.ts:
 
 ```typescript
+import { enableProdMode } from '@angular/core';
+
+import { environment } from './environments/environment';
+
+if (environment.production) {
+    enableProdMode();
+}
+
 export { AppServerModule } from './app/app.server.module';
+
+export { NgUniversalModule } from '@hapiness/ng-universal';
 ```
 
 Copy `tsconfig.app.json` to `tsconfig.server.json` and change it to build with a `"module"` target of `"commonjs"`.
@@ -249,20 +259,22 @@ In **build target**, adapt `options.outputPath` to `dist/browser`.
       ...
     }
     "server": {
-      "builder": "@angular-devkit/build-angular:server",
-      "options": {
-        "outputPath": "dist/server",
-        "main": "src/main.server.ts",
-        "tsConfig": "tsconfig.server.json",
-        "fileReplacements": [
-          {
-            "replace": "src/environments/environment.ts",
-            "with": "src/environments/environment.prod.ts"
-          }
-        ],
-        "optimization": true,
-        "sourceMap": false
-      }
+        "builder": "@angular-devkit/build-angular:server",
+        "options": {
+            "outputPath": "dist/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "tsconfig.server.json"
+        },
+        "configurations": {
+            "production": {
+                "fileReplacements": [
+                    {
+                        "replace": "src/environments/environment.ts",
+                        "with": "src/environments/environment.prod.ts"
+                    }
+                ]
+            }
+        }
     }
   }
   ...
@@ -313,23 +325,17 @@ At the ROOT level of your project (where package.json / etc are), created a file
 ### server.ts (root project level):
 
 ```typescript
-// These are important and needed before anything else
-import 'reflect-metadata';
+// This is important and needed before anything else
 import 'zone.js/dist/zone-node';
 
-import { enableProdMode } from '@angular/core';
 import { Hapiness, Module } from '@hapiness/core';
 import { HttpServer, HttpServerConfig } from '@hapiness/core/httpserver';
-import { NgUniversalModule } from '@hapiness/ng-universal';
 import { join } from 'path';
 
 const BROWSER_FOLDER = join(process.cwd(), 'dist', 'browser');
 
-// Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
-
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP, NgUniversalModule} = require('./dist/server/main');
 
 // Create our Hapiness application
 @Module({
@@ -441,15 +447,13 @@ module.exports = {
     optimization: {
         minimize: false
     },
-    externals: [
-        /(node_modules)/
-    ],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',
         libraryTarget: "commonjs"
     },
     module: {
+        noParse: /polyfills-.*\.js/,
         rules: [
             { test: /\.ts$/, loader: 'ts-loader' },
             {
@@ -469,12 +473,7 @@ module.exports = {
             {} // a map of your routes
         ),
         new webpack.ContextReplacementPlugin(
-            /(.+)?hapiness(\\|\/)core(.+)?/,
-            path.join(__dirname, 'src'),
-            {}
-        ),
-        new webpack.ContextReplacementPlugin(
-            /(.+)?hapiness(\\|\/)ng-universal(.+)?/,
+            /(.+)?hapiness(\\|\/)(.+)?/,
             path.join(__dirname, 'src'),
             {}
         )
@@ -483,6 +482,32 @@ module.exports = {
         warnings: false
     }
 };
+```
+
+You can add this config if you want to use `@hapiness/config` to have server config in `./config/default.yml` instead of static data:
+
+```javascript
+externals: [
+    {
+        // This is the only module you have to install with npm in your final packaging
+        // npm i config
+        config: {
+            commonjs: 'config',
+            root: 'config'
+        }
+    }
+]
+```
+
+And replace the `bootstrap` in *./server.ts*
+
+```typescript
+import { Config } from '@hapiness/config';
+
+// Boostrap Hapiness application
+Hapiness.bootstrap(HapinessApplication, [
+    HttpServer.setConfig<HttpServerConfig>(Config.get('server'))
+]);
 ```
 
 Now, you can build your server file:
@@ -518,7 +543,7 @@ Now lets create a few handy scripts to help us do all of this in the future.
   "serve:dynamic": "node dist/server.js",
 
   // Helpers for the above scripts
-  "build:client-and-server-bundles": "ng build --prod && ng run your-project-name:server",
+  "build:client-and-server-bundles": "ng build --prod && ng run your-project-name:server:production",
   "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
 }
 ```
@@ -552,6 +577,9 @@ To set up your development environment:
 [Back to top](#table-of-contents)
 
 ## Change History
+* v8.1.0 (2019-07-04)
+    * `Angular v8.1.0+`
+    * Documentation to allow dynamic import syntax directly to load lazy loaded chunks
 * v8.0.0 (2019-05-31)
     * `Angular v8.0.0+`
     * Migrate server to `Hapiness` v2 based on [Fastify](https://www.fastify.io/)
